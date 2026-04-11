@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="The definitive directory of EU-built software alternatives. 864 verified European tools across every category."/>
+  <title>eutech.directory — European software alternatives</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d1117;
+      --surface:   #161b22;
+      --border:    #21262d;
+      --accent:    #2563eb;
+      --accent-h:  #1d4ed8;
+      --text:      #e6edf3;
+      --muted:     #8b949e;
+      --tag-bg:    #1f2937;
+      --verified:  #16a34a;
+      --radius:    10px;
+      --card-w:    320px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    header {
+      background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+    .logo {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+    .logo span { color: var(--accent); }
+    .tagline {
+      margin-top: 10px;
+      font-size: 1.05rem;
+      color: #94a3b8;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .stats {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    /* ── Search ─────────────────────────────────────────────── */
+    .search-wrap {
+      max-width: 600px;
+      margin: 36px auto 0;
+    }
+    #search {
+      width: 100%;
+      padding: 14px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    #search:focus { border-color: var(--accent); }
+    #search::placeholder { color: var(--muted); }
+
+    /* ── Autocomplete dropdown ──────────────────────────────── */
+    .search-wrap { position: relative; }
+    #ac-list {
+      position: absolute;
+      top: calc(100% + 5px);
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+      z-index: 9999;
+      overflow: hidden;
+      display: none;
+      max-height: 320px; /* 8 × 40px */
+      overflow-y: auto;
+    }
+    #ac-list.open { display: block; }
+    .ac-item {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+      cursor: pointer;
+      border-bottom: 1px solid #f3f4f6;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .ac-item:last-child { border-bottom: none; }
+    .ac-item:hover,
+    .ac-item.focused { background: #f0fdf9; }
+    .ac-name {
+      flex: 1;
+      font-size: 0.9rem;
+      color: #111827;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .ac-name mark {
+      background: none;
+      color: #1D9E75;
+      font-weight: 700;
+    }
+    .ac-cat {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── Controls ───────────────────────────────────────────── */
+    .controls {
+      max-width: 1280px;
+      margin: 32px auto 0;
+      padding: 0 24px;
+    }
+    .controls-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    #results-count {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .clear-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 5px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .clear-btn:hover { border-color: var(--accent); color: var(--text); }
+
+    .cat-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .cat-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .cat-btn:hover { border-color: var(--accent); color: var(--text); }
+    .cat-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 600;
+    }
+    .cat-btn .cat-count {
+      opacity: 0.65;
+      font-size: 0.75em;
+      margin-left: 3px;
+    }
+    .all-btn {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ── Grid ───────────────────────────────────────────────── */
+    #grid {
+      max-width: 1280px;
+      margin: 28px auto 0;
+      padding: 0 24px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(var(--card-w), 1fr));
+      gap: 16px;
+    }
+
+    /* ── Card ───────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.15s, transform 0.1s;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .card-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .card-flag {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .card-desc {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background: var(--tag-bg);
+      color: #94a3b8;
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+    .tag-replaces {
+      background: #1c1f2e;
+      color: #a78bfa;
+    }
+    .verified-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--verified);
+      flex-shrink: 0;
+      margin-left: auto;
+      title: "Verified";
+    }
+    .card-link {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .card-link:hover { text-decoration: underline; }
+
+    /* ── Empty state ────────────────────────────────────────── */
+    #empty {
+      display: none;
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--muted);
+      grid-column: 1 / -1;
+    }
+    #empty p { font-size: 1rem; margin-top: 8px; }
+
+    /* ── Submit form ────────────────────────────────────────── */
+    .submit-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .submit-section h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .submit-section p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 28px;
+    }
+    #submit-form {
+      max-width: 520px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    #submit-form input,
+    #submit-form textarea,
+    #submit-form select {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    #submit-form input:focus,
+    #submit-form textarea:focus,
+    #submit-form select:focus { border-color: var(--accent); }
+    #submit-form textarea { resize: vertical; min-height: 80px; }
+    #submit-form select option { background: var(--surface); }
+    .submit-btn {
+      padding: 13px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .submit-btn:hover { background: var(--accent-h); }
+    #form-success {
+      display: none;
+      color: var(--verified);
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #334155;
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .logo { font-size: 1.9rem; }
+      :root { --card-w: 280px; }
+      .stat-num { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────────────── -->
+<header>
+  <div class="logo">eutech<span>.</span>directory</div>
+  <p class="tagline">The definitive directory of EU-built software. No US cloud dependencies, GDPR by default.</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num" id="total-count">864</div>
+      <div class="stat-label">EU tools</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">12</div>
+      <div class="stat-label">categories</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">verified</div>
+    </div>
+  </div>
+  <div class="search-wrap">
+    <input id="search" type="search" placeholder="Search tools, descriptions, replacements…"
+           oninput="acOnInput(this)" onkeydown="acKeyDown(event)"
+           autocomplete="off" spellcheck="false" aria-autocomplete="list"
+           aria-controls="ac-list" aria-haspopup="listbox"/>
+    <div id="ac-list" role="listbox" aria-label="Tool suggestions"></div>
+  </div>
+</header>
+
+<!-- ── Controls ────────────────────────────────────────────────── -->
+<div class="controls">
+  <div class="controls-top">
+    <span id="results-count">864 tools</span>
+    <button class="clear-btn" onclick="clearFilters()">Clear filters</button>
+  </div>
+  <div class="cat-filters">
+    <button class="cat-btn all-btn" data-cat="" onclick="filterCat(this)">All categories</button>
+    <button class="cat-btn" data-cat="Other" onclick="filterCat(this)">Other <span class="cat-count">399</span></button>
+<button class="cat-btn" data-cat="Analytics &amp; Data" onclick="filterCat(this)">Analytics &amp; Data <span class="cat-count">105</span></button>
+<button class="cat-btn" data-cat="Email &amp; Communication" onclick="filterCat(this)">Email &amp; Communication <span class="cat-count">102</span></button>
+<button class="cat-btn" data-cat="Cloud &amp; Hosting" onclick="filterCat(this)">Cloud &amp; Hosting <span class="cat-count">67</span></button>
+<button class="cat-btn" data-cat="AI &amp; Automation" onclick="filterCat(this)">AI &amp; Automation <span class="cat-count">53</span></button>
+<button class="cat-btn" data-cat="Project Management" onclick="filterCat(this)">Project Management <span class="cat-count">35</span></button>
+<button class="cat-btn" data-cat="Developer Tools" onclick="filterCat(this)">Developer Tools <span class="cat-count">31</span></button>
+<button class="cat-btn" data-cat="Security &amp; Privacy" onclick="filterCat(this)">Security &amp; Privacy <span class="cat-count">26</span></button>
+<button class="cat-btn" data-cat="Storage &amp; Backup" onclick="filterCat(this)">Storage &amp; Backup <span class="cat-count">17</span></button>
+<button class="cat-btn" data-cat="HR &amp; Team" onclick="filterCat(this)">HR &amp; Team <span class="cat-count">13</span></button>
+<button class="cat-btn" data-cat="Finance &amp; Payments" onclick="filterCat(this)">Finance &amp; Payments <span class="cat-count">9</span></button>
+<button class="cat-btn" data-cat="Marketing &amp; SEO" onclick="filterCat(this)">Marketing &amp; SEO <span class="cat-count">7</span></button>
+
+  </div>
+</div>
+
+<!-- ── Grid ────────────────────────────────────────────────────── -->
+<div id="grid">
+  <div id="empty">
+    <div style="font-size:2.5rem">🔍</div>
+    <p>No tools found. Try a different search or category.</p>
+  </div>
+</div>
+
+<!-- ── Submit ───────────────────────────────────────────────────── -->
+<div class="submit-section">
+  <h2>Submit a tool</h2>
+  <p>Know an EU-built alternative we're missing? Add it to the directory.</p>
+  <form id="submit-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input type="text" name="tool_name" placeholder="Tool name" required/>
+    <input type="url" name="website" placeholder="Website URL (https://...)" required/>
+    <select name="category" required>
+      <option value="" disabled selected>Select category</option>
+      <option>Cloud &amp; Hosting</option>
+      <option>Email &amp; Communication</option>
+      <option>Project Management</option>
+      <option>Analytics &amp; Data</option>
+      <option>CRM &amp; Sales</option>
+      <option>Security &amp; Privacy</option>
+      <option>Storage &amp; Backup</option>
+      <option>Developer Tools</option>
+      <option>Design &amp; Creative</option>
+      <option>Finance &amp; Payments</option>
+      <option>HR &amp; Team</option>
+      <option>Marketing &amp; SEO</option>
+      <option>AI &amp; Automation</option>
+      <option>Other</option>
+    </select>
+    <input type="text" name="country" placeholder="Country (e.g. Germany, France)"/>
+    <input type="text" name="replaces" placeholder="Replaces which US tool? (e.g. Slack, Dropbox)"/>
+    <textarea name="description" placeholder="Short description (1–2 sentences)"></textarea>
+    <button type="submit" class="submit-btn">Submit tool →</button>
+    <div id="form-success">Thanks! We'll review and add it within 24 hours.</div>
+  </form>
+</div>
+
+<footer>
+  eutech.directory — April 11, 2026 — 864 EU tools indexed
+</footer>
+
+<!-- ── Data + Logic ────────────────────────────────────────────── -->
+<script>
+  const TOOLS = [{"n":"2021.ai","c":"Other","d":"2021.ai","co":"","fl":"","w":"","r":"","v":false},{"n":"5G SA Lab","c":"Other","d":"5G SA Lab","co":"","fl":"","w":"","r":"","v":false},{"n":"6WINDCloud","c":"Other","d":"6WINDCloud","co":"","fl":"","w":"","r":"","v":false},{"n":"6WINDGate","c":"Developer Tools","d":"6WINDGate provides a high-performance software foundation for building next-generation networking applications for 5G, SD-WAN, and IoT.","co":"","fl":"","w":"","r":"","v":false},{"n":"Abantecart","c":"Developer Tools","d":"AbanteCart is a free, Open Source PHP-based e-commerce platform offering a user-friendly and customizable solution for online businesses of all sizes.","co":"","fl":"","w":"","r":"","v":false},{"n":"Abfahrt!","c":"Other","d":"EuropÃ¤ische Echtzeit-ÃPNV-Plattform fÃ¼r Abfahrtszeiten und Routing","co":"","fl":"","w":"","r":"","v":false},{"n":"Abilian BCMS","c":"Other","d":"Abilian BCMS","co":"","fl":"","w":"","r":"","v":false},{"n":"Abilian CRM","c":"Developer Tools","d":"Abilian CRM is a next-generation customer relationship management solution offering a user-friendly interface and robust features for managing business ecosystems.","co":"","fl":"","w":"","r":"","v":false},{"n":"Abilian Hop3","c":"Developer Tools","d":"Hop3 - Deploy and manage web applications on a single server.","co":"","fl":"","w":"","r":"","v":false},{"n":"Abilian JNOV","c":"Other","d":"Abilian JNOV","co":"","fl":"","w":"","r":"","v":false},{"n":"Abilian Joinux","c":"Other","d":"Abilian Joinux","co":"","fl":"","w":"","r":"","v":false},{"n":"Abilian Nua","c":"Developer Tools","d":"Open source PaaS and application marketplace.","co":"","fl":"","w":"","r":"","v":false},{"n":"Abilian SBE","c":"Developer Tools","d":"Abilian SBE is an open source enterprise social network that improves communication, collaboration, and knowledge management to boost productivity.","co":"","fl":"","w":"","r":"","v":false},{"n":"ACA Group","c":"Other","d":"ACA Group","co":"","fl":"","w":"","r":"","v":false},{"n":"Acceleo","c":"Other","d":"Acceleo","co":"","fl":"","w":"","r":"","v":false},{"n":"AccessCore®","c":"Other","d":"AccessCore®","co":"","fl":"","w":"","r":"","v":false},{"n":"ACCOLADES","c":"Other","d":"ACCOLADES","co":"","fl":"","w":"","r":"","v":false},{"n":"Actalis SSL","c":"Other","d":"Actalis SSL","co":"","fl":"","w":"","r":"","v":false},{"n":"Activepieces","c":"Other","d":"Activepieces","co":"","fl":"","w":"","r":"","v":false},{"n":"Acumbamail","c":"Email & Communication","d":"Acumbamail","co":"","fl":"","w":"","r":"","v":false},{"n":"Adacor Managed Kubernetes","c":"Other","d":"Adacor Managed Kubernetes","co":"","fl":"","w":"","r":"","v":false},{"n":"Additional Alerts","c":"Other","d":"Additional Alerts","co":"","fl":"","w":"","r":"","v":false},{"n":"Adfinis","c":"Other","d":"Adfinis","co":"","fl":"","w":"","r":"","v":false},{"n":"Adidas","c":"Other","d":"Deutscher Sportartikelhersteller mit recycelten Materialien","co":"","fl":"","w":"","r":"","v":false},{"n":"Adidas","c":"Other","d":"Deutscher Sportartikelhersteller mit recycelten Materialien","co":"","fl":"","w":"https://adidas.de","r":"","v":false},{"n":"Advyteam (PeoplMap)","c":"Other","d":"Advyteam (PeoplMap)","co":"","fl":"","w":"","r":"","v":false},{"n":"adyen","c":"Finance & Payments","d":"adyen","co":"","fl":"","w":"","r":"","v":false},{"n":"Agora","c":"Other","d":"Agora","co":"","fl":"","w":"","r":"","v":false},{"n":"Agorakit","c":"Other","d":"Agorakit","co":"","fl":"","w":"","r":"","v":false},{"n":"AidaForm","c":"Other","d":"AidaForm","co":"","fl":"","w":"","r":"","v":false},{"n":"AirVPN","c":"Security & Privacy","d":"AirVPN","co":"","fl":"","w":"","r":"","v":false},{"n":"Aivie","c":"Marketing & SEO","d":"Aivie","co":"","fl":"","w":"","r":"","v":false},{"n":"Alceris","c":"Analytics & Data","d":"Alceris","co":"","fl":"","w":"","r":"","v":false},{"n":"alfaview","c":"Email & Communication","d":"alfaview","co":"","fl":"","w":"","r":"","v":false},{"n":"Alke Analytics","c":"Analytics & Data","d":"Alke Analytics","co":"","fl":"","w":"","r":"","v":false},{"n":"AlphaVPS","c":"Cloud & Hosting","d":"AlphaVPS","co":"","fl":"","w":"","r":"","v":false},{"n":"ALTCHA","c":"Other","d":"ALTCHA","co":"","fl":"","w":"","r":"","v":false},{"n":"alugha","c":"Cloud & Hosting","d":"alugha","co":"","fl":"","w":"","r":"","v":false},{"n":"Alviss AI","c":"Analytics & Data","d":"Alviss AI","co":"","fl":"","w":"","r":"","v":false},{"n":"Analytics & Monitoring","c":"Developer Tools","d":"Replacing","co":"","fl":"","w":"","r":"","v":false},{"n":"Analyzati","c":"Analytics & Data","d":"Analyzati","co":"","fl":"","w":"","r":"","v":false},{"n":"Anytype","c":"Project Management","d":"Dezentrales Wissensmanagement mit lokaler Datenhaltung","co":"","fl":"","w":"","r":"","v":false},{"n":"APOLLO PLUS","c":"Analytics & Data","d":"APOLLO PLUS","co":"","fl":"","w":"","r":"","v":false},{"n":"Apprise","c":"Other","d":"Apprise","co":"","fl":"","w":"","r":"","v":false},{"n":"AppSignal","c":"Other","d":"AppSignal","co":"","fl":"","w":"","r":"","v":false},{"n":"APPUiO","c":"Other","d":"APPUiO","co":"","fl":"","w":"","r":"","v":false},{"n":"Appwrite","c":"Other","d":"Appwrite","co":"","fl":"","w":"","r":"","v":false},{"n":"Argos","c":"Analytics & Data","d":"Argos","co":"","fl":"","w":"","r":"","v":false},{"n":"Artikel10","c":"Other","d":"Artikel10","co":"","fl":"","w":"","r":"","v":false},{"n":"Aruba Cloud","c":"Cloud & Hosting","d":"Aruba Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"Aruba Domains","c":"AI & Automation","d":"Aruba Domains","co":"","fl":"","w":"","r":"","v":false},{"n":"Aruba WordPress","c":"Cloud & Hosting","d":"Aruba WordPress","co":"","fl":"","w":"","r":"","v":false},{"n":"AtomJump","c":"Other","d":"AtomJump","co":"","fl":"","w":"","r":"","v":false},{"n":"Audio & KopfhÃ¶rer","c":"Other","d":"EuropÃ¤ische Audiomarken mit audiophilem Klang und fairer Produktion.","co":"","fl":"","w":"","r":"statt Bose, Beats, JBL","v":false},{"n":"Autenti","c":"Other","d":"Autenti","co":"","fl":"","w":"","r":"","v":false},{"n":"Authelia","c":"Other","d":"Authelia","co":"","fl":"","w":"","r":"","v":false},{"n":"Authentik","c":"Other","d":"Authentik","co":"","fl":"","w":"","r":"","v":false},{"n":"Authman","c":"Other","d":"Authman","co":"","fl":"","w":"","r":"","v":false},{"n":"Autovermietung","c":"AI & Automation","d":"EuropÃ¤ische Autovermietungen â zuverlÃ¤ssig, transparent und DSGVO-konform.","co":"","fl":"","w":"","r":"statt Enterprise, Hertz","v":false},{"n":"awork","c":"Project Management","d":"Modulares Projektmanagement mit deutschem Hosting","co":"","fl":"","w":"","r":"","v":false},{"n":"b1gMail","c":"Email & Communication","d":"Complete email solution that runs on any webspace with PHP and MariaDB. It supports POP3 catchall mailboxes and can also integrate with Postfix or b1gMailServer if you're running your own server. ([Source Code](https://codeberg.org/b1gMail/b1gMail), [Clients](https://www.b1gmail.eu/en/start/addon-b1gmailserver/))","co":"EU","fl":"🇪🇺","w":"https://b1gmail.eu","r":"","v":false},{"n":"Bare.ID","c":"Project Management","d":"Bare.ID","co":"","fl":"","w":"","r":"","v":false},{"n":"Beszel","c":"Analytics & Data","d":"Beszel","co":"","fl":"","w":"","r":"","v":false},{"n":"Big Data Hub (BDH)","c":"Other","d":"Big Data Hub (BDH)","co":"","fl":"","w":"","r":"","v":false},{"n":"Bitdefender","c":"Security & Privacy","d":"Antivirensoftware mit EU-Datenschutzstandards","co":"","fl":"","w":"","r":"","v":false},{"n":"Bitwarden","c":"Security & Privacy","d":"Open-Source Passwortmanager mit deutschen Serverstandorten","co":"","fl":"","w":"","r":"","v":false},{"n":"Bitwarden","c":"Other","d":"Open-Source Passwortmanager mit deutschen Serverstandorten","co":"","fl":"","w":"https://bitwarden.com","r":"","v":false},{"n":"BlazingCDN","c":"Developer Tools","d":"BlazingCDN","co":"","fl":"","w":"","r":"","v":false},{"n":"BlueMind","c":"Other","d":"BlueMind","co":"","fl":"","w":"","r":"","v":false},{"n":"Brevo","c":"Email & Communication","d":"Brevo","co":"","fl":"","w":"","r":"","v":false},{"n":"Browse by Category","c":"AI & Automation","d":"All Areas","co":"","fl":"","w":"","r":"","v":false},{"n":"Browser","c":"Other","d":"Surfen ohne Chromium-Monopol â und ohne Google-Tracking.","co":"","fl":"","w":"","r":"statt Chrome, Edge","v":false},{"n":"Bugfender","c":"Other","d":"Bugfender","co":"","fl":"","w":"","r":"","v":false},{"n":"Bugsink","c":"Other","d":"Bugsink","co":"","fl":"","w":"","r":"","v":false},{"n":"Bunny CDN","c":"Developer Tools","d":"Bunny CDN","co":"","fl":"","w":"","r":"","v":false},{"n":"Bunny DNS","c":"Other","d":"Bunny DNS","co":"","fl":"","w":"","r":"","v":false},{"n":"Bunny Fonts","c":"Other","d":"Bunny Fonts","co":"","fl":"","w":"","r":"","v":false},{"n":"Bunny Storage","c":"Storage & Backup","d":"Bunny Storage","co":"","fl":"","w":"","r":"","v":false},{"n":"Bunny Stream","c":"Cloud & Hosting","d":"Bunny Stream","co":"","fl":"","w":"","r":"","v":false},{"n":"Bunny.net","c":"Cloud & Hosting","d":"EuropÃ¤isches CDN und Edge-Hosting mit globalem Netzwerk","co":"","fl":"","w":"","r":"","v":false},{"n":"Bunq","c":"Other","d":"Digitales Bankkonto mit EU-Banklizenz und Nachhaltigkeitsfokus","co":"","fl":"","w":"","r":"","v":false},{"n":"Business Applications","c":"Developer Tools","d":"13 categories","co":"","fl":"","w":"","r":"","v":false},{"n":"Business Phones","c":"Other","d":"Business Phones","co":"","fl":"","w":"","r":"","v":false},{"n":"cAdvisor","c":"Analytics & Data","d":"cAdvisor","co":"","fl":"","w":"","r":"","v":false},{"n":"Calendar.online","c":"Other","d":"Calendar.online","co":"","fl":"","w":"","r":"","v":false},{"n":"Captcha","c":"Other","d":"Captcha","co":"","fl":"","w":"","r":"","v":false},{"n":"CaptchaFox","c":"Other","d":"CaptchaFox","co":"","fl":"","w":"","r":"","v":false},{"n":"Car Rental","c":"AI & Automation","d":"Reliable European car rentals","co":"","fl":"","w":"","r":"","v":false},{"n":"Carts Guru","c":"Marketing & SEO","d":"Carts Guru","co":"","fl":"","w":"","r":"","v":false},{"n":"Casdoor","c":"Other","d":"Casdoor","co":"","fl":"","w":"","r":"","v":false},{"n":"Catrice","c":"Other","d":"Deutsche Kosmetikentwicklung nach EU-Teststandards","co":"","fl":"","w":"","r":"","v":false},{"n":"Centreon","c":"Analytics & Data","d":"Centreon","co":"","fl":"","w":"","r":"","v":false},{"n":"Chatwoot","c":"Email & Communication","d":"Chatwoot","co":"","fl":"","w":"","r":"","v":false},{"n":"Checkmk","c":"Analytics & Data","d":"Checkmk","co":"","fl":"","w":"","r":"","v":false},{"n":"cidaas","c":"Project Management","d":"cidaas","co":"","fl":"","w":"","r":"","v":false},{"n":"Cirrus Shield","c":"Other","d":"Cirrus Shield","co":"","fl":"","w":"","r":"","v":false},{"n":"Citadel TEAM","c":"Other","d":"Citadel TEAM","co":"","fl":"","w":"","r":"","v":false},{"n":"CiviCRM on Drupal","c":"Other","d":"CiviCRM on Drupal","co":"","fl":"","w":"","r":"","v":false},{"n":"CiviCRM on Drupal 7","c":"Other","d":"CiviCRM on Drupal 7","co":"","fl":"","w":"","r":"","v":false},{"n":"Clearhaus","c":"Finance & Payments","d":"Clearhaus","co":"","fl":"","w":"","r":"","v":false},{"n":"Cleura","c":"Other","d":"Cleura","co":"","fl":"","w":"","r":"","v":false},{"n":"clever cloud","c":"Other","d":"clever cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"clever cloud Cellar","c":"Storage & Backup","d":"clever cloud Cellar","co":"","fl":"","w":"","r":"","v":false},{"n":"Clever Elements","c":"Email & Communication","d":"Clever Elements","co":"","fl":"","w":"","r":"","v":false},{"n":"CleverReach","c":"Email & Communication","d":"CleverReach","co":"","fl":"","w":"","r":"","v":false},{"n":"ClickMeeting","c":"Email & Communication","d":"Webinar- und Konferenzplattform mit EU-Infrastruktur","co":"","fl":"","w":"https://clickmeeting.com","r":"","v":false},{"n":"ClickMeeting","c":"Email & Communication","d":"Webinar- und Konferenzplattform mit EU-Infrastruktur","co":"","fl":"","w":"","r":"","v":false},{"n":"clicnwork","c":"Other","d":"clicnwork","co":"","fl":"","w":"","r":"","v":false},{"n":"Clockodo","c":"Other","d":"Clockodo","co":"","fl":"","w":"","r":"","v":false},{"n":"Cloud & Hosting","c":"Other","d":"EuropÃ¤ische Cloud-Infrastruktur â gÃ¼nstiger und DSGVO-konform.","co":"","fl":"","w":"","r":"statt AWS, Google Cloud, Azure","v":false},{"n":"Cloud & Infrastructure","c":"Developer Tools","d":"13 categories","co":"","fl":"","w":"","r":"","v":false},{"n":"Cloud IAM","c":"Project Management","d":"Cloud IAM","co":"","fl":"","w":"","r":"","v":false},{"n":"Cloud Infrastructure","c":"Developer Tools","d":"Replacing","co":"","fl":"","w":"","r":"","v":false},{"n":"Cloud Storage","c":"Other","d":"Dateien sicher in Europa speichern â ohne US-Cloud-Act-Risiko.","co":"","fl":"","w":"","r":"statt Google Drive, Dropbox, OneDrive","v":false},{"n":"Clouding","c":"Cloud & Hosting","d":"Clouding","co":"","fl":"","w":"","r":"","v":false},{"n":"Clouding.io","c":"Other","d":"Clouding.io","co":"","fl":"","w":"","r":"","v":false},{"n":"Cloudist","c":"Other","d":"Cloudist","co":"","fl":"","w":"","r":"","v":false},{"n":"Cloudlog","c":"Other","d":"Log your amateur radio contacts anywhere. ([Source Code](https://github.com/magicbug/cloudlog))","co":"EU","fl":"🇪🇺","w":"https://magicbug.co.uk/cloudlog","r":"","v":false},{"n":"ClouDNS","c":"Other","d":"ClouDNS","co":"","fl":"","w":"","r":"","v":false},{"n":"cloudscale","c":"Cloud & Hosting","d":"cloudscale","co":"","fl":"","w":"","r":"","v":false},{"n":"Codeberg","c":"Other","d":"Codeberg","co":"","fl":"","w":"","r":"","v":false},{"n":"Collabora Office","c":"Other","d":"Collabora Office","co":"","fl":"","w":"","r":"","v":false},{"n":"Collabora Online","c":"Other","d":"Webbasierte Office-Suite fÃ¼r Cloud-Integration","co":"","fl":"","w":"https://collaboraonline.com","r":"","v":false},{"n":"Collabora Online","c":"Other","d":"Webbasierte Office-Suite fÃ¼r Cloud-Integration","co":"","fl":"","w":"","r":"","v":false},{"n":"Combell Cloud","c":"Cloud & Hosting","d":"Combell Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"Combell Domains","c":"AI & Automation","d":"Combell Domains","co":"","fl":"","w":"","r":"","v":false},{"n":"Combell Email","c":"Email & Communication","d":"Combell Email","co":"","fl":"","w":"","r":"","v":false},{"n":"Combell WordPress","c":"Cloud & Hosting","d":"Combell WordPress","co":"","fl":"","w":"","r":"","v":false},{"n":"CommaFeed","c":"Other","d":"Google Reader inspired self-hosted RSS reader. ([Demo](https://www.commafeed.com/#/app/category/all), [Source Code](https://github.com/Athou/commafeed))","co":"EU","fl":"🇪🇺","w":"https://commafeed.com","r":"","v":false},{"n":"Commanders Act - TagCommander","c":"Project Management","d":"Commanders Act - TagCommander","co":"","fl":"","w":"","r":"","v":false},{"n":"Communication & Collaboration","c":"Developer Tools","d":"7 categories","co":"","fl":"","w":"","r":"","v":false},{"n":"Conduit","c":"Other","d":"Conduit","co":"","fl":"","w":"","r":"","v":false},{"n":"Conferencing","c":"HR & Team","d":"Conferencing","co":"","fl":"","w":"","r":"","v":false},{"n":"Contabo","c":"Cloud & Hosting","d":"Contabo","co":"","fl":"","w":"","r":"","v":false},{"n":"Contabo Object Storage","c":"Storage & Backup","d":"Contabo Object Storage","co":"","fl":"","w":"","r":"","v":false},{"n":"CookieQ by Baycloud","c":"Analytics & Data","d":"CookieQ by Baycloud","co":"","fl":"","w":"","r":"","v":false},{"n":"Copernik","c":"Analytics & Data","d":"Copernik","co":"","fl":"","w":"","r":"","v":false},{"n":"Counter","c":"Analytics & Data","d":"Counter","co":"","fl":"","w":"","r":"","v":false},{"n":"Countly","c":"Analytics & Data","d":"Countly","co":"","fl":"","w":"","r":"","v":false},{"n":"Cozy","c":"Cloud & Hosting","d":"Cozy","co":"","fl":"","w":"","r":"","v":false},{"n":"Crisp","c":"Email & Communication","d":"Crisp","co":"","fl":"","w":"","r":"","v":false},{"n":"Crowdtech","c":"Other","d":"Crowdtech","co":"","fl":"","w":"","r":"","v":false},{"n":"Crypt.ee","c":"Cloud & Hosting","d":"Ende-zu-Ende-verschlÃ¼sselter Cloud-Speicher fÃ¼r Dokumente und Fotos aus Estland","co":"","fl":"","w":"","r":"","v":false},{"n":"cryptee","c":"Cloud & Hosting","d":"cryptee","co":"","fl":"","w":"","r":"","v":false},{"n":"CryptPad","c":"Other","d":"Ende-zu-Ende verschlÃ¼sselte kollaborative Dokumente","co":"","fl":"","w":"","r":"","v":false},{"n":"CryptPad","c":"Other","d":"Ende-zu-Ende verschlÃ¼sselte kollaborative Dokumente","co":"","fl":"","w":"https://cryptpad.fr","r":"","v":false},{"n":"Cubbit DS3 Cloud","c":"Storage & Backup","d":"Cubbit DS3 Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"Cybersecurity","c":"Other","d":"EuropÃ¤ische Antiviren- und Sicherheitssoftware â DSGVO-konform und vielfach ausgezeichnet.","co":"","fl":"","w":"","r":"statt Norton, McAfee","v":false},{"n":"Cyso Cloud","c":"Cloud & Hosting","d":"Cyso Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"Cyso Cloud Object Storage","c":"Storage & Backup","d":"Cyso Cloud Object Storage","co":"","fl":"","w":"","r":"","v":false},{"n":"dash.","c":"Analytics & Data","d":"dash.","co":"","fl":"","w":"","r":"","v":false},{"n":"DashLord","c":"Analytics & Data","d":"DashLord","co":"","fl":"","w":"","r":"","v":false},{"n":"Data & Analytics","c":"Developer Tools","d":"11 categories","co":"","fl":"","w":"","r":"","v":false},{"n":"Data Hub","c":"Other","d":"Data Hub","co":"","fl":"","w":"","r":"","v":false},{"n":"Databunker","c":"Project Management","d":"Network-based, self-hosted, GDPR compliant, secure database for personal data or PII. ([Source Code](https://github.com/securitybunker/databunker))","co":"EU","fl":"🇪🇺","w":"https://databunker.org","r":"","v":false},{"n":"DATATOMIC","c":"Email & Communication","d":"DATATOMIC","co":"","fl":"","w":"","r":"","v":false},{"n":"dDocs","c":"Other","d":"dDocs","co":"","fl":"","w":"","r":"","v":false},{"n":"Decathlon","c":"Other","d":"FranzÃ¶sischer Sportartikelhersteller mit Direktvertrieb","co":"","fl":"","w":"","r":"","v":false},{"n":"Decathlon","c":"Other","d":"FranzÃ¶sischer Sportartikelhersteller mit Direktvertrieb","co":"","fl":"","w":"https://decathlon.de","r":"","v":false},{"n":"DeepL","c":"AI & Automation","d":"DeepL","co":"","fl":"","w":"","r":"","v":false},{"n":"Deezer","c":"Other","d":"Musikstreaming-Dienst mit EU-Datenschutz","co":"","fl":"","w":"https://deezer.com","r":"","v":false},{"n":"Deezer","c":"Other","d":"Musikstreaming-Dienst mit EU-Datenschutz","co":"","fl":"","w":"","r":"","v":false},{"n":"DePay","c":"Project Management","d":"Accept Web3 Payments directly into your wallet. Peer-to-peer, free, self-hosted & open-source. ([Demo](https://depay.com/products/payments), [Source Code](https://github.com/depayfi/widgets))","co":"EU","fl":"🇪🇺","w":"https://depay.com","r":"","v":false},{"n":"deSEC","c":"Other","d":"deSEC","co":"","fl":"","w":"","r":"","v":false},{"n":"DeskTime","c":"Other","d":"DeskTime","co":"","fl":"","w":"","r":"","v":false},{"n":"Developer Tools","c":"Developer Tools","d":"EuropÃ¤ische Entwicklerwerkzeuge â Testmanagement, QA-Observability und mehr, DSGVO-konform.","co":"","fl":"","w":"","r":"statt TestRail, Datadog","v":false},{"n":"Dex","c":"Other","d":"Dex","co":"","fl":"","w":"","r":"","v":false},{"n":"Dicte.ai","c":"HR & Team","d":"Dicte.ai","co":"","fl":"","w":"","r":"","v":false},{"n":"DiGEiZ","c":"Analytics & Data","d":"DiGEiZ","co":"","fl":"","w":"","r":"","v":false},{"n":"Digipad","c":"Other","d":"An online self-hosted application for creating collaborative digital notepads (Documentation in french). ([Source Code](https://codeberg.org/ladigitale/digipad))","co":"EU","fl":"🇪🇺","w":"https://digipad.app","r":"","v":false},{"n":"digistats","c":"Analytics & Data","d":"digistats","co":"","fl":"","w":"","r":"","v":false},{"n":"Digital Samba","c":"Email & Communication","d":"Digital Samba","co":"","fl":"","w":"","r":"","v":false},{"n":"DigitalBerry","c":"Other","d":"DigitalBerry","co":"","fl":"","w":"","r":"","v":false},{"n":"Digitalcourage","c":"Other","d":"Digitalcourage","co":"","fl":"","w":"","r":"","v":false},{"n":"Digitale Gesellschaft","c":"Other","d":"Digitale Gesellschaft","co":"","fl":"","w":"","r":"","v":false},{"n":"DinMo","c":"Other","d":"DinMo","co":"","fl":"","w":"","r":"","v":false},{"n":"Disroot","c":"Email & Communication","d":"Datenschutzfreundlicher E-Mail-Dienst einer gemeinnÃ¼tzigen niederlÃ¤ndischen Community","co":"","fl":"","w":"https://disroot.org","r":"","v":false},{"n":"Disroot","c":"Email & Communication","d":"Datenschutzfreundlicher E-Mail-Dienst einer gemeinnÃ¼tzigen niederlÃ¤ndischen Community","co":"","fl":"","w":"","r":"","v":false},{"n":"DNS.SB","c":"Other","d":"DNS.SB","co":"","fl":"","w":"","r":"","v":false},{"n":"DNS4EU","c":"Other","d":"DNS4EU","co":"","fl":"","w":"","r":"","v":false},{"n":"DNScale","c":"Other","d":"DNScale","co":"","fl":"","w":"","r":"","v":false},{"n":"dnsforge","c":"Other","d":"dnsforge","co":"","fl":"","w":"","r":"","v":false},{"n":"Docmost","c":"Other","d":"Docmost","co":"","fl":"","w":"","r":"","v":false},{"n":"Documize","c":"Other","d":"Documize","co":"","fl":"","w":"","r":"","v":false},{"n":"Domainnameshop","c":"AI & Automation","d":"Domainnameshop","co":"","fl":"","w":"","r":"","v":false},{"n":"Dovecot","c":"Other","d":"Dovecot","co":"","fl":"","w":"","r":"","v":false},{"n":"Dreamdata","c":"Analytics & Data","d":"Dreamdata","co":"","fl":"","w":"","r":"","v":false},{"n":"E-Label","c":"Other","d":"Solution for electronic labels, with QR Codes, on wine bottles sold within the European Union. ([Source Code](https://github.com/filipecarneiro/ELabel))","co":"EU","fl":"🇪🇺","w":"https://filipecarneiro.github.io/ELabel","r":"","v":false},{"n":"E-Mail","c":"Other","d":"VerschlÃ¼sselte E-Mail-Dienste aus Europa mit echtem Datenschutz.","co":"","fl":"","w":"","r":"statt Gmail, Outlook","v":false},{"n":"easyfeedback","c":"Other","d":"easyfeedback","co":"","fl":"","w":"","r":"","v":false},{"n":"Echter Datenschutz","c":"AI & Automation","d":"EU-Anbieter unterliegen der DSGVO â dem strengsten Datenschutzrecht der Welt. Deine Daten gehÃ¶ren dir, nicht Werbenetzwerken.","co":"","fl":"","w":"","r":"","v":false},{"n":"eclipso","c":"Email & Communication","d":"eclipso","co":"","fl":"","w":"","r":"","v":false},{"n":"Ecosia","c":"Other","d":"Ecosia","co":"","fl":"","w":"","r":"","v":false},{"n":"Ecosia Browser","c":"Other","d":"Ecosia Browser","co":"","fl":"","w":"","r":"","v":false},{"n":"Edkimo","c":"Other","d":"Edkimo","co":"","fl":"","w":"","r":"","v":false},{"n":"Ekomi","c":"Developer Tools","d":"Ekomi is a German customer review platform that helps businesses collect and manage authentic customer feedback to boost online reputation and sales.","co":"","fl":"","w":"","r":"","v":false},{"n":"Elasticsearch","c":"Analytics & Data","d":"Elasticsearch","co":"","fl":"","w":"","r":"","v":false},{"n":"Elastisys","c":"Other","d":"Elastisys","co":"","fl":"","w":"","r":"","v":false},{"n":"Elastx","c":"Cloud & Hosting","d":"Elastx","co":"","fl":"","w":"","r":"","v":false},{"n":"Element","c":"Email & Communication","d":"Element","co":"","fl":"","w":"","r":"","v":false},{"n":"Element Call","c":"HR & Team","d":"Element Call","co":"","fl":"","w":"","r":"","v":false},{"n":"EmailConnect","c":"Email & Communication","d":"EmailConnect","co":"","fl":"","w":"","r":"","v":false},{"n":"EmailLabs","c":"Email & Communication","d":"EmailLabs","co":"","fl":"","w":"","r":"","v":false},{"n":"Empfohlene Alternativen","c":"AI & Automation","d":"Handverlesen","co":"","fl":"","w":"","r":"","v":false},{"n":"empirio","c":"Other","d":"empirio","co":"","fl":"","w":"","r":"","v":false},{"n":"Encharge","c":"Marketing & SEO","d":"Encharge","co":"","fl":"","w":"","r":"","v":false},{"n":"ESET","c":"Security & Privacy","d":"Antiviren-Software mit Machine Learning Engine","co":"","fl":"","w":"","r":"","v":false},{"n":"EspoCRM","c":"Other","d":"EspoCRM","co":"","fl":"","w":"","r":"","v":false},{"n":"Etiquetta","c":"Analytics & Data","d":"Open-Source Tag Manager und Consent Management Platform aus Spanien","co":"","fl":"","w":"","r":"","v":false},{"n":"etracker","c":"Analytics & Data","d":"Cookiefreies Web-Analytics aus Deutschland","co":"","fl":"","w":"","r":"","v":false},{"n":"eTranslation","c":"AI & Automation","d":"eTranslation","co":"","fl":"","w":"","r":"","v":false},{"n":"EuroDNS DNS","c":"Other","d":"EuroDNS DNS","co":"","fl":"","w":"","r":"","v":false},{"n":"EuroDNS Domain Names","c":"AI & Automation","d":"EuroDNS Domain Names","co":"","fl":"","w":"","r":"","v":false},{"n":"EuropÃ¤ische QualitÃ¤t","c":"AI & Automation","d":"Made in Europe steht seit Jahrzehnten fÃ¼r hÃ¶chste QualitÃ¤t und Langlebigkeit. Strenge europÃ¤ische Standards garantieren faire Arbeitsbedingungen, wÃ¤hrend kÃ¼rzere Lieferketten messbar COâ einsparen.","co":"","fl":"","w":"","r":"","v":false},{"n":"European Quality","c":"AI & Automation","d":"Made in Europe has stood for top quality and durability for decades. Strict standards guarantee fair working conditions, while shorter supply chains measurably reduce COâ.","co":"","fl":"","w":"","r":"","v":false},{"n":"eXo Digital Workplace","c":"Other","d":"eXo Digital Workplace","co":"","fl":"","w":"","r":"","v":false},{"n":"eXo Platform","c":"Other","d":"eXo Platform","co":"","fl":"","w":"","r":"","v":false},{"n":"Exoscale","c":"Cloud & Hosting","d":"Exoscale","co":"","fl":"","w":"","r":"","v":false},{"n":"Exoscale Object Storage","c":"Storage & Backup","d":"Exoscale Object Storage","co":"","fl":"","w":"","r":"","v":false},{"n":"F-Secure FREEDOME","c":"Security & Privacy","d":"VPN-Dienst eines finnischen Cybersecurity-Unternehmens","co":"","fl":"","w":"","r":"","v":false},{"n":"F-Secure FREEDOME","c":"Security & Privacy","d":"VPN-Dienst eines finnischen Cybersecurity-Unternehmens","co":"","fl":"","w":"https://f-secure.com/de","r":"","v":false},{"n":"F‑Secure FREEDOME VPN","c":"Security & Privacy","d":"F‑Secure FREEDOME VPN","co":"","fl":"","w":"","r":"","v":false},{"n":"Facette","c":"Analytics & Data","d":"Facette","co":"","fl":"","w":"","r":"","v":false},{"n":"FahrrÃ¤der & E-Bikes","c":"Other","d":"EuropÃ¤ische Fahrradmarken fÃ¼r Alltag, Sport und Abenteuer.","co":"","fl":"","w":"","r":"statt Trek, Specialized","v":false},{"n":"Fairphone","c":"Other","d":"Modulares Smartphone mit 10 Jahren Update-Garantie","co":"","fl":"","w":"","r":"","v":false},{"n":"Fairphone","c":"Other","d":"Modulares Smartphone mit 10 Jahren Update-Garantie","co":"","fl":"","w":"https://fairphone.com","r":"","v":false},{"n":"FFMUC DNS","c":"Other","d":"FFMUC DNS","co":"","fl":"","w":"","r":"","v":false},{"n":"Filen","c":"Cloud & Hosting","d":"Ende-zu-Ende-verschlÃ¼sselter Cloud-Speicher aus Deutschland","co":"","fl":"","w":"","r":"","v":false},{"n":"Filters","c":"Other","d":"Filters","co":"","fl":"","w":"","r":"","v":false},{"n":"Fintech & Banking","c":"Other","d":"EuropÃ¤ische Neobanken und Fintech-LÃ¶sungen mit EU-Banklizenz.","co":"","fl":"","w":"","r":"statt PayPal, US-Banken","v":false},{"n":"FjÃ¤llrÃ¤ven","c":"Other","d":"Zeitlose Outdoor-AusrÃ¼stung aus schwedischer Tradition","co":"","fl":"","w":"","r":"","v":false},{"n":"FjÃ¤llrÃ¤ven","c":"Other","d":"Zeitlose Outdoor-AusrÃ¼stung aus schwedischer Tradition","co":"","fl":"","w":"https://fjallraven.com","r":"","v":false},{"n":"Flare","c":"Other","d":"Flare","co":"","fl":"","w":"","r":"","v":false},{"n":"Fleep","c":"Email & Communication","d":"Fleep","co":"","fl":"","w":"","r":"","v":false},{"n":"Folk","c":"Other","d":"Folk","co":"","fl":"","w":"","r":"","v":false},{"n":"Food & Nutrition","c":"AI & Automation","d":"European grocers and foods","co":"","fl":"","w":"","r":"","v":false},{"n":"Forgejo","c":"Other","d":"Forgejo","co":"","fl":"","w":"","r":"","v":false},{"n":"Foundation for Applied Privacy","c":"Other","d":"Foundation for Applied Privacy","co":"","fl":"","w":"","r":"","v":false},{"n":"Fredy","c":"AI & Automation","d":"Searches for new apartments, houses, and flats in Germany on platforms like ImmoScout24, Immowelt, and others, and instantly delivers the results to you via Slack, Telegram, and more. ([Demo](https://fredy-demo.orange-coding.net), [Source Code](https://github.com/orangecoding/fredy))","co":"DE","fl":"🇩🇪","w":"https://fredy.orange-coding.net","r":"","v":false},{"n":"freispace","c":"Project Management","d":"freispace","co":"","fl":"","w":"","r":"","v":false},{"n":"Friendly Analytics","c":"Analytics & Data","d":"Friendly Analytics","co":"","fl":"","w":"","r":"","v":false},{"n":"Friendly Automate","c":"Email & Communication","d":"Friendly Automate","co":"","fl":"","w":"","r":"","v":false},{"n":"Friendly Captcha","c":"Other","d":"Friendly Captcha","co":"","fl":"","w":"","r":"","v":false},{"n":"fruux","c":"Other","d":"fruux","co":"","fl":"","w":"","r":"","v":false},{"n":"Fuga Cloud","c":"Other","d":"Fuga Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"Furniture & Living","c":"AI & Automation","d":"European design for your home","co":"","fl":"","w":"","r":"","v":false},{"n":"fusedeck","c":"Analytics & Data","d":"fusedeck","co":"","fl":"","w":"","r":"","v":false},{"n":"FusionDirectory","c":"Other","d":"FusionDirectory","co":"","fl":"","w":"","r":"","v":false},{"n":"FusionDirectory Orchestrator","c":"Other","d":"FusionDirectory Orchestrator","co":"","fl":"","w":"","r":"","v":false},{"n":"Galène","c":"HR & Team","d":"Galène","co":"","fl":"","w":"","r":"","v":false},{"n":"Galette","c":"Other","d":"Galette","co":"","fl":"","w":"","r":"","v":false},{"n":"Gaming","c":"AI & Automation","d":"DRM-freie Spiele aus Europa â du besitzt sie wirklich.","co":"","fl":"","w":"","r":"statt Steam, Epic Games","v":false},{"n":"Gandi","c":"AI & Automation","d":"Gandi","co":"","fl":"","w":"","r":"","v":false},{"n":"GarageHQ","c":"Cloud & Hosting","d":"Geo-distributed, S3‑compatible storage service that can fulfill many needs. ([Source Code](https://git.deuxfleurs.fr/Deuxfleurs/garage))","co":"EU","fl":"🇪🇺","w":"https://garagehq.deuxfleurs.fr","r":"","v":false},{"n":"Genealogy","c":"Other","d":"Record family members and their relationships and build a family tree. ([Demo](https://genealogy.kreaweb.be/), [Source Code](https://github.com/MGeurts/genealogy))","co":"EU","fl":"🇪🇺","w":"https://genealogy.kreaweb.be","r":"","v":false},{"n":"Genuine Privacy","c":"AI & Automation","d":"EU providers are subject to the GDPR â the strictest data protection law worldwide. Your data belongs to you, not advertising networks.","co":"","fl":"","w":"","r":"","v":false},{"n":"Geoapify","c":"Other","d":"Geoapify","co":"","fl":"","w":"","r":"","v":false},{"n":"GetResponse","c":"Email & Communication","d":"GetResponse","co":"","fl":"","w":"","r":"","v":false},{"n":"Gigaset","c":"Other","d":"Android-Smartphones aus deutscher Produktion","co":"","fl":"","w":"https://gigaset.com/de-de/smartphones","r":"","v":false},{"n":"Gigaset","c":"Other","d":"Android-Smartphones aus deutscher Produktion","co":"","fl":"","w":"","r":"","v":false},{"n":"ginlo Business","c":"Email & Communication","d":"ginlo Business","co":"","fl":"","w":"","r":"","v":false},{"n":"ginlo Private","c":"Email & Communication","d":"ginlo Private","co":"","fl":"","w":"","r":"","v":false},{"n":"Gitea","c":"Other","d":"Gitea","co":"","fl":"","w":"","r":"","v":false},{"n":"Gitea","c":"Project Management","d":"Git with a cup of tea! Painless self-hosted all-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD. ([Demo](https://demo.gitea.com), [Source Code](https://github.com/go-gitea/gitea))","co":"EU","fl":"🇪🇺","w":"https://gitea.com","r":"","v":false},{"n":"GitLab","c":"Other","d":"GitLab","co":"","fl":"","w":"","r":"","v":false},{"n":"GitLab by Stackhero","c":"Other","d":"GitLab by Stackhero","co":"","fl":"","w":"","r":"","v":false},{"n":"Glances","c":"Analytics & Data","d":"Glances","co":"","fl":"","w":"","r":"","v":false},{"n":"GlitchTip","c":"Other","d":"GlitchTip","co":"","fl":"","w":"","r":"","v":false},{"n":"GMX Email","c":"Email & Communication","d":"GMX Email","co":"","fl":"","w":"","r":"","v":false},{"n":"Gogs","c":"Project Management","d":"Painless self-hosted Git Service written in Go. ([Source Code](https://github.com/gogs/gogs))","co":"EU","fl":"🇪🇺","w":"https://gogs.io","r":"","v":false},{"n":"GOOD","c":"Other","d":"GOOD","co":"","fl":"","w":"","r":"","v":false},{"n":"GOOSE VPN","c":"Security & Privacy","d":"NiederlÃ¤ndischer VPN-Dienst mit lokalem Support","co":"","fl":"","w":"https://goosevpn.com","r":"","v":false},{"n":"GOOSE VPN","c":"Security & Privacy","d":"NiederlÃ¤ndischer VPN-Dienst mit lokalem Support","co":"","fl":"","w":"","r":"","v":false},{"n":"Grafana","c":"Analytics & Data","d":"Grafana","co":"","fl":"","w":"","r":"","v":false},{"n":"Graylog","c":"Analytics & Data","d":"Graylog","co":"","fl":"","w":"","r":"","v":false},{"n":"GREENRED","c":"Other","d":"GREENRED","co":"","fl":"","w":"","r":"","v":false},{"n":"gridscale","c":"Cloud & Hosting","d":"gridscale","co":"","fl":"","w":"","r":"","v":false},{"n":"Hanko","c":"Project Management","d":"Hanko","co":"","fl":"","w":"","r":"","v":false},{"n":"Haustiere","c":"AI & Automation","d":"EuropÃ¤ischer Tierbedarf mit den strengsten Tierschutzstandards der Welt.","co":"","fl":"","w":"","r":"statt Chewy, Petco","v":false},{"n":"HERE WeGo","c":"Other","d":"EuropÃ¤ische Navigationssoftware mit Offline-FunktionalitÃ¤t","co":"","fl":"","w":"","r":"","v":false},{"n":"HERE WeGo Maps & Navigation","c":"Other","d":"HERE WeGo Maps & Navigation","co":"","fl":"","w":"","r":"","v":false},{"n":"Hetzner","c":"Cloud & Hosting","d":"Deutsche Cloud-Infrastruktur und Hosting-Dienste","co":"","fl":"","w":"","r":"","v":false},{"n":"Hetzner Object Storage","c":"Storage & Backup","d":"Hetzner Object Storage","co":"","fl":"","w":"","r":"","v":false},{"n":"heylogin","c":"Security & Privacy","d":"heylogin","co":"","fl":"","w":"","r":"","v":false},{"n":"hidora","c":"Other","d":"hidora","co":"","fl":"","w":"","r":"","v":false},{"n":"HMD / Nokia","c":"Other","d":"Android-Smartphones mit skandinavischem Design","co":"","fl":"","w":"https://hmd.com","r":"","v":false},{"n":"HMD / Nokia","c":"Other","d":"Android-Smartphones mit skandinavischem Design","co":"","fl":"","w":"","r":"","v":false},{"n":"Home Assistant","c":"Other","d":"Lokale Smart Home Steuerungssoftware ohne Cloud-Anbindung","co":"","fl":"","w":"","r":"","v":false},{"n":"Homepage by tomershvueli","c":"Other","d":"Simple, standalone, self-hosted PHP page that is your window to your server and the web.","co":"EU","fl":"🇪🇺","w":"https://github.com/tomershvueli/homepage","r":"","v":false},{"n":"Hostinger Domain","c":"AI & Automation","d":"Hostinger Domain","co":"","fl":"","w":"","r":"","v":false},{"n":"Hostinger VPS","c":"Cloud & Hosting","d":"Hostinger VPS","co":"","fl":"","w":"","r":"","v":false},{"n":"Hostinger WordPress","c":"Cloud & Hosting","d":"Hostinger WordPress","co":"","fl":"","w":"","r":"","v":false},{"n":"Hostpoint Domains","c":"AI & Automation","d":"Hostpoint Domains","co":"","fl":"","w":"","r":"","v":false},{"n":"Hostpoint E-Mail","c":"Email & Communication","d":"Hostpoint E-Mail","co":"","fl":"","w":"","r":"","v":false},{"n":"Hostpoint Meet","c":"Email & Communication","d":"Hostpoint Meet","co":"","fl":"","w":"","r":"","v":false},{"n":"Hostpoint Wordpress Hosting","c":"Cloud & Hosting","d":"Hostpoint Wordpress Hosting","co":"","fl":"","w":"","r":"","v":false},{"n":"Hostpress","c":"Cloud & Hosting","d":"Hostpress","co":"","fl":"","w":"","r":"","v":false},{"n":"hotjar","c":"Other","d":"hotjar","co":"","fl":"","w":"","r":"","v":false},{"n":"HumHub","c":"Other","d":"HumHub","co":"","fl":"","w":"","r":"","v":false},{"n":"Hummel","c":"Other","d":"DÃ¤nische Sportbekleidung mit Jahrhundert-Tradition","co":"","fl":"","w":"https://hummel.net","r":"","v":false},{"n":"Hummel","c":"Other","d":"DÃ¤nische Sportbekleidung mit Jahrhundert-Tradition","co":"","fl":"","w":"","r":"","v":false},{"n":"HymnoScribe","c":"Other","d":"HymnoScribe","co":"","fl":"","w":"","r":"","v":false},{"n":"hyperdx","c":"Analytics & Data","d":"hyperdx","co":"","fl":"","w":"","r":"","v":false},{"n":"Hyperping","c":"Analytics & Data","d":"Hyperping","co":"","fl":"","w":"","r":"","v":false},{"n":"Hypervault","c":"Security & Privacy","d":"Hypervault","co":"","fl":"","w":"","r":"","v":false},{"n":"I, Librarian","c":"Project Management","d":"Organize PDF papers and office documents. It provides a lot of extra features for students and research groups both in industry and academia. ([Demo](https://eu1.i-librarian.net/demo), [Source Code](https://github.com/mkucej/i-librarian-free))","co":"EU","fl":"🇪🇺","w":"https://i-librarian.net","r":"","v":false},{"n":"Icinga","c":"Analytics & Data","d":"Icinga","co":"","fl":"","w":"","r":"","v":false},{"n":"Identity & Access","c":"Developer Tools","d":"Replacing","co":"","fl":"","w":"","r":"","v":false},{"n":"Impossible Cloud","c":"Storage & Backup","d":"Impossible Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"inbox.eu","c":"Email & Communication","d":"inbox.eu","co":"","fl":"","w":"","r":"","v":false},{"n":"Individuelle Alternativen","c":"AI & Automation","d":"Es wurden 0 europÃ¤ische Alternativen ermittelt.","co":"","fl":"","w":"","r":"","v":false},{"n":"InfluxDB","c":"Analytics & Data","d":"InfluxDB","co":"","fl":"","w":"","r":"","v":false},{"n":"Infomaniak Domains","c":"AI & Automation","d":"Infomaniak Domains","co":"","fl":"","w":"","r":"","v":false},{"n":"Infomaniak Hosting","c":"Cloud & Hosting","d":"Schweizer Webhosting und Cloud-Server mit COâ-neutralem Betrieb und DSGVO-konformen Rechenzentren.","co":"","fl":"","w":"","r":"","v":false},{"n":"Infomaniak kChat","c":"Email & Communication","d":"Infomaniak kChat","co":"","fl":"","w":"","r":"","v":false},{"n":"Infomaniak kDrive","c":"Cloud & Hosting","d":"Infomaniak kDrive","co":"","fl":"","w":"","r":"","v":false},{"n":"Infomaniak kMail","c":"Email & Communication","d":"Infomaniak kMail","co":"","fl":"","w":"","r":"","v":false},{"n":"Infomaniak kMeet","c":"Email & Communication","d":"Infomaniak kMeet","co":"","fl":"","w":"","r":"","v":false},{"n":"Infomaniak Public Cloud","c":"Cloud & Hosting","d":"Infomaniak Public Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"Infomaniak WordPress Hosting","c":"Cloud & Hosting","d":"Infomaniak WordPress Hosting","co":"","fl":"","w":"","r":"","v":false},{"n":"Insights","c":"Analytics & Data","d":"Insights","co":"","fl":"","w":"","r":"","v":false},{"n":"Intercolo","c":"Storage & Backup","d":"Intercolo","co":"","fl":"","w":"","r":"","v":false},{"n":"Internxt","c":"AI & Automation","d":"Zero-Knowledge-verschlÃ¼sselter Cloud-Speicher","co":"","fl":"","w":"https://internxt.sjv.io/R00RNb","r":"","v":false},{"n":"Internxt","c":"Cloud & Hosting","d":"Dezentraler Cloud-Speicher mit Open-Source-Architektur","co":"","fl":"","w":"","r":"","v":false},{"n":"InvestGlass","c":"Other","d":"InvestGlass","co":"","fl":"","w":"","r":"","v":false},{"n":"INWX","c":"AI & Automation","d":"INWX","co":"","fl":"","w":"","r":"","v":false},{"n":"IONOS","c":"Cloud & Hosting","d":"EuropÃ¤ischer Cloud- und Hosting-Anbieter fÃ¼r Unternehmen","co":"","fl":"","w":"","r":"","v":false},{"n":"IONOS domains","c":"AI & Automation","d":"IONOS domains","co":"","fl":"","w":"","r":"","v":false},{"n":"IONOS object storage","c":"Storage & Backup","d":"IONOS object storage","co":"","fl":"","w":"","r":"","v":false},{"n":"IONOS WordPress Hosting","c":"Cloud & Hosting","d":"IONOS WordPress Hosting","co":"","fl":"","w":"","r":"","v":false},{"n":"IP Brick","c":"Other","d":"IP Brick","co":"","fl":"","w":"","r":"","v":false},{"n":"iPresso Marketing Automation","c":"Other","d":"iPresso Marketing Automation","co":"","fl":"","w":"","r":"","v":false},{"n":"ISTRI","c":"Other","d":"ISTRI","co":"","fl":"","w":"","r":"","v":false},{"n":"IVPN","c":"Security & Privacy","d":"IVPN","co":"","fl":"","w":"","r":"","v":false},{"n":"Jamespot","c":"Other","d":"Jamespot","co":"","fl":"","w":"","r":"","v":false},{"n":"Jangouts","c":"HR & Team","d":"Jangouts","co":"","fl":"","w":"","r":"","v":false},{"n":"Janssen Project","c":"Other","d":"Janssen Project","co":"","fl":"","w":"","r":"","v":false},{"n":"Javamelody","c":"Analytics & Data","d":"Javamelody","co":"","fl":"","w":"","r":"","v":false},{"n":"JawgMaps","c":"Other","d":"JawgMaps","co":"","fl":"","w":"","r":"","v":false},{"n":"JENTIS","c":"Project Management","d":"JENTIS","co":"","fl":"","w":"","r":"","v":false},{"n":"Jet-Stream","c":"Cloud & Hosting","d":"Jet-Stream","co":"","fl":"","w":"","r":"","v":false},{"n":"Jimdo","c":"Project Management","d":"CMS fÃ¼r Webseitenerstellung mit deutschem Hosting","co":"","fl":"","w":"","r":"","v":false},{"n":"Jitsi Meet","c":"HR & Team","d":"Jitsi Meet","co":"","fl":"","w":"","r":"","v":false},{"n":"Joker.com","c":"AI & Automation","d":"Joker.com","co":"","fl":"","w":"","r":"","v":false},{"n":"Jottacloud","c":"Cloud & Hosting","d":"PlattformunabhÃ¤ngiger Cloud-Speicher aus Norwegen","co":"","fl":"","w":"","r":"","v":false},{"n":"Karaoke Eternal","c":"Other","d":"Host awesome karaoke parties where everyone can easily find and queue songs from their phone's browser. The player is also fully browser-based with support for MP3+G, MP4 and WebGL visualizations. ([Source Code](https://github.com/bhj/KaraokeEternal))","co":"EU","fl":"🇪🇺","w":"https://karaoke-eternal.com","r":"","v":false},{"n":"kDrive","c":"Cloud & Hosting","d":"Schweizer Cloud-Speicher mit DSGVO-konformem Datenschutz und kollaborativen Funktionen.","co":"","fl":"","w":"","r":"","v":false},{"n":"Keila","c":"Email & Communication","d":"Keila","co":"","fl":"","w":"","r":"","v":false},{"n":"KeyCDN","c":"Developer Tools","d":"KeyCDN","co":"","fl":"","w":"","r":"","v":false},{"n":"Keycloak","c":"Project Management","d":"Keycloak","co":"","fl":"","w":"","r":"","v":false},{"n":"KIKO Milano","c":"Other","d":"Italienische Kosmetikproduktion mit EU-QualitÃ¤tsstandards","co":"","fl":"","w":"","r":"","v":false},{"n":"Kimai","c":"Other","d":"Kimai","co":"","fl":"","w":"","r":"","v":false},{"n":"Klarna","c":"Finance & Payments","d":"Regulierter EU-Zahlungsdienstleister mit Ratenzahlung","co":"","fl":"","w":"","r":"","v":false},{"n":"Kolab Now","c":"Email & Communication","d":"Kolab Now","co":"","fl":"","w":"","r":"","v":false},{"n":"komoot","c":"Other","d":"Die europÃ¤ische Outdoor-Navigation fÃ¼r Abenteurer","co":"","fl":"","w":"","r":"","v":false},{"n":"Kontakt Contact","c":"AI & Automation","d":"Hast du eine Frage oder Anmerkung? Wir freuen uns Ã¼ber deine Nachricht. Got a question or feedback? We'd love to hear from you.","co":"","fl":"","w":"","r":"","v":false},{"n":"Koofr","c":"Cloud & Hosting","d":"Cloud-Speicher aus Slowenien mit Verbindung zu bestehenden Clouds","co":"","fl":"","w":"","r":"","v":false},{"n":"Kopano Groupware","c":"Other","d":"Kopano Groupware","co":"","fl":"","w":"","r":"","v":false},{"n":"Kosmetik & Beauty","c":"Other","d":"EuropÃ¤ische Kosmetik mit den strengsten Sicherheitsstandards der Welt.","co":"","fl":"","w":"","r":"statt MAC, Maybelline, Kiehl's","v":false},{"n":"L'OrÃ©al","c":"Other","d":"WeltmarktfÃ¼hrer Kosmetik aus Paris â seit 1909","co":"","fl":"","w":"","r":"","v":false},{"n":"La suite coop","c":"Other","d":"La suite coop","co":"","fl":"","w":"","r":"","v":false},{"n":"LamaPoll","c":"Other","d":"LamaPoll","co":"","fl":"","w":"","r":"","v":false},{"n":"Languages & Education","c":"AI & Automation","d":"Platforms for languages & tech skills","co":"","fl":"","w":"","r":"","v":false},{"n":"Lavera","c":"Other","d":"NATRUE-zertifizierte Naturkosmetik aus deutscher Produktion","co":"","fl":"","w":"","r":"","v":false},{"n":"LC-Connect","c":"Other","d":"LC-Connect","co":"","fl":"","w":"","r":"","v":false},{"n":"LDAP Synchronization Connector Project","c":"Other","d":"LDAP Synchronization Connector Project","co":"","fl":"","w":"","r":"","v":false},{"n":"Leafcloud Kubernetes","c":"Other","d":"Leafcloud Kubernetes","co":"","fl":"","w":"","r":"","v":false},{"n":"Leafcloud Object Storage","c":"Storage & Backup","d":"Leafcloud Object Storage","co":"","fl":"","w":"","r":"","v":false},{"n":"Leaseweb CDN","c":"Developer Tools","d":"Leaseweb CDN","co":"","fl":"","w":"","r":"","v":false},{"n":"Leaseweb Object Storage","c":"Storage & Backup","d":"Leaseweb Object Storage","co":"","fl":"","w":"","r":"","v":false},{"n":"Leaseweb VPS","c":"Cloud & Hosting","d":"Leaseweb VPS","co":"","fl":"","w":"","r":"","v":false},{"n":"Lebensmittel & ErnÃ¤hrung","c":"AI & Automation","d":"EuropÃ¤ische LebensmittelhÃ¤ndler â Direktimport, faire Preise, EU-Standards.","co":"","fl":"","w":"","r":"statt Amazon Fresh, Thrive Market","v":false},{"n":"LEMONLDAP::NG","c":"Other","d":"LEMONLDAP::NG","co":"","fl":"","w":"","r":"","v":false},{"n":"lesma","c":"Other","d":"Simple paste app friendly with browser and command line. ([Demo](https://lesma.eu), [Source Code](https://gitlab.com/ogarcia/lesma))","co":"EU","fl":"🇪🇺","w":"https://lesma.eu","r":"","v":false},{"n":"Lettermint","c":"Email & Communication","d":"Lettermint is a European-based email delivery service offering transactional, broadcast, and inbound email solutions with high deliverability and GDPR compliance.","co":"","fl":"","w":"","r":"","v":false},{"n":"LibreNMS","c":"Analytics & Data","d":"LibreNMS","co":"","fl":"","w":"","r":"","v":false},{"n":"LibreOffice","c":"Other","d":"Lokale Open-Source Office-Suite der Document Foundation","co":"","fl":"","w":"https://libreoffice.org","r":"","v":false},{"n":"LibreOffice","c":"Other","d":"Lokale Open-Source Office-Suite der Document Foundation","co":"","fl":"","w":"","r":"","v":false},{"n":"LibreOffice (Collabora) online","c":"Other","d":"LibreOffice (Collabora) online","co":"","fl":"","w":"","r":"","v":false},{"n":"Librewolf","c":"Other","d":"DatenschutzgehÃ¤rteter Firefox-Fork ohne Telemetrie","co":"","fl":"","w":"","r":"","v":false},{"n":"LibreWolf","c":"Other","d":"DatenschutzgehÃ¤rteter Firefox-Fork ohne Telemetrie","co":"","fl":"","w":"https://librewolf.net","r":"","v":false},{"n":"LimeSurvey","c":"Other","d":"LimeSurvey","co":"","fl":"","w":"","r":"","v":false},{"n":"Link11 DDOS protection","c":"Other","d":"Link11 DDOS protection","co":"","fl":"","w":"","r":"","v":false},{"n":"listmonk","c":"Email & Communication","d":"listmonk","co":"","fl":"","w":"","r":"","v":false},{"n":"Listmonk","c":"Email & Communication","d":"High performance, self-hosted newsletter and mailing list manager with a modern dashboard. ([Demo](https://demo.listmonk.app/), [Source Code](https://github.com/knadh/listmonk))","co":"EU","fl":"🇪🇺","w":"https://listmonk.app","r":"","v":false},{"n":"Litlyx","c":"Analytics & Data","d":"All-in-one Analytics Solution. Setup in 30 seconds. Display all your data on an AI-powered dashboard. Fully self-hostable and GDPR compliant. ([Source Code](https://github.com/Litlyx/litlyx))","co":"EU","fl":"🇪🇺","w":"https://litlyx.com","r":"","v":false},{"n":"LIVECODER","c":"HR & Team","d":"LIVECODER","co":"","fl":"","w":"","r":"","v":false},{"n":"Livestorm","c":"Email & Communication","d":"Integrierte Plattform fÃ¼r Webinare und Videokonferenzen","co":"","fl":"","w":"https://livestorm.co","r":"","v":false},{"n":"Livestorm","c":"Email & Communication","d":"Integrierte Plattform fÃ¼r Webinare und Videokonferenzen","co":"","fl":"","w":"","r":"","v":false},{"n":"LMS","c":"Other","d":"Access your self-hosted music using a web interface.","co":"EU","fl":"🇪🇺","w":"https://github.com/epoupon/lms","r":"","v":false},{"n":"Logdy","c":"Analytics & Data","d":"Logdy","co":"","fl":"","w":"","r":"","v":false},{"n":"LogicalDOC Community Edition","c":"Other","d":"LogicalDOC Community Edition","co":"","fl":"","w":"","r":"","v":false},{"n":"Login-Master","c":"Project Management","d":"Login-Master","co":"","fl":"","w":"","r":"","v":false},{"n":"Logstash","c":"Analytics & Data","d":"Logstash","co":"","fl":"","w":"","r":"","v":false},{"n":"Logto","c":"Other","d":"Logto","co":"","fl":"","w":"","r":"","v":false},{"n":"Loki","c":"Analytics & Data","d":"Loki","co":"","fl":"","w":"","r":"","v":false},{"n":"Lowdefy","c":"Developer Tools","d":"Build internal tools, BI dashboards, admin panels, CRUD apps and workflows in minutes using YAML / JSON on an self-hosted, open-source platform. Connect to your data sources, host via Serverless, Netlify or Docker. ([Source Code](https://github.com/lowdefy/lowdefy))","co":"EU","fl":"🇪🇺","w":"https://lowdefy.com","r":"","v":false},{"n":"LSC-Project","c":"Other","d":"LSC-Project","co":"","fl":"","w":"","r":"","v":false},{"n":"MÃ¶bel & Wohnen","c":"AI & Automation","d":"EuropÃ¤isches Design fÃ¼r dein Zuhause â nachhaltig und langlebig.","co":"","fl":"","w":"","r":"statt Wayfair, Amazon Home","v":false},{"n":"Maarch Courrier","c":"Other","d":"Maarch Courrier","co":"","fl":"","w":"","r":"","v":false},{"n":"Magic Earth","c":"Other","d":"Magic Earth","co":"","fl":"","w":"","r":"","v":false},{"n":"Mail Infomaniak","c":"Email & Communication","d":"Schweizer E-Mail-Hosting mit eigener Domain, ohne Werbung und mit DSGVO-konformem Datenschutz.","co":"","fl":"","w":"https://infomaniak.com/goto/en/hosting.mail","r":"","v":false},{"n":"Mail Infomaniak","c":"Email & Communication","d":"Schweizer E-Mail-Hosting mit eigener Domain, ohne Werbung und mit DSGVO-konformem Datenschutz.","co":"","fl":"","w":"","r":"","v":false},{"n":"mail.de","c":"Email & Communication","d":"mail.de","co":"","fl":"","w":"","r":"","v":false},{"n":"MailBag","c":"Email & Communication","d":"MailBag","co":"","fl":"","w":"","r":"","v":false},{"n":"mailbox","c":"Email & Communication","d":"mailbox","co":"","fl":"","w":"","r":"","v":false},{"n":"mailbox.org","c":"Email & Communication","d":"Integrierte Business-Plattform auf deutschen Servern","co":"","fl":"","w":"https://mailbox.org","r":"","v":false},{"n":"mailbox.org","c":"Email & Communication","d":"Integrierte Business-Plattform auf deutschen Servern","co":"","fl":"","w":"","r":"","v":false},{"n":"Mailcoach","c":"Email & Communication","d":"Mailcoach","co":"","fl":"","w":"","r":"","v":false},{"n":"Mailcow","c":"Other","d":"Mailcow","co":"","fl":"","w":"","r":"","v":false},{"n":"Maildroppa","c":"Email & Communication","d":"Maildroppa","co":"","fl":"","w":"","r":"","v":false},{"n":"Mailfence","c":"Email & Communication","d":"Mailfence is a privacy-driven email suite offering secure, encrypted communication and productivity tools under strict EU data protection laws.","co":"","fl":"","w":"","r":"","v":false},{"n":"Mailfence","c":"Email & Communication","d":"E-Mail-Dienst mit OpenPGP-VerschlÃ¼sselung aus Belgien","co":"","fl":"","w":"https://mailfence.com","r":"","v":false},{"n":"Mailman3","c":"Email & Communication","d":"Mailman3","co":"","fl":"","w":"","r":"","v":false},{"n":"Mailo","c":"Email & Communication","d":"Mailo","co":"","fl":"","w":"","r":"","v":false},{"n":"MailUp","c":"Email & Communication","d":"MailUp","co":"","fl":"","w":"","r":"","v":false},{"n":"Malt","c":"Project Management","d":"EuropÃ¤ische B2B-Plattform fÃ¼r Freelancer und Unternehmen","co":"","fl":"","w":"","r":"","v":false},{"n":"Manage My Damn Life","c":"Other","d":"Manage my Damn Life (MMDL) is a self-hosted front end for managing your CalDAV tasks and calendars. ([Source Code](https://github.com/intri-in/manage-my-damn-life-nextjs))","co":"EU","fl":"🇪🇺","w":"https://intri.in/manage-my-damn-life","r":"","v":false},{"n":"Managed Kubernetes Cluster by next layer","c":"Other","d":"Managed Kubernetes Cluster by next layer","co":"","fl":"","w":"","r":"","v":false},{"n":"Mangopay","c":"Finance & Payments","d":"Mangopay","co":"","fl":"","w":"","r":"","v":false},{"n":"MapTiler","c":"Other","d":"MapTiler","co":"","fl":"","w":"","r":"","v":false},{"n":"Mapy.com","c":"Other","d":"Tschechischer Kartendienst mit 25 Jahren Expertise","co":"","fl":"","w":"","r":"","v":false},{"n":"Marketdata.ai","c":"Developer Tools","d":"Marketdata.ai is a European SaaS platform that centralizes market data cost and contract management for enterprises to control spend, improve transparency, and support compliance.","co":"","fl":"","w":"","r":"","v":false},{"n":"Marketing & Email","c":"Developer Tools","d":"Replacing","co":"","fl":"","w":"","r":"","v":false},{"n":"Mastodon","c":"Other","d":"Mastodon","co":"","fl":"","w":"","r":"","v":false},{"n":"Matomo","c":"Analytics & Data","d":"Open-Source Web-Analytics mit Selbsthosting-Option","co":"","fl":"","w":"","r":"","v":false},{"n":"Matomo by Stackhero","c":"Analytics & Data","d":"Matomo by Stackhero","co":"","fl":"","w":"","r":"","v":false},{"n":"Matterbridge","c":"Other","d":"Matterbridge","co":"","fl":"","w":"","r":"","v":false},{"n":"Mattermost","c":"Email & Communication","d":"Mattermost","co":"","fl":"","w":"","r":"","v":false},{"n":"Mattermost by Stackhero","c":"Email & Communication","d":"Mattermost by Stackhero","co":"","fl":"","w":"","r":"","v":false},{"n":"Mautic","c":"Marketing & SEO","d":"Mautic","co":"","fl":"","w":"","r":"","v":false},{"n":"mave","c":"Cloud & Hosting","d":"mave","co":"","fl":"","w":"","r":"","v":false},{"n":"mCaptcha","c":"Other","d":"mCaptcha","co":"","fl":"","w":"","r":"","v":false},{"n":"meetergo","c":"Email & Communication","d":"meetergo","co":"","fl":"","w":"","r":"","v":false},{"n":"MeisterTask","c":"Project Management","d":"Kanban-basiertes Projektmanagement mit EU-Datenhaltung","co":"","fl":"","w":"","r":"","v":false},{"n":"Membrain","c":"Other","d":"Membrain","co":"","fl":"","w":"","r":"","v":false},{"n":"Memtime","c":"Other","d":"Memtime","co":"","fl":"","w":"","r":"","v":false},{"n":"Mere Medical","c":"Other","d":"Manage all of your medical records from Epic MyChart, Cerner, and OnPatient patient portals in one place. Privacy-focused, self-hosted, and offline-first. ([Demo](https://demo.meremedical.co), [Source Code](https://github.com/cfu288/mere-medical))","co":"EU","fl":"🇪🇺","w":"https://meremedical.co","r":"","v":false},{"n":"Messaging","c":"Other","d":"EuropÃ¤ische Messenger-Alternativen â Ende-zu-Ende-verschlÃ¼sselt und ohne US-Datentransfer.","co":"","fl":"","w":"","r":"statt WhatsApp, Slack","v":false},{"n":"metaGer","c":"Other","d":"metaGer","co":"","fl":"","w":"","r":"","v":false},{"n":"midPoint","c":"Other","d":"midPoint","co":"","fl":"","w":"","r":"","v":false},{"n":"Migadu","c":"Email & Communication","d":"Migadu","co":"","fl":"","w":"","r":"","v":false},{"n":"Mikrochat","c":"Other","d":"Mikrochat","co":"","fl":"","w":"","r":"","v":false},{"n":"MikroRoom","c":"HR & Team","d":"MikroRoom","co":"","fl":"","w":"","r":"","v":false},{"n":"Mixpost","c":"Other","d":"Mixpost","co":"","fl":"","w":"","r":"","v":false},{"n":"Mode & Sport","c":"Other","d":"EuropÃ¤ische Sportmarken mit fairen Standards und Nachhaltigkeit.","co":"","fl":"","w":"","r":"statt Nike, Under Armour","v":false},{"n":"ModernMT","c":"AI & Automation","d":"ModernMT","co":"","fl":"","w":"","r":"","v":false},{"n":"Mojeek","c":"Other","d":"Mojeek","co":"","fl":"","w":"","r":"","v":false},{"n":"mollie","c":"Finance & Payments","d":"mollie","co":"","fl":"","w":"","r":"","v":false},{"n":"Monibot","c":"Analytics & Data","d":"Monibot","co":"","fl":"","w":"","r":"","v":false},{"n":"Monitorix","c":"Analytics & Data","d":"Monitorix","co":"","fl":"","w":"","r":"","v":false},{"n":"mosparo","c":"Other","d":"mosparo","co":"","fl":"","w":"","r":"","v":false},{"n":"Mostlymatter","c":"Other","d":"Mostlymatter","co":"","fl":"","w":"","r":"","v":false},{"n":"Mouseflow","c":"Analytics & Data","d":"Mouseflow","co":"","fl":"","w":"","r":"","v":false},{"n":"Movary","c":"Other","d":"Web app to track and rate your watched movies. ([Demo](https://github.com/leepeuker/movary?tab=readme-ov-file#demo))","co":"EU","fl":"🇪🇺","w":"https://github.com/leepeuker/movary","r":"","v":false},{"n":"MUBI","c":"Other","d":"Kuratierte Filmplattform fÃ¼r Arthouse und Festivalfilme","co":"","fl":"","w":"","r":"","v":false},{"n":"MUBI","c":"Other","d":"Kuratierte Filmplattform fÃ¼r Arthouse und Festivalfilme","co":"","fl":"","w":"https://mubi.com/de","r":"","v":false},{"n":"Mullvad Browser","c":"Other","d":"Mullvad Browser","co":"","fl":"","w":"","r":"","v":false},{"n":"Mullvad DNS","c":"Other","d":"Mullvad DNS","co":"","fl":"","w":"","r":"","v":false},{"n":"Mullvad VPN","c":"Security & Privacy","d":"Anonymer VPN-Dienst ohne Accountbindung aus Schweden","co":"","fl":"","w":"","r":"","v":false},{"n":"Mullvad VPN","c":"Security & Privacy","d":"Anonymer VPN-Dienst ohne Accountbindung aus Schweden","co":"","fl":"","w":"https://mullvad.net","r":"","v":false},{"n":"Mumble","c":"Other","d":"Mumble","co":"","fl":"","w":"","r":"","v":false},{"n":"Murena / /e/OS","c":"Other","d":"Datenschutzorientierte Smartphones mit /e/OS","co":"","fl":"","w":"https://murena.com","r":"","v":false},{"n":"Murena / /e/OS","c":"Other","d":"Datenschutzorientierte Smartphones mit /e/OS","co":"","fl":"","w":"","r":"","v":false},{"n":"Myra CDN","c":"Developer Tools","d":"Myra CDN","co":"","fl":"","w":"","r":"","v":false},{"n":"Myra EU CAPTCHA","c":"Other","d":"Myra EU CAPTCHA","co":"","fl":"","w":"","r":"","v":false},{"n":"N26","c":"Other","d":"Mobile Banking-App mit deutscher Banklizenz","co":"","fl":"","w":"","r":"","v":false},{"n":"Nach Kategorie durchsuchen","c":"AI & Automation","d":"Alle Bereiche","co":"","fl":"","w":"","r":"","v":false},{"n":"Nagios","c":"Analytics & Data","d":"Nagios","co":"","fl":"","w":"","r":"","v":false},{"n":"Nanelo","c":"Other","d":"Nanelo","co":"","fl":"","w":"","r":"","v":false},{"n":"Navigation & Karten","c":"Other","d":"Navigieren ohne Google-Bewegungsprotokoll â europÃ¤ische Kartendienste.","co":"","fl":"","w":"","r":"statt Google Maps","v":false},{"n":"neomia","c":"Other","d":"neomia","co":"","fl":"","w":"","r":"","v":false},{"n":"neoscript.ai","c":"Project Management","d":"KI-Dokumentationsassistent fÃ¼r Gesundheitsberufe aus Deutschland","co":"","fl":"","w":"","r":"","v":false},{"n":"Netatmo","c":"Other","d":"Smart Home GerÃ¤te mit lokaler Datenverarbeitung","co":"","fl":"","w":"","r":"","v":false},{"n":"netcup","c":"Cloud & Hosting","d":"netcup","co":"","fl":"","w":"","r":"","v":false},{"n":"Netdata","c":"Analytics & Data","d":"Netdata","co":"","fl":"","w":"","r":"","v":false},{"n":"Netframe","c":"Other","d":"Netframe","co":"","fl":"","w":"","r":"","v":false},{"n":"netim","c":"AI & Automation","d":"netim","co":"","fl":"","w":"","r":"","v":false},{"n":"Netron","c":"Analytics & Data","d":"Visualizer for neural network and machine learning models. ([Source Code](https://github.com/lutzroeder/netron))","co":"EU","fl":"🇪🇺","w":"https://netron.app","r":"","v":false},{"n":"Neuralk-AI","c":"Analytics & Data","d":"Neuralk-AI","co":"","fl":"","w":"","r":"","v":false},{"n":"Nextcloud","c":"Cloud & Hosting","d":"Selbst-gehostete Collaboration-Suite mit vollstÃ¤ndiger Kontrolle","co":"","fl":"","w":"","r":"","v":false},{"n":"Nextcloud Deck","c":"Project Management","d":"Nextcloud Deck","co":"","fl":"","w":"","r":"","v":false},{"n":"Nextcloud Hub","c":"Other","d":"Nextcloud Hub","co":"","fl":"","w":"","r":"","v":false},{"n":"Nextcloud Office","c":"Other","d":"Nextcloud Office","co":"","fl":"","w":"","r":"","v":false},{"n":"Nextcloud Social","c":"Other","d":"Nextcloud Social","co":"","fl":"","w":"","r":"","v":false},{"n":"Nextcloud Talk","c":"Email & Communication","d":"Nextcloud Talk","co":"","fl":"","w":"","r":"","v":false},{"n":"nilly","c":"Analytics & Data","d":"nilly","co":"","fl":"","w":"","r":"","v":false},{"n":"Nirvati","c":"Cloud & Hosting","d":"Easily 1-click spin up popular self-hosted apps from a convenient web interface. ([Source Code](https://gitlab.com/nirvati-ug/nirvati/backend))","co":"EU","fl":"🇪🇺","w":"https://nirvati.org","r":"","v":false},{"n":"Node Exporter","c":"Analytics & Data","d":"Node Exporter","co":"","fl":"","w":"","r":"","v":false},{"n":"NordName","c":"AI & Automation","d":"NordName","co":"","fl":"","w":"","r":"","v":false},{"n":"Nozbe","c":"Email & Communication","d":"Nozbe","co":"","fl":"","w":"","r":"","v":false},{"n":"Nuclino","c":"Other","d":"Kollaboratives Wissensmanagementsystem aus Deutschland","co":"","fl":"","w":"","r":"","v":false},{"n":"Nuki","c":"Other","d":"Elektronische TÃ¼rschloss-NachrÃ¼stung mit EU-Sicherheitsstandards","co":"","fl":"","w":"","r":"","v":false},{"n":"OCM - Organizational Credential Manager","c":"Other","d":"OCM - Organizational Credential Manager","co":"","fl":"","w":"","r":"","v":false},{"n":"OctoVPN","c":"Security & Privacy","d":"OctoVPN","co":"","fl":"","w":"","r":"","v":false},{"n":"Odown","c":"Analytics & Data","d":"Odown","co":"","fl":"","w":"","r":"","v":false},{"n":"Offen","c":"Analytics & Data","d":"Offen","co":"","fl":"","w":"","r":"","v":false},{"n":"Office","c":"Other","d":"Dokumente, Tabellen und PrÃ¤sentationen ohne Microsoft oder Google.","co":"","fl":"","w":"","r":"statt Microsoft 365, Google Workspace","v":false},{"n":"Office & Productivity","c":"Developer Tools","d":"Replacing","co":"","fl":"","w":"","r":"","v":false},{"n":"Oh Dear","c":"Analytics & Data","d":"Oh Dear","co":"","fl":"","w":"","r":"","v":false},{"n":"Olvid","c":"Email & Communication","d":"Olvid","co":"","fl":"","w":"","r":"","v":false},{"n":"Omeka","c":"Project Management","d":"Create complex narratives and share rich collections, adhering to Dublin Core standards with Omeka on your server, designed for scholars, museums, libraries, archives, and enthusiasts. ([Demo](https://omeka.org/classic/showcase/), [Source Code](https://github.com/omeka/Omeka))","co":"EU","fl":"🇪🇺","w":"https://omeka.org","r":"","v":false},{"n":"OmniPCX Enterprise Communication Server","c":"Other","d":"OmniPCX Enterprise Communication Server","co":"","fl":"","w":"","r":"","v":false},{"n":"Omnisend","c":"Email & Communication","d":"Omnisend","co":"","fl":"","w":"","r":"","v":false},{"n":"OmniVista","c":"Analytics & Data","d":"OmniVista","co":"","fl":"","w":"","r":"","v":false},{"n":"OneUptime","c":"Analytics & Data","d":"OneUptime","co":"","fl":"","w":"","r":"","v":false},{"n":"OnlyOffice","c":"Other","d":"Office-Suite mit MS-Office Dateiformat-KompatibilitÃ¤t","co":"","fl":"","w":"","r":"","v":false},{"n":"ONLYOFFICE","c":"Other","d":"Office-Suite mit MS-Office Dateiformat-KompatibilitÃ¤t","co":"","fl":"","w":"https://onlyoffice.com","r":"","v":false},{"n":"Open-Xchange","c":"Other","d":"Open-Xchange","co":"","fl":"","w":"","r":"","v":false},{"n":"Open Telekom Cloud","c":"Cloud & Hosting","d":"Open Telekom Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenCage","c":"Other","d":"OpenCage","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenCloud","c":"Storage & Backup","d":"File Sharing and Collaboration Platform. ([Source Code](https://github.com/opencloud-eu/opencloud))","co":"EU","fl":"🇪🇺","w":"https://docs.opencloud.eu","r":"","v":false},{"n":"openHAB","c":"Other","d":"Open-Source Smart Home Plattform aus Deutschland","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenLdap","c":"Other","d":"OpenLdap","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenNebula","c":"Other","d":"OpenNebula","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenNebula Community Edition","c":"Other","d":"OpenNebula Community Edition","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenOTP Security Suite","c":"Other","d":"OpenOTP Security Suite","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenProject","c":"Project Management","d":"Open-Source-Projektmanagement fÃ¼r agile und klassische Methoden","co":"","fl":"","w":"","r":"","v":false},{"n":"Openprovider","c":"AI & Automation","d":"Openprovider","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenStack","c":"Other","d":"OpenStack","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenTalk","c":"Email & Communication","d":"OpenTalk","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenTouch Enterprise Cloud","c":"HR & Team","d":"OpenTouch Enterprise Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenTouch Message Center","c":"Other","d":"OpenTouch Message Center","co":"","fl":"","w":"","r":"","v":false},{"n":"OpenVZ","c":"Other","d":"OpenVZ","co":"","fl":"","w":"","r":"","v":false},{"n":"Orange Business Cloud","c":"Other","d":"Orange Business Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"Organic Maps","c":"Other","d":"Organic Maps","co":"","fl":"","w":"","r":"","v":false},{"n":"OsmAnd","c":"Other","d":"Offline-Navigation auf OpenStreetMap-Basis aus den Niederlanden","co":"","fl":"","w":"","r":"","v":false},{"n":"Outline","c":"Other","d":"Outline","co":"","fl":"","w":"","r":"","v":false},{"n":"Outscale Compute (VM)","c":"Other","d":"Outscale Compute (VM)","co":"","fl":"","w":"","r":"","v":false},{"n":"Outscale Virtual Private Cloud","c":"Other","d":"Outscale Virtual Private Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"OVHcloud","c":"Cloud & Hosting","d":"Cloud-Infrastruktur mit europÃ¤ischen Rechenzentren","co":"","fl":"","w":"","r":"","v":false},{"n":"OVHcloud CDN","c":"Developer Tools","d":"OVHcloud CDN","co":"","fl":"","w":"","r":"","v":false},{"n":"OVHcloud Domains","c":"AI & Automation","d":"OVHcloud Domains","co":"","fl":"","w":"","r":"","v":false},{"n":"OVHcloud Object Storage","c":"Storage & Backup","d":"OVHcloud Object Storage","co":"","fl":"","w":"","r":"","v":false},{"n":"OVHcloud WordPress","c":"Cloud & Hosting","d":"OVHcloud WordPress","co":"","fl":"","w":"","r":"","v":false},{"n":"ownCloud Infinite Scale","c":"Other","d":"ownCloud Infinite Scale","co":"","fl":"","w":"","r":"","v":false},{"n":"OX App Suite","c":"Other","d":"OX App Suite","co":"","fl":"","w":"","r":"","v":false},{"n":"OX Cloud","c":"Other","d":"OX Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"OX Dovecot Pro","c":"Other","d":"OX Dovecot Pro","co":"","fl":"","w":"","r":"","v":false},{"n":"Panama Jack","c":"Other","d":"Spanische Lederstiefel und Schuhe aus Elche","co":"","fl":"","w":"","r":"","v":false},{"n":"Panama Jack","c":"Other","d":"Spanische Lederstiefel und Schuhe aus Elche","co":"","fl":"","w":"https://panamajack.com","r":"","v":false},{"n":"Paperless","c":"Other","d":"Paperless","co":"","fl":"","w":"","r":"","v":false},{"n":"Passbolt","c":"Other","d":"OpenPGP-basierter Team-Passwortmanager aus Luxemburg","co":"","fl":"","w":"https://passbolt.com","r":"","v":false},{"n":"Passbolt","c":"Security & Privacy","d":"OpenPGP-basierter Team-Passwortmanager aus Luxemburg","co":"","fl":"","w":"","r":"","v":false},{"n":"Password Depot","c":"Security & Privacy","d":"Password Depot","co":"","fl":"","w":"","r":"","v":false},{"n":"Passwortmanager","c":"Other","d":"PasswÃ¶rter und sensible Daten sicher verwalten.","co":"","fl":"","w":"","r":"statt LastPass, 1Password","v":false},{"n":"pCloud","c":"Cloud & Hosting","d":"Cloud-Speicher mit Einmalzahlung und EU-Serverstandorten","co":"","fl":"","w":"","r":"","v":false},{"n":"pCloud","c":"AI & Automation","d":"Lifetime-Speicher mit EU-Server-Option","co":"","fl":"","w":"https://partner.pcloud.com/r/154722","r":"","v":false},{"n":"pCloud Pass","c":"Security & Privacy","d":"pCloud Pass","co":"","fl":"","w":"","r":"","v":false},{"n":"PeerTube","c":"Other","d":"Dezentralisierte, fÃ¶derierte Video-Plattform aus Frankreich","co":"","fl":"","w":"https://joinpeertube.org","r":"","v":false},{"n":"PeerTube","c":"Email & Communication","d":"Dezentralisierte, fÃ¶derierte Video-Plattform aus Frankreich","co":"","fl":"","w":"","r":"","v":false},{"n":"PERFLUENCE","c":"Other","d":"PERFLUENCE","co":"","fl":"","w":"","r":"","v":false},{"n":"Pets","c":"AI & Automation","d":"Pet supplies with EU standards","co":"","fl":"","w":"","r":"","v":false},{"n":"Phare Uptime","c":"Analytics & Data","d":"Phare Uptime","co":"","fl":"","w":"","r":"","v":false},{"n":"PHP Server Monitor","c":"Analytics & Data","d":"PHP Server Monitor","co":"","fl":"","w":"","r":"","v":false},{"n":"phpLDAPadmin","c":"Other","d":"phpLDAPadmin","co":"","fl":"","w":"","r":"","v":false},{"n":"PhpSysInfo","c":"Analytics & Data","d":"PhpSysInfo","co":"","fl":"","w":"","r":"","v":false},{"n":"PingPing","c":"Analytics & Data","d":"PingPing","co":"","fl":"","w":"","r":"","v":false},{"n":"Pirsch","c":"Analytics & Data","d":"Pirsch","co":"","fl":"","w":"","r":"","v":false},{"n":"Piwik PRO","c":"Analytics & Data","d":"Analytics-Suite mit Fokus auf Datenschutz und Compliance","co":"","fl":"","w":"","r":"","v":false},{"n":"Plausible","c":"Analytics & Data","d":"Schlanke, DSGVO-konforme Web-Analytics ohne Cookies","co":"","fl":"","w":"","r":"","v":false},{"n":"Pleroma","c":"Other","d":"Pleroma","co":"","fl":"","w":"","r":"","v":false},{"n":"Pocket ID","c":"Other","d":"Pocket ID","co":"","fl":"","w":"","r":"","v":false},{"n":"PocketBase","c":"Security & Privacy","d":"PocketBase","co":"","fl":"","w":"","r":"","v":false},{"n":"PoeticMetric","c":"Analytics & Data","d":"PoeticMetric","co":"","fl":"","w":"","r":"","v":false},{"n":"Poll For All","c":"Other","d":"Poll For All","co":"","fl":"","w":"","r":"","v":false},{"n":"Pomerium","c":"Cloud & Hosting","d":"Identity-aware reverse proxy, successor to now obsolete oauth_proxy. It inserts an OAuth step before proxying your request to the backend, so that you can safely expose your self-hosted websites to public Internet. ([Source Code](https://github.com/pomerium/pomerium))","co":"EU","fl":"🇪🇺","w":"https://pomerium.io","r":"","v":false},{"n":"Posteo","c":"Email & Communication","d":"Datenschutzorientierter E-Mail-Dienst aus Berlin","co":"","fl":"","w":"","r":"","v":false},{"n":"Posteo","c":"Email & Communication","d":"Datenschutzorientierter E-Mail-Dienst aus Berlin","co":"","fl":"","w":"https://posteo.de","r":"","v":false},{"n":"Postfix","c":"Other","d":"Postfix","co":"","fl":"","w":"","r":"","v":false},{"n":"postfix.admin","c":"Other","d":"postfix.admin","co":"","fl":"","w":"","r":"","v":false},{"n":"PostHog","c":"Analytics & Data","d":"PostHog","co":"","fl":"","w":"","r":"","v":false},{"n":"Postiz","c":"Other","d":"Postiz","co":"","fl":"","w":"","r":"","v":false},{"n":"Prisme Analytics","c":"Analytics & Data","d":"Prisme Analytics","co":"","fl":"","w":"","r":"","v":false},{"n":"Private Captcha","c":"Other","d":"Private Captcha","co":"","fl":"","w":"","r":"","v":false},{"n":"Private Discuss","c":"Email & Communication","d":"Private Discuss","co":"","fl":"","w":"","r":"","v":false},{"n":"Productivity & Office","c":"Developer Tools","d":"10 categories","co":"","fl":"","w":"","r":"","v":false},{"n":"Produkt vorschlagen Suggest a product","c":"AI & Automation","d":"Kennst du ein europÃ¤isches Produkt, das hier fehlt? Know a European product we're missing?","co":"","fl":"","w":"","r":"","v":false},{"n":"ProduktivitÃ¤t & Kalender","c":"Other","d":"EuropÃ¤ische ProduktivitÃ¤ts- und Kalender-Alternativen â DSGVO-konform und ohne US-Datentransfer.","co":"","fl":"","w":"","r":"statt Google Calendar","v":false},{"n":"Profitap","c":"Analytics & Data","d":"Profitap","co":"","fl":"","w":"","r":"","v":false},{"n":"Projektmanagement","c":"Other","d":"Aufgaben und Projekte ohne US-Datentransfer organisieren.","co":"","fl":"","w":"","r":"statt Asana, Notion, Jira","v":false},{"n":"Projektron BCS","c":"Project Management","d":"Projektron BCS","co":"","fl":"","w":"","r":"","v":false},{"n":"Prometheus","c":"Analytics & Data","d":"Prometheus","co":"","fl":"","w":"","r":"","v":false},{"n":"Promotheus","c":"Analytics & Data","d":"Promotheus","co":"","fl":"","w":"","r":"","v":false},{"n":"Prose","c":"Other","d":"Prose","co":"","fl":"","w":"","r":"","v":false},{"n":"Proton Calendar","c":"Other","d":"Proton Calendar","co":"","fl":"","w":"","r":"","v":false},{"n":"Proton Drive","c":"Cloud & Hosting","d":"Cloud-Speicher mit Zero-Knowledge-Architektur und EU-Rechenzentren","co":"","fl":"","w":"","r":"","v":false},{"n":"Proton Drive","c":"AI & Automation","d":"Ende-zu-Ende-verschlÃ¼sselter Cloud-Speicher","co":"","fl":"","w":"https://go.getproton.me/SH2VS","r":"","v":false},{"n":"Proton Mail","c":"Email & Communication","d":"Ende-zu-Ende-verschlÃ¼sselter E-Mail-Dienst aus der Schweiz","co":"","fl":"","w":"https://go.getproton.me/SH2VX","r":"","v":false},{"n":"Proton Mail","c":"Email & Communication","d":"Ende-zu-Ende-verschlÃ¼sselter E-Mail-Dienst aus der Schweiz","co":"","fl":"","w":"","r":"","v":false},{"n":"Proton Pass","c":"Other","d":"Ende-zu-Ende verschlÃ¼sselter Passwortmanager aus der Schweiz","co":"","fl":"","w":"https://go.getproton.me/SH2VT","r":"","v":false},{"n":"Proton Pass","c":"Security & Privacy","d":"Ende-zu-Ende verschlÃ¼sselter Passwortmanager aus der Schweiz","co":"","fl":"","w":"","r":"","v":false},{"n":"Proton VPN","c":"Security & Privacy","d":"Open-Source VPN-Dienst mit Secure-Core-Architektur","co":"","fl":"","w":"https://go.getproton.me/SH2VU","r":"","v":false},{"n":"Proton VPN","c":"Security & Privacy","d":"Open-Source VPN-Dienst mit Secure-Core-Architektur","co":"","fl":"","w":"","r":"","v":false},{"n":"Publytics","c":"Analytics & Data","d":"Publytics","co":"","fl":"","w":"","r":"","v":false},{"n":"Puma","c":"Other","d":"Sportartikelhersteller mit COâ-Reduktionszielen nach EU-Standard","co":"","fl":"","w":"https://puma.com","r":"","v":false},{"n":"Puma","c":"Other","d":"Sportartikelhersteller mit COâ-Reduktionszielen nach EU-Standard","co":"","fl":"","w":"","r":"","v":false},{"n":"Qobuz","c":"Other","d":"Hi-Fi Musikstreaming mit europÃ¤ischem Datenschutz","co":"","fl":"","w":"","r":"","v":false},{"n":"Qobuz","c":"Other","d":"Hi-Fi Musikstreaming mit europÃ¤ischem Datenschutz","co":"","fl":"","w":"https://qobuz.com","r":"","v":false},{"n":"quad9","c":"Other","d":"quad9","co":"","fl":"","w":"","r":"","v":false},{"n":"Quasr","c":"Project Management","d":"Quasr","co":"","fl":"","w":"","r":"","v":false},{"n":"QUESTIONSTAR","c":"Other","d":"QUESTIONSTAR","co":"","fl":"","w":"","r":"","v":false},{"n":"Quickpay","c":"Finance & Payments","d":"Quickpay","co":"","fl":"","w":"","r":"","v":false},{"n":"Quickwit","c":"Analytics & Data","d":"Quickwit","co":"","fl":"","w":"","r":"","v":false},{"n":"Qwant","c":"Other","d":"Qwant","co":"","fl":"","w":"","r":"","v":false},{"n":"Raidboxes","c":"Cloud & Hosting","d":"Raidboxes","co":"","fl":"","w":"","r":"","v":false},{"n":"Raidboxes Emails","c":"Email & Communication","d":"Raidboxes Emails","co":"","fl":"","w":"","r":"","v":false},{"n":"Rainbow Business Communication","c":"Other","d":"Rainbow Business Communication","co":"","fl":"","w":"","r":"","v":false},{"n":"Rainbow Office","c":"Other","d":"Rainbow Office","co":"","fl":"","w":"","r":"","v":false},{"n":"Rapid.Space VPS","c":"Other","d":"Rapid.Space VPS","co":"","fl":"","w":"","r":"","v":false},{"n":"rapidmail","c":"Email & Communication","d":"rapidmail","co":"","fl":"","w":"","r":"","v":false},{"n":"RcodeZero","c":"Other","d":"RcodeZero","co":"","fl":"","w":"","r":"","v":false},{"n":"Recommended Alternatives","c":"AI & Automation","d":"Handpicked","co":"","fl":"","w":"","r":"","v":false},{"n":"RelatedChat","c":"Other","d":"RelatedChat","co":"","fl":"","w":"","r":"","v":false},{"n":"restena","c":"Other","d":"restena","co":"","fl":"","w":"","r":"","v":false},{"n":"Reverso","c":"AI & Automation","d":"Reverso","co":"","fl":"","w":"","r":"","v":false},{"n":"Rocket.Chat","c":"Email & Communication","d":"Rocket.Chat","co":"","fl":"","w":"","r":"","v":false},{"n":"Rocketchat","c":"Other","d":"Rocketchat","co":"","fl":"","w":"","r":"","v":false},{"n":"RTL+","c":"Other","d":"EuropÃ¤ische Streaming-Plattform mit deutschsprachigem Fokus","co":"","fl":"","w":"https://plus.rtl.de","r":"","v":false},{"n":"RTL+","c":"Other","d":"EuropÃ¤ische Streaming-Plattform mit deutschsprachigem Fokus","co":"","fl":"","w":"","r":"","v":false},{"n":"Rublon","c":"Other","d":"Rublon","co":"","fl":"","w":"","r":"","v":false},{"n":"Runbox","c":"Email & Communication","d":"Norwegischer E-Mail-Dienst mit Wasserkraft-Infrastruktur","co":"","fl":"","w":"","r":"","v":false},{"n":"Runbox","c":"Email & Communication","d":"Norwegischer E-Mail-Dienst mit Wasserkraft-Infrastruktur","co":"","fl":"","w":"https://runbox.com","r":"","v":false},{"n":"Runway PaaS","c":"Cloud & Hosting","d":"Runway PaaS","co":"","fl":"","w":"","r":"","v":false},{"n":"Safespring","c":"Other","d":"Safespring","co":"","fl":"","w":"","r":"","v":false},{"n":"Salomon","c":"Other","d":"Alpine Expertise fÃ¼r hÃ¶chste Outdoor-Performance","co":"","fl":"","w":"https://salomon.com","r":"","v":false},{"n":"Salomon","c":"Other","d":"Alpine Expertise fÃ¼r hÃ¶chste Outdoor-Performance","co":"","fl":"","w":"","r":"","v":false},{"n":"SAMA","c":"Email & Communication","d":"Next-Gen self-hosted chat server and clients. ([Demo](https://app.samacloud.io/demo), [Source Code](https://github.com/SAMA-Communications/sama-server), [Clients](https://github.com/SAMA-Communications/sama-client))","co":"EU","fl":"🇪🇺","w":"https://samacloud.io","r":"","v":false},{"n":"Sandstorm","c":"Cloud & Hosting","d":"Personal server for running self-hosted apps easily and securely. ([Demo](https://demo.sandstorm.io/), [Source Code](https://github.com/sandstorm-io/sandstorm))","co":"EU","fl":"🇪🇺","w":"https://sandstorm.io","r":"","v":false},{"n":"Scaleway","c":"Cloud & Hosting","d":"COâ-neutrale Cloud-Computing-Infrastruktur aus Europa","co":"","fl":"","w":"","r":"","v":false},{"n":"Scaleway Bare Metal","c":"Other","d":"Scaleway Bare Metal","co":"","fl":"","w":"","r":"","v":false},{"n":"Scaleway DNS","c":"Other","d":"Scaleway DNS","co":"","fl":"","w":"","r":"","v":false},{"n":"Scaleway Domain Names","c":"AI & Automation","d":"Scaleway Domain Names","co":"","fl":"","w":"","r":"","v":false},{"n":"Scaleway Instances","c":"Other","d":"Scaleway Instances","co":"","fl":"","w":"","r":"","v":false},{"n":"Scaleway Object Storage","c":"Storage & Backup","d":"Scaleway Object Storage","co":"","fl":"","w":"","r":"","v":false},{"n":"Scaleway Serverless Functions","c":"Other","d":"Scaleway Serverless Functions","co":"","fl":"","w":"","r":"","v":false},{"n":"Scaleway TEM","c":"Email & Communication","d":"Scaleway TEM","co":"","fl":"","w":"","r":"","v":false},{"n":"Scalingo","c":"Other","d":"Scalingo","co":"","fl":"","w":"","r":"","v":false},{"n":"SCENARIchain-server","c":"Other","d":"SCENARIchain-server","co":"","fl":"","w":"","r":"","v":false},{"n":"Schleuder","c":"Email & Communication","d":"GPG-enabled mailing list manager with resending-capabilities. ([Source Code](https://0xacab.org/schleuder/schleuder/tree/master))","co":"EU","fl":"🇪🇺","w":"https://schleuder.nadir.org","r":"","v":false},{"n":"Screego","c":"HR & Team","d":"Screego","co":"","fl":"","w":"","r":"","v":false},{"n":"Scrive","c":"Other","d":"Scrive","co":"","fl":"","w":"","r":"","v":false},{"n":"Scrutiny","c":"Analytics & Data","d":"Scrutiny","co":"","fl":"","w":"","r":"","v":false},{"n":"SEAL Metrics","c":"Analytics & Data","d":"SEAL Metrics","co":"","fl":"","w":"","r":"","v":false},{"n":"Security & Identity","c":"Developer Tools","d":"4 categories","co":"","fl":"","w":"","r":"","v":false},{"n":"Seeweb","c":"Cloud & Hosting","d":"Seeweb","co":"","fl":"","w":"","r":"","v":false},{"n":"Seeweb Mail","c":"Email & Communication","d":"Seeweb Mail","co":"","fl":"","w":"","r":"","v":false},{"n":"Self-hosting Google Fonts","c":"Other","d":"Self-hosting Google Fonts","co":"","fl":"","w":"","r":"","v":false},{"n":"Semonto","c":"Analytics & Data","d":"Semonto","co":"","fl":"","w":"","r":"","v":false},{"n":"Sentry","c":"Analytics & Data","d":"Sentry","co":"","fl":"","w":"","r":"","v":false},{"n":"Servas","c":"Other","d":"A self-hosted bookmark management tool. It allows organization with tags, groups, and a list specifically for later access. It supports multiple users with 2FA. Companion browser extensions are available for Firefox and Chrome. ([Clients](https://github.com/beromir/Servas#browser-extensions))","co":"EU","fl":"🇪🇺","w":"https://github.com/beromir/Servas","r":"","v":false},{"n":"Servebolt","c":"Cloud & Hosting","d":"Servebolt","co":"","fl":"","w":"","r":"","v":false},{"n":"Serverius DDoS protection","c":"Other","d":"Serverius DDoS protection","co":"","fl":"","w":"","r":"","v":false},{"n":"Shelly / Allterco","c":"Other","d":"WLAN-basierte Smart Home Hardware fÃ¼r lokale Steuerung","co":"","fl":"","w":"","r":"","v":false},{"n":"Shifter","c":"Storage & Backup","d":"A simple, self-hosted file-sharing web app, powered by Django.","co":"EU","fl":"🇪🇺","w":"https://github.com/TobySuch/Shifter","r":"","v":false},{"n":"Shiftphone","c":"Other","d":"Reparierbare Smartphones aus deutscher Entwicklung","co":"","fl":"","w":"https://shift.eco","r":"","v":false},{"n":"Shiftphone","c":"Other","d":"Reparierbare Smartphones aus deutscher Entwicklung","co":"","fl":"","w":"","r":"","v":false},{"n":"Shinken Monitoring","c":"Analytics & Data","d":"Shinken Monitoring","co":"","fl":"","w":"","r":"","v":false},{"n":"Shmutke","c":"Other","d":"Litauische Designmarke fÃ¼r Hoodies, T-Shirts und Accessoires","co":"","fl":"","w":"https://shmutke.eu","r":"","v":false},{"n":"Shmutke","c":"Other","d":"Litauische Designmarke fÃ¼r Hoodies, T-Shirts und Accessoires","co":"","fl":"","w":"","r":"","v":false},{"n":"Shopware","c":"Project Management","d":"Open-Source-E-Commerce-System mit modularer Architektur","co":"","fl":"","w":"","r":"","v":false},{"n":"Shopware Community Edition","c":"Other","d":"PHP based open source e-commerce software made in Germany. ([Demo](https://www.shopware.com/en/test-demo/), [Source Code](https://github.com/shopware/shopware))","co":"DE","fl":"🇩🇪","w":"https://shopware.com/en/community/community-edition","r":"","v":false},{"n":"Shynet","c":"Analytics & Data","d":"Shynet","co":"","fl":"","w":"","r":"","v":false},{"n":"SICS-PC","c":"Other","d":"SICS-PC","co":"","fl":"","w":"","r":"","v":false},{"n":"SIGN.PLUS","c":"Other","d":"SIGN.PLUS","co":"","fl":"","w":"","r":"","v":false},{"n":"SIGNETTA","c":"Developer Tools","d":"Signetta is a credit-based e-signature platform tailored for mobile teams and high-volume HR workflows in industries with strict compliance needs.","co":"","fl":"","w":"","r":"","v":false},{"n":"signoz","c":"Analytics & Data","d":"signoz","co":"","fl":"","w":"","r":"","v":false},{"n":"Simple Analytics","c":"Analytics & Data","d":"Datenschutzorientierte Website-Statistiken ohne Personendaten","co":"","fl":"","w":"","r":"","v":false},{"n":"Simplenet","c":"Cloud & Hosting","d":"Simplenet","co":"","fl":"","w":"","r":"","v":false},{"n":"Simply.com","c":"Cloud & Hosting","d":"Simply.com","co":"","fl":"","w":"","r":"","v":false},{"n":"SIP Thor","c":"HR & Team","d":"SIP Thor","co":"","fl":"","w":"","r":"","v":false},{"n":"Sitesights","c":"Analytics & Data","d":"Sitesights","co":"","fl":"","w":"","r":"","v":false},{"n":"Sketch","c":"Project Management","d":"Vektorbasiertes Designwerkzeug mit nativer Performance","co":"","fl":"","w":"","r":"","v":false},{"n":"SKRED","c":"Email & Communication","d":"SKRED","co":"","fl":"","w":"","r":"","v":false},{"n":"Skribble","c":"Other","d":"Skribble","co":"","fl":"","w":"","r":"","v":false},{"n":"Slash","c":"Other","d":"An open source, self-hosted bookmarks and link sharing platform.","co":"EU","fl":"🇪🇺","w":"https://github.com/yourselfhosted/slash","r":"","v":false},{"n":"Smart Home","c":"Other","d":"EuropÃ¤ische Smart-Home-LÃ¶sungen â lokal, datenschutzfreundlich und ohne US-Cloud.","co":"","fl":"","w":"","r":"statt Google Home, Amazon Alexa","v":false},{"n":"Smartphones","c":"Other","d":"EuropÃ¤ische Smartphones mit fairer Produktion und langen Updates.","co":"","fl":"","w":"","r":"statt iPhone, Samsung Galaxy","v":false},{"n":"Smartsupp","c":"Email & Communication","d":"Smartsupp","co":"","fl":"","w":"","r":"","v":false},{"n":"SmokePing","c":"Analytics & Data","d":"SmokePing","co":"","fl":"","w":"","r":"","v":false},{"n":"SnappyMail","c":"Email & Communication","d":"Simple, modern, lightweight & fast web-based email client (fork of RainLoop). ([Demo](https://snappymail.eu/demo/), [Source Code](https://github.com/the-djmaze/snappymail), [Clients](https://snappymail.eu/repository/v2/plugins/))","co":"EU","fl":"🇪🇺","w":"https://snappymail.eu","r":"","v":false},{"n":"SNClient+","c":"Analytics & Data","d":"SNClient+","co":"","fl":"","w":"","r":"","v":false},{"n":"Social Media","c":"Other","d":"EuropÃ¤ische Social-Media-Alternativen â dezentralisiert, ohne Algorithmen und ohne Werbung.","co":"","fl":"","w":"","r":"statt Twitter/X, Facebook","v":false},{"n":"Soft Panel Manager","c":"Analytics & Data","d":"Soft Panel Manager","co":"","fl":"","w":"","r":"","v":false},{"n":"SOGo","c":"Other","d":"SOGo","co":"","fl":"","w":"","r":"","v":false},{"n":"SoGo Open Source","c":"Other","d":"SoGo Open Source","co":"","fl":"","w":"","r":"","v":false},{"n":"SoGoMail","c":"Other","d":"SoGoMail","co":"","fl":"","w":"","r":"","v":false},{"n":"solidtime","c":"Other","d":"solidtime","co":"","fl":"","w":"","r":"","v":false},{"n":"Solutions","c":"Other","d":"Solutions","co":"","fl":"","w":"","r":"","v":false},{"n":"SoundCloud","c":"Other","d":"Musikplattform mit direkter KÃ¼nstler-Monetarisierung","co":"","fl":"","w":"","r":"","v":false},{"n":"SoundCloud","c":"Other","d":"Musikplattform mit direkter KÃ¼nstler-Monetarisierung","co":"","fl":"","w":"https://soundcloud.com","r":"","v":false},{"n":"Soverin","c":"Email & Communication","d":"Soverin","co":"","fl":"","w":"","r":"","v":false},{"n":"Sparklane","c":"Marketing & SEO","d":"Sparklane","co":"","fl":"","w":"","r":"","v":false},{"n":"Spielzeug & Hobby","c":"AI & Automation","d":"EuropÃ¤isches Spielzeug mit den strengsten Sicherheitsstandards der Welt.","co":"","fl":"","w":"","r":"statt Hasbro, Mattel","v":false},{"n":"Spotify","c":"Other","d":"Der schwedische Musik-Streaming-MarktfÃ¼hrer","co":"","fl":"","w":"","r":"","v":false},{"n":"Spotify","c":"Other","d":"Der schwedische Musik-Streaming-MarktfÃ¼hrer","co":"","fl":"","w":"https://spotify.com","r":"","v":false},{"n":"Sprachen & Bildung","c":"AI & Automation","d":"EuropÃ¤ische Lernplattformen fÃ¼r Sprachen und digitale FÃ¤higkeiten.","co":"","fl":"","w":"","r":"statt Duolingo, Coursera","v":false},{"n":"Spreed","c":"HR & Team","d":"Spreed","co":"","fl":"","w":"","r":"","v":false},{"n":"sproof","c":"Other","d":"sproof","co":"","fl":"","w":"","r":"","v":false},{"n":"Squid","c":"Other","d":"Caching proxy for the Web supporting HTTP, HTTPS, FTP, and more. It reduces bandwidth and improves response times by caching and reusing frequently-requested web pages. ([Source Code](https://code.launchpad.net/squid))","co":"EU","fl":"🇪🇺","w":"https://squid-cache.org","r":"","v":false},{"n":"Stackfield","c":"Email & Communication","d":"Stackfield","co":"","fl":"","w":"","r":"","v":false},{"n":"Stackhero","c":"Other","d":"Stackhero","co":"","fl":"","w":"","r":"","v":false},{"n":"STACKIT","c":"Cloud & Hosting","d":"STACKIT","co":"","fl":"","w":"","r":"","v":false},{"n":"Stackspin","c":"Other","d":"Stackspin","co":"","fl":"","w":"","r":"","v":false},{"n":"Stalwart Mail Server","c":"Other","d":"Stalwart Mail Server","co":"","fl":"","w":"","r":"","v":false},{"n":"Stancer","c":"Finance & Payments","d":"Stancer","co":"","fl":"","w":"","r":"","v":false},{"n":"Stape","c":"Project Management","d":"Stape","co":"","fl":"","w":"","r":"","v":false},{"n":"statcounter","c":"Analytics & Data","d":"statcounter","co":"","fl":"","w":"","r":"","v":false},{"n":"Statuspal","c":"Analytics & Data","d":"Statuspal","co":"","fl":"","w":"","r":"","v":false},{"n":"Steady","c":"Email & Communication","d":"Steady","co":"","fl":"","w":"","r":"","v":false},{"n":"Stoat","c":"Email & Communication","d":"Stoat is a user-first chat platform built with modern web technologies. ([Source Code](https://github.com/stoatchat/self-hosted))","co":"EU","fl":"🇪🇺","w":"https://stoat.chat","r":"","v":false},{"n":"Stormly","c":"Analytics & Data","d":"Stormly","co":"","fl":"","w":"","r":"","v":false},{"n":"Strato WordPress","c":"Cloud & Hosting","d":"Strato WordPress","co":"","fl":"","w":"","r":"","v":false},{"n":"Streaming","c":"Other","d":"Musik und Video streamen mit europÃ¤ischen Anbietern.","co":"","fl":"","w":"","r":"statt Apple Music, Netflix","v":false},{"n":"Strengere Umweltstandards","c":"AI & Automation","d":"EU-Unternehmen unterliegen den weltweit strengsten Umweltauflagen. EuropÃ¤ische Produkte sind auf Langlebigkeit ausgelegt â weniger Wegwerfkultur, mehr Verantwortung.","co":"","fl":"","w":"","r":"","v":false},{"n":"Stricter Environmental Standards","c":"AI & Automation","d":"EU companies are subject to the world's strictest environmental regulations. European products are designed for longevity â less throwaway culture, more responsibility.","co":"","fl":"","w":"","r":"","v":false},{"n":"Stringer","c":"Other","d":"Work-in-progress self-hosted, anti-social RSS reader.","co":"EU","fl":"🇪🇺","w":"https://github.com/stringer-rss/stringer","r":"","v":false},{"n":"Suche","c":"Other","d":"Suchen ohne Google-Profiling â europÃ¤ische Suchmaschinen ohne Nutzertracking.","co":"","fl":"","w":"","r":"statt Google Search","v":false},{"n":"Supabase","c":"Security & Privacy","d":"Supabase","co":"","fl":"","w":"","r":"","v":false},{"n":"Supertext","c":"AI & Automation","d":"Supertext","co":"","fl":"","w":"","r":"","v":false},{"n":"SuperTokens Core","c":"Security & Privacy","d":"SuperTokens Core","co":"","fl":"","w":"","r":"","v":false},{"n":"SurveyLegend","c":"Other","d":"SurveyLegend","co":"","fl":"","w":"","r":"","v":false},{"n":"Survio","c":"Other","d":"Survio","co":"","fl":"","w":"","r":"","v":false},{"n":"Survs","c":"Other","d":"Survs","co":"","fl":"","w":"","r":"","v":false},{"n":"Sweego","c":"Email & Communication","d":"Sweego","co":"","fl":"","w":"","r":"","v":false},{"n":"Swetrix","c":"Analytics & Data","d":"Swetrix","co":"","fl":"","w":"","r":"","v":false},{"n":"Swetrix CAPTCHA","c":"Other","d":"Swetrix CAPTCHA","co":"","fl":"","w":"","r":"","v":false},{"n":"SwingMusic","c":"Other","d":"Swing Music is a beautiful, self-hosted music player and streaming server for your local audio files. Like a cooler Spotify ... but bring your own music. ([Source Code](https://github.com/swingmx/swingmusic))","co":"EU","fl":"🇪🇺","w":"https://swingmusic.vercel.app","r":"","v":false},{"n":"swisscows","c":"Other","d":"swisscows","co":"","fl":"","w":"","r":"","v":false},{"n":"Sygic GPS Navigation","c":"Other","d":"Sygic GPS Navigation","co":"","fl":"","w":"","r":"","v":false},{"n":"Sylk suite","c":"HR & Team","d":"Sylk suite","co":"","fl":"","w":"","r":"","v":false},{"n":"Symbiosis","c":"Other","d":"Symbiosis","co":"","fl":"","w":"","r":"","v":false},{"n":"Sympa","c":"Email & Communication","d":"Sympa","co":"","fl":"","w":"","r":"","v":false},{"n":"SysEleven MetaKube","c":"Other","d":"SysEleven MetaKube","co":"","fl":"","w":"","r":"","v":false},{"n":"Syslog-ng","c":"Analytics & Data","d":"Syslog-ng","co":"","fl":"","w":"","r":"","v":false},{"n":"tadoÂ°","c":"Other","d":"Intelligente Heizungssteuerung nach EU-Energiestandards","co":"","fl":"","w":"","r":"","v":false},{"n":"Taiga","c":"Project Management","d":"Taiga","co":"","fl":"","w":"","r":"","v":false},{"n":"Task Keeper","c":"Project Management","d":"List editor for power users, backed by a self-hosted server.","co":"EU","fl":"🇪🇺","w":"https://github.com/nymanjens/piga","r":"","v":false},{"n":"Tasks.md","c":"Project Management","d":"A self-hosted, file based task management board that supports Markdown syntax.","co":"EU","fl":"🇪🇺","w":"https://github.com/BaldissaraMatheus/Tasks.md","r":"","v":false},{"n":"Team Communication","c":"Developer Tools","d":"Replacing","co":"","fl":"","w":"","r":"","v":false},{"n":"TeleGuard","c":"Email & Communication","d":"TeleGuard","co":"","fl":"","w":"","r":"","v":false},{"n":"TelemetryDeck","c":"Analytics & Data","d":"TelemetryDeck","co":"","fl":"","w":"","r":"","v":false},{"n":"Teleport","c":"Other","d":"Teleport","co":"","fl":"","w":"","r":"","v":false},{"n":"Testomato","c":"Analytics & Data","d":"Testomato","co":"","fl":"","w":"","r":"","v":false},{"n":"The Lounge","c":"Email & Communication","d":"Self-hosted web IRC client. ([Demo](https://demo.thelounge.chat/), [Source Code](https://github.com/thelounge/thelounge))","co":"EU","fl":"🇪🇺","w":"https://thelounge.chat","r":"","v":false},{"n":"Threefold Tech","c":"Other","d":"Threefold Tech","co":"","fl":"","w":"","r":"","v":false},{"n":"Threema","c":"Email & Communication","d":"Messenger ohne Telefonnummern-Pflicht aus der Schweiz","co":"","fl":"","w":"","r":"","v":false},{"n":"Threema","c":"Email & Communication","d":"Messenger ohne Telefonnummern-Pflicht aus der Schweiz","co":"","fl":"","w":"https://threema.com","r":"","v":false},{"n":"Threema Broadcast","c":"Email & Communication","d":"Threema Broadcast","co":"","fl":"","w":"","r":"","v":false},{"n":"Threema Work","c":"Other","d":"Threema Work","co":"","fl":"","w":"","r":"","v":false},{"n":"ThreemaEducation","c":"Other","d":"ThreemaEducation","co":"","fl":"","w":"","r":"","v":false},{"n":"ThreemaOnPrem","c":"Other","d":"ThreemaOnPrem","co":"","fl":"","w":"","r":"","v":false},{"n":"Tianji","c":"Analytics & Data","d":"Tianji","co":"","fl":"","w":"","r":"","v":false},{"n":"TiddlyWiki","c":"Other","d":"Reusable non-linear personal web notebook. ([Source Code](https://github.com/TiddlyWiki/TiddlyWiki5))","co":"EU","fl":"🇪🇺","w":"https://tiddlywiki.com","r":"","v":false},{"n":"Tilaa","c":"Cloud & Hosting","d":"Tilaa","co":"","fl":"","w":"","r":"","v":false},{"n":"timeBuzzer","c":"Other","d":"timeBuzzer","co":"","fl":"","w":"","r":"","v":false},{"n":"Timely","c":"Other","d":"Timely","co":"","fl":"","w":"","r":"","v":false},{"n":"Timeneye","c":"Other","d":"Timeneye","co":"","fl":"","w":"","r":"","v":false},{"n":"Timeular","c":"Other","d":"Timeular","co":"","fl":"","w":"","r":"","v":false},{"n":"Timing","c":"Other","d":"Timing","co":"","fl":"","w":"","r":"","v":false},{"n":"TimmeHosting","c":"Cloud & Hosting","d":"TimmeHosting","co":"","fl":"","w":"","r":"","v":false},{"n":"timr","c":"Other","d":"timr","co":"","fl":"","w":"","r":"","v":false},{"n":"tinylytics","c":"Analytics & Data","d":"tinylytics","co":"","fl":"","w":"","r":"","v":false},{"n":"Tipi","c":"Cloud & Hosting","d":"Homeserver manager. One command setup, one click installs for your favorites self-hosted apps. ([Source Code](https://github.com/runtipi/runtipi))","co":"EU","fl":"🇪🇺","w":"https://runtipi.io","r":"","v":false},{"n":"Tipimail","c":"Email & Communication","d":"Tipimail","co":"","fl":"","w":"","r":"","v":false},{"n":"Tirreno","c":"Analytics & Data","d":"Tirreno","co":"","fl":"","w":"","r":"","v":false},{"n":"Toggl Track","c":"Other","d":"Toggl Track","co":"","fl":"","w":"","r":"","v":false},{"n":"TomTom","c":"Other","d":"Navigationspionier aus Amsterdam mit 30 Jahren Expertise","co":"","fl":"","w":"","r":"","v":false},{"n":"TomTom GO Navigation","c":"Other","d":"TomTom GO Navigation","co":"","fl":"","w":"","r":"","v":false},{"n":"Toys & Hobbies","c":"AI & Automation","d":"Toys with top safety standards","co":"","fl":"","w":"","r":"","v":false},{"n":"Tracim","c":"Other","d":"Tracim","co":"","fl":"","w":"","r":"","v":false},{"n":"Trackboxx","c":"Analytics & Data","d":"Trackboxx","co":"","fl":"","w":"","r":"","v":false},{"n":"Transport & Reise","c":"Other","d":"EuropÃ¤ische MobilitÃ¤ts- und Reisedienste â nachhaltig und DSGVO-konform.","co":"","fl":"","w":"","r":"statt Uber, Lyft","v":false},{"n":"Treebal | Treebal Pro","c":"Other","d":"Treebal | Treebal Pro","co":"","fl":"","w":"","r":"","v":false},{"n":"Trengo","c":"Email & Communication","d":"Trengo","co":"","fl":"","w":"","r":"","v":false},{"n":"tresorit","c":"Cloud & Hosting","d":"Enterprise-Cloud-Speicher mit Zero-Knowledge-VerschlÃ¼sselung","co":"","fl":"","w":"","r":"","v":false},{"n":"Trustcaptcha","c":"Other","d":"Trustcaptcha","co":"","fl":"","w":"","r":"","v":false},{"n":"Tuta","c":"Email & Communication","d":"Tuta (formerly Tutanota) is an encrypted email and calendar service based in Germany, with no advertising and the emphasis on privacy. The basic account is free, with paid-for accounts that have more features and storage. They also have their own apps for Android and iPhone.","co":"DE","fl":"🇩🇪","w":"https://tuta.com","r":"","v":false},{"n":"Tuta Calendar","c":"Other","d":"Tuta Calendar","co":"","fl":"","w":"","r":"","v":false},{"n":"Tuta Mail","c":"Email & Communication","d":"VollverschlÃ¼sselter E-Mail-Dienst mit Ãko-Servern in Deutschland","co":"","fl":"","w":"","r":"","v":false},{"n":"Tyme","c":"Other","d":"Tyme","co":"","fl":"","w":"","r":"","v":false},{"n":"Typeform","c":"Other","d":"Typeform","co":"","fl":"","w":"","r":"","v":false},{"n":"UCS@school","c":"Other","d":"UCS@school","co":"","fl":"","w":"","r":"","v":false},{"n":"umami","c":"Analytics & Data","d":"umami","co":"","fl":"","w":"","r":"","v":false},{"n":"UmfrageOnline","c":"Other","d":"UmfrageOnline","co":"","fl":"","w":"","r":"","v":false},{"n":"UncensoredDNS","c":"Other","d":"UncensoredDNS","co":"","fl":"","w":"","r":"","v":false},{"n":"uniqkey","c":"Security & Privacy","d":"uniqkey","co":"","fl":"","w":"","r":"","v":false},{"n":"United Domains","c":"AI & Automation","d":"United Domains","co":"","fl":"","w":"","r":"","v":false},{"n":"Univention Corporate Server","c":"Other","d":"Univention Corporate Server","co":"","fl":"","w":"","r":"","v":false},{"n":"Unzer","c":"Finance & Payments","d":"Unzer","co":"","fl":"","w":"","r":"","v":false},{"n":"UpCloud","c":"Cloud & Hosting","d":"Cloud-Hosting mit MaxIOPS-Speichertechnologie","co":"","fl":"","w":"","r":"","v":false},{"n":"UpCloud Object Storage","c":"Storage & Backup","d":"UpCloud Object Storage","co":"","fl":"","w":"","r":"","v":false},{"n":"updown.io","c":"Analytics & Data","d":"updown.io","co":"","fl":"","w":"","r":"","v":false},{"n":"UptimeRobot","c":"Analytics & Data","d":"UptimeRobot","co":"","fl":"","w":"","r":"","v":false},{"n":"Uptimia","c":"Analytics & Data","d":"Uptimia","co":"","fl":"","w":"","r":"","v":false},{"n":"User.com","c":"Marketing & SEO","d":"User.com","co":"","fl":"","w":"","r":"","v":false},{"n":"Userlike","c":"Email & Communication","d":"Userlike","co":"","fl":"","w":"","r":"","v":false},{"n":"üWave","c":"Other","d":"Self-hosted collaborative listening platform. Users take turns playing media—songs, talks, gameplay videos, or anything else—from a variety of media sources like YouTube and SoundCloud. ([Demo](https://wlk.yt/), [Source Code](https://github.com/u-wave))","co":"EU","fl":"🇪🇺","w":"https://u-wave.net","r":"","v":false},{"n":"V.PS","c":"Cloud & Hosting","d":"V.PS","co":"","fl":"","w":"","r":"","v":false},{"n":"Vantevo","c":"Analytics & Data","d":"Vantevo","co":"","fl":"","w":"","r":"","v":false},{"n":"Vaultwarden","c":"Other","d":"Selbst-gehosteter Bitwarden-kompatibler Passwortmanager in Rust","co":"","fl":"","w":"https://github.com/dani-garcia/vaultwarden","r":"","v":false},{"n":"Vaultwarden","c":"Other","d":"Selbst-gehosteter Bitwarden-kompatibler Passwortmanager in Rust","co":"","fl":"","w":"","r":"","v":false},{"n":"Vector","c":"Analytics & Data","d":"Vector","co":"","fl":"","w":"","r":"","v":false},{"n":"VEJA","c":"Other","d":"FranzÃ¶sische Sneaker aus biologischen Materialien","co":"","fl":"","w":"","r":"","v":false},{"n":"VEJA","c":"Other","d":"FranzÃ¶sische Sneaker aus biologischen Materialien","co":"","fl":"","w":"https://veja-store.com","r":"","v":false},{"n":"Vereign SEAL","c":"Other","d":"Vereign SEAL","co":"","fl":"","w":"","r":"","v":false},{"n":"Viaplay","c":"Other","d":"EuropÃ¤isches Premium-Streaming fÃ¼r Sport & Entertainment","co":"","fl":"","w":"https://viaplay.com/de-de","r":"","v":false},{"n":"Viaplay","c":"Other","d":"EuropÃ¤isches Premium-Streaming fÃ¼r Sport & Entertainment","co":"","fl":"","w":"","r":"","v":false},{"n":"VictoriaMetrics","c":"Analytics & Data","d":"VictoriaMetrics","co":"","fl":"","w":"","r":"","v":false},{"n":"Videoconferencing","c":"Other","d":"Videomeetings ohne Zoom â mit europÃ¤ischen Datenschutzstandards.","co":"","fl":"","w":"","r":"statt Zoom, Google Meet, Teams","v":false},{"n":"Vikunja","c":"Project Management","d":"Vikunja","co":"","fl":"","w":"","r":"","v":false},{"n":"Virtua.Cloud","c":"Cloud & Hosting","d":"Virtua.Cloud","co":"","fl":"","w":"","r":"","v":false},{"n":"Virtuozzo Hybrid Infrastructure (IaaS)","c":"Other","d":"Virtuozzo Hybrid Infrastructure (IaaS)","co":"","fl":"","w":"","r":"","v":false},{"n":"Virtuozzo OnApp","c":"Other","d":"Virtuozzo OnApp","co":"","fl":"","w":"","r":"","v":false},{"n":"Viseron","c":"Email & Communication","d":"Self-hosted, local-only NVR and AI Computer Vision software. With features such as object detection, motion detection, face recognition and more, it gives you the power to keep an eye on your home, office or any other place you want to monitor. ([Source Code](https://github.com/roflcoopter/viseron))","co":"EU","fl":"🇪🇺","w":"https://viseron.netlify.app","r":"","v":false},{"n":"Visitor Analytics","c":"Analytics & Data","d":"Visitor Analytics","co":"","fl":"","w":"","r":"","v":false},{"n":"Viva Wallet","c":"Finance & Payments","d":"Viva Wallet","co":"","fl":"","w":"","r":"","v":false},{"n":"Vivaldi","c":"Other","d":"Anpassbarer Browser mit integriertem Mail-Client aus Norwegen","co":"","fl":"","w":"https://vivaldi.com","r":"","v":false},{"n":"Vivaldi","c":"Other","d":"Anpassbarer Browser mit integriertem Mail-Client aus Norwegen","co":"","fl":"","w":"","r":"","v":false},{"n":"Vivaldi Browser","c":"Other","d":"Vivaldi Browser","co":"","fl":"","w":"","r":"","v":false},{"n":"Volla Phone","c":"Other","d":"Datenschutzorientiertes Android-Smartphone aus Deutschland","co":"","fl":"","w":"https://volla.online","r":"","v":false},{"n":"Volla Phone","c":"Other","d":"Datenschutzorientiertes Android-Smartphone aus Deutschland","co":"","fl":"","w":"","r":"","v":false},{"n":"VPN","c":"Other","d":"Anonym und sicher surfen mit europÃ¤ischen Anbietern.","co":"","fl":"","w":"","r":"statt ExpressVPN","v":false},{"n":"VPSBG","c":"Cloud & Hosting","d":"VPSBG","co":"","fl":"","w":"","r":"","v":false},{"n":"W","c":"Other","d":"Lightweight, mutli-user, flat-file-database Wiki engine. Create pages quickly and edit them in your Web browser using Mardown/HTML/CSS/JS. The main difference with other wiki is that you are encouraged to customize each page style individually. ([Source Code](https://github.com/vincent-peugnet/wcms))","co":"EU","fl":"🇪🇺","w":"https://w.club1.fr","r":"","v":false},{"n":"W'IDaaS","c":"Other","d":"W'IDaaS","co":"","fl":"","w":"","r":"","v":false},{"n":"W'Sweet","c":"Other","d":"W'Sweet","co":"","fl":"","w":"","r":"","v":false},{"n":"WALLIX Trustelem IDaaS","c":"Other","d":"WALLIX Trustelem IDaaS","co":"","fl":"","w":"","r":"","v":false},{"n":"Wavelog","c":"Other","d":"Webbased Logging Software for Radio Amateurs. Enhanced QSO logging, statistics and maps for your browser. ([Demo](https://demo.wavelog.org), [Source Code](https://github.com/wavelog/wavelog))","co":"EU","fl":"🇪🇺","w":"https://wavelog.org","r":"","v":false},{"n":"Wavely","c":"Analytics & Data","d":"Wavely","co":"","fl":"","w":"","r":"","v":false},{"n":"Wayback","c":"Developer Tools","d":"A self-hosted toolkit for archiving webpages to the Internet Archive, archive.today, IPFS, and local file systems.","co":"EU","fl":"🇪🇺","w":"https://github.com/wabarc/wayback","r":"","v":false},{"n":"We Love Customers","c":"Other","d":"We Love Customers","co":"","fl":"","w":"","r":"","v":false},{"n":"Web-Analytics","c":"Other","d":"DSGVO-konforme Web-Analytics ohne Cookie-Banner â Google Analytics ersetzen.","co":"","fl":"","w":"","r":"statt Google Analytics","v":false},{"n":"WEB.DE E-Mail","c":"Email & Communication","d":"WEB.DE E-Mail","co":"","fl":"","w":"","r":"","v":false},{"n":"Webmecanik Automation","c":"Marketing & SEO","d":"Webmecanik Automation","co":"","fl":"","w":"","r":"","v":false},{"n":"Webotit","c":"Other","d":"Webotit","co":"","fl":"","w":"","r":"","v":false},{"n":"WeMaintain","c":"Analytics & Data","d":"WeMaintain","co":"","fl":"","w":"","r":"","v":false},{"n":"Whaller","c":"Other","d":"Whaller","co":"","fl":"","w":"","r":"","v":false},{"n":"Whereby","c":"Email & Communication","d":"Browserbasierte Videokonferenzen ohne Installation","co":"","fl":"","w":"","r":"","v":false},{"n":"Whereby","c":"Email & Communication","d":"Browserbasierte Videokonferenzen ohne Installation","co":"","fl":"","w":"https://whereby.com","r":"","v":false},{"n":"Whoogle","c":"Other","d":"A self-hosted, ad-free, privacy-respecting metasearch engine.","co":"EU","fl":"🇪🇺","w":"https://github.com/benbusby/whoogle-search","r":"","v":false},{"n":"Wide Angle Analytics","c":"Analytics & Data","d":"Wide Angle Analytics","co":"","fl":"","w":"","r":"","v":false},{"n":"wildduck","c":"Email & Communication","d":"Scalable no-SPOF IMAP/POP3 mail server. ([Source Code](https://github.com/zone-eu/wildduck))","co":"EU","fl":"🇪🇺","w":"https://wildduck.email","r":"","v":false},{"n":"Wire","c":"Email & Communication","d":"Wire","co":"","fl":"","w":"","r":"","v":false},{"n":"WizVille","c":"Other","d":"WizVille","co":"","fl":"","w":"","r":"","v":false},{"n":"Xeovo","c":"Security & Privacy","d":"Xeovo","co":"","fl":"","w":"","r":"","v":false},{"n":"XING","c":"Other","d":"XING","co":"","fl":"","w":"","r":"","v":false},{"n":"XiTrust MOXIS","c":"Other","d":"XiTrust MOXIS","co":"","fl":"","w":"","r":"","v":false},{"n":"XPhone Connect","c":"Developer Tools","d":"XPhone Connect is a unified communications platform from Germany that integrates telephony, messaging, and collaboration into existing enterprise IT environments with a focus on digital sovereignty and data protection compliance.","co":"","fl":"","w":"","r":"","v":false},{"n":"xsrv","c":"Cloud & Hosting","d":"Install and manage self-hosted services/applications, on your own server(s). ([Source Code](https://github.com/nodiscc/xsrv))","co":"EU","fl":"🇪🇺","w":"https://xsrv.readthedocs.io","r":"","v":false},{"n":"XWiki","c":"Other","d":"XWiki","co":"","fl":"","w":"","r":"","v":false},{"n":"yarn.social","c":"Email & Communication","d":"Self-Hosted, Twitter™-like Decentralised micro-logging platform. No ads, no tracking, your content, your data. ([Source Code](https://git.mills.io/yarnsocial/yarn))","co":"EU","fl":"🇪🇺","w":"https://yarn.social","r":"","v":false},{"n":"Yarr","c":"Other","d":"Yarr (yet another rss reader) is a web-based feed aggregator which can be used both as a desktop application and a personal self-hosted server.","co":"EU","fl":"🇪🇺","w":"https://github.com/nkanaev/yarr","r":"","v":false},{"n":"Your Alternatives","c":"AI & Automation","d":"0 European alternatives were found.","co":"","fl":"","w":"","r":"","v":false},{"n":"Yousign","c":"Other","d":"Yousign","co":"","fl":"","w":"","r":"","v":false},{"n":"YouTrack","c":"Project Management","d":"YouTrack","co":"","fl":"","w":"","r":"","v":false},{"n":"Yves Rocher","c":"Other","d":"Botanische Kosmetik direkt aus dem Herzen der Bretagne","co":"","fl":"","w":"","r":"","v":false},{"n":"Z-Push","c":"Other","d":"Z-Push","co":"","fl":"","w":"","r":"","v":false},{"n":"Zabbix","c":"Analytics & Data","d":"Zabbix","co":"","fl":"","w":"","r":"","v":false},{"n":"Zenkit Projects","c":"Project Management","d":"Zenkit Projects","co":"","fl":"","w":"","r":"","v":false},{"n":"Zimbra Core","c":"Other","d":"Zimbra Core","co":"","fl":"","w":"","r":"","v":false},{"n":"ZITADEL","c":"Project Management","d":"ZITADEL","co":"","fl":"","w":"","r":"","v":false},{"n":"ZOT OCI Registry","c":"Cloud & Hosting","d":"A production-ready vendor-neutral OCI-native container image registry. ([Demo](https://zothub.io), [Source Code](https://github.com/project-zot/zot))","co":"EU","fl":"🇪🇺","w":"https://zotregistry.dev","r":"","v":false},{"n":"Zulip","c":"Other","d":"Zulip","co":"","fl":"","w":"","r":"","v":false}];
+
+  let activeCategory = "";
+  let activeQuery    = "";
+
+  // ── Render ──────────────────────────────────────────────────
+  function renderCards(tools) {
+    const grid  = document.getElementById("grid");
+    const empty = document.getElementById("empty");
+    const count = document.getElementById("results-count");
+
+    // Clear existing cards (keep empty sentinel)
+    const existing = grid.querySelectorAll(".card");
+    existing.forEach(el => el.remove());
+
+    if (tools.length === 0) {
+      empty.style.display = "block";
+      count.textContent   = "0 tools";
+      return;
+    }
+    empty.style.display = "none";
+    count.textContent   = tools.length.toLocaleString() + " tool" + (tools.length === 1 ? "" : "s");
+
+    const frag = document.createDocumentFragment();
+    tools.forEach(t => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const descShort = t.d.length > 120 ? t.d.slice(0, 120).trimEnd() + "…" : t.d;
+      const replaceTag = t.r
+        ? `<span class="tag tag-replaces" title="Replaces ${t.r}">↔ ${t.r}</span>`
+        : "";
+      const verifiedDot = t.v ? `<span class="verified-dot" title="Verified"></span>` : "";
+      const websiteLink = t.w
+        ? `<a class="card-link" href="${t.w}" target="_blank" rel="noopener noreferrer">${
+            t.w.replace(/^https?:\/\/(www\.)?/, "")
+          }</a>`
+        : "";
+
+      card.innerHTML = `
+        <div class="card-top">
+          <span class="card-name">${esc(t.n)}</span>
+          ${t.fl ? `<span class="card-flag" title="${t.co}">${t.fl}</span>` : ""}
+        </div>
+        ${descShort ? `<p class="card-desc">${esc(descShort)}</p>` : ""}
+        <div class="card-meta">
+          <span class="tag">${esc(t.c)}</span>
+          ${replaceTag}
+          ${verifiedDot}
+        </div>
+        ${websiteLink}
+      `;
+      frag.appendChild(card);
+    });
+    grid.appendChild(frag);
+  }
+
+  // ── Filter ──────────────────────────────────────────────────
+  function applyFilters() {
+    activeQuery = document.getElementById("search").value.trim().toLowerCase();
+    const q = activeQuery;
+    const cat = activeCategory;
+
+    const filtered = TOOLS.filter(t => {
+      const matchCat = !cat || t.c === cat;
+      const matchQ   = !q ||
+        t.n.toLowerCase().includes(q) ||
+        t.d.toLowerCase().includes(q) ||
+        t.r.toLowerCase().includes(q) ||
+        t.c.toLowerCase().includes(q);
+      return matchCat && matchQ;
+    });
+
+    renderCards(filtered);
+  }
+
+  function filterCat(btn) {
+    document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeCategory = btn.dataset.cat;
+    applyFilters();
+  }
+
+  function clearFilters() {
+    document.getElementById("search").value = "";
+    activeQuery = "";
+    activeCategory = "";
+    document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+    document.querySelector(".all-btn").classList.add("active");
+    renderCards(TOOLS);
+    document.getElementById("results-count").textContent =
+      TOOLS.length.toLocaleString() + " tools";
+  }
+
+  // ── HTML escape ─────────────────────────────────────────────
+  function esc(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  // ── Autocomplete ─────────────────────────────────────────────
+  let acIndex = -1;
+
+  function acOnInput(inp) {
+    applyFilters();                      // keep grid in sync while typing
+    const q = inp.value.trim();
+    if (q.length < 1) { acClose(); return; }
+    const ql = q.toLowerCase();
+
+    // Starts-with matches first, then contains-matches to fill up to 8
+    const starts   = TOOLS.filter(t => t.n.toLowerCase().startsWith(ql));
+    const contains = TOOLS.filter(t =>
+      !t.n.toLowerCase().startsWith(ql) && t.n.toLowerCase().includes(ql)
+    );
+    const matches = [...starts, ...contains].slice(0, 8);
+
+    if (matches.length === 0) { acClose(); return; }
+    acRender(matches, q);
+  }
+
+  function acRender(matches, q) {
+    const list = document.getElementById("ac-list");
+    list.innerHTML = "";
+    acIndex = -1;
+
+    matches.forEach((t, i) => {
+      const item = document.createElement("div");
+      item.className = "ac-item";
+      item.setAttribute("role", "option");
+      item.setAttribute("data-idx", String(i));
+
+      const nameSpan = document.createElement("span");
+      nameSpan.className = "ac-name";
+      nameSpan.innerHTML = acHighlight(esc(t.n), q);
+
+      const catSpan = document.createElement("span");
+      catSpan.className = "ac-cat";
+      catSpan.textContent = t.c;
+
+      item.appendChild(nameSpan);
+      item.appendChild(catSpan);
+
+      // Prevent input blur before click fires
+      item.addEventListener("mousedown", e => e.preventDefault());
+      item.addEventListener("click",    () => acSelect(t.n));
+      item.addEventListener("touchend", e => { e.preventDefault(); acSelect(t.n); });
+      list.appendChild(item);
+    });
+
+    list.classList.add("open");
+  }
+
+  function acHighlight(escapedName, rawQuery) {
+    // rawQuery is unescaped; escapedName is HTML-safe
+    // Find position in the escaped string using lowercase comparison
+    const idx = escapedName.toLowerCase().indexOf(rawQuery.toLowerCase());
+    if (idx === -1) return escapedName;
+    return (
+      escapedName.slice(0, idx) +
+      "<mark>" + escapedName.slice(idx, idx + rawQuery.length) + "</mark>" +
+      escapedName.slice(idx + rawQuery.length)
+    );
+  }
+
+  function acSelect(name) {
+    const inp = document.getElementById("search");
+    inp.value = name;
+    acClose();
+    applyFilters();
+    inp.focus();
+  }
+
+  function acClose() {
+    const list = document.getElementById("ac-list");
+    list.classList.remove("open");
+    list.innerHTML = "";
+    acIndex = -1;
+  }
+
+  function acKeyDown(e) {
+    const list  = document.getElementById("ac-list");
+    const items = list.querySelectorAll(".ac-item");
+    if (!list.classList.contains("open")) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      acIndex = Math.min(acIndex + 1, items.length - 1);
+      acFocus(items);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      acIndex = Math.max(acIndex - 1, 0);
+      acFocus(items);
+    } else if (e.key === "Enter") {
+      if (acIndex >= 0 && items[acIndex]) {
+        e.preventDefault();
+        acSelect(items[acIndex].querySelector(".ac-name").textContent);
+      } else {
+        acClose();
+      }
+    } else if (e.key === "Escape") {
+      acClose();
+      document.getElementById("search").blur();
+    }
+  }
+
+  function acFocus(items) {
+    items.forEach((el, i) => el.classList.toggle("focused", i === acIndex));
+    if (items[acIndex]) items[acIndex].scrollIntoView({ block: "nearest" });
+  }
+
+  // Close dropdown when clicking anywhere outside the search wrap
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".search-wrap")) acClose();
+  });
+
+  // ── Formspree intercept for success message ──────────────────
+  document.getElementById("submit-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector(".submit-btn");
+    btn.textContent = "Submitting…";
+    btn.disabled = true;
+    try {
+      const res = await fetch(this.action, {
+        method: "POST",
+        body: new FormData(this),
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        this.reset();
+        document.getElementById("form-success").style.display = "block";
+        btn.textContent = "Submit tool →";
+        btn.disabled = false;
+      } else {
+        btn.textContent = "Error — try again";
+        btn.disabled = false;
+      }
+    } catch (_) {
+      btn.textContent = "Error — try again";
+      btn.disabled = false;
+    }
+  });
+
+  // ── Init ────────────────────────────────────────────────────
+  document.querySelector(".all-btn").classList.add("active");
+  renderCards(TOOLS);
+</script>
+
+</body>
+</html>
