@@ -514,6 +514,7 @@
     tools.forEach(t => {
       const card = document.createElement("div");
       card.className = "card";
+      if (t.w) { card.style.cursor = "pointer"; card.addEventListener("click", () => window.open(t.w, "_blank", "noopener,noreferrer")); }
 
       const descShort = t.d.length > 120 ? t.d.slice(0, 120).trimEnd() + "…" : t.d;
       const replaceTag = t.r
