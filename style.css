@@ -1,0 +1,30 @@
+
+:root { --eu-blue: #003399; --eu-gold: #FFCC00; --text: #1a1a2e; --muted: #6b6b8a; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, sans-serif; color: var(--text); line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 1rem; }
+nav { border-bottom: 2px solid var(--eu-blue); padding: .75rem 0; margin-bottom: 2rem; }
+nav a { color: var(--eu-blue); text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+h1 { font-size: 1.8rem; margin-bottom: .75rem; color: var(--eu-blue); }
+h2 { font-size: 1.3rem; margin: 1.5rem 0 .5rem; }
+h3 { font-size: 1.1rem; margin-bottom: .25rem; }
+h3 a { color: var(--eu-blue); text-decoration: none; }
+h3 a:hover { text-decoration: underline; }
+.lead { font-size: 1.1rem; color: var(--muted); margin-bottom: 1.5rem; }
+.breadcrumb { font-size: .85rem; color: var(--muted); margin-bottom: 1rem; }
+.breadcrumb a { color: var(--eu-blue); }
+.badges { display: flex; gap: .5rem; flex-wrap: wrap; margin: .5rem 0 1rem; }
+.badge { font-size: .75rem; padding: 2px 8px; border-radius: 12px; background: #e8eaf6; color: var(--eu-blue); }
+.badge.green { background: #e8f5e9; color: #2e7d32; }
+.description { font-size: 1rem; margin-bottom: 1.5rem; }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.tool-card { border: 1px solid #dde; border-radius: 8px; padding: 1rem; background: #fff; }
+.tool-card.featured { border-color: var(--eu-blue); border-width: 2px; }
+.tool-card .meta { font-size: .8rem; color: var(--muted); margin: .25rem 0 .5rem; }
+.tool-card a { color: var(--eu-blue); }
+.faq h2 { font-size: 1rem; color: var(--text); }
+.faq p { font-size: .95rem; color: var(--muted); margin-bottom: 1rem; }
+.why-switch ul { padding-left: 1.5rem; margin: .75rem 0; }
+.why-switch li { margin-bottom: .5rem; font-size: .95rem; }
+footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #dde; font-size: .85rem; color: var(--muted); }
+footer a { color: var(--eu-blue); }
+a { color: var(--eu-blue); }

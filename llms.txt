@@ -1,0 +1,91 @@
+# eutech.directory
+
+> The definitive directory of EU-built software — GDPR by default, no US cloud dependencies.
+
+## What is eutech.directory?
+
+eutech.directory is a curated directory of 746 verified EU-built software tools.
+All tools are GDPR compliant, hosted within the European Union, and do not depend on US cloud infrastructure.
+
+## Categories
+
+- AI & Automation: 26 tools
+- Analytics & Data: 98 tools
+- Cloud & Hosting: 64 tools
+- Developer Tools: 18 tools
+- Email & Communication: 95 tools
+- Finance & Payments: 9 tools
+- HR & Team: 10 tools
+- Marketing & SEO: 7 tools
+- Other: 343 tools
+- Project Management: 34 tools
+- Security & Privacy: 25 tools
+- Storage & Backup: 17 tools
+
+## Top tools
+
+- [Aruba Domains](/tools/aruba-domains/)
+- [Combell Domains](/tools/combell-domains/)
+- [DeepL](/tools/deepl/)
+- [Domainnameshop](/tools/domainnameshop/)
+- [eTranslation](/tools/etranslation/)
+- [EuroDNS Domain Names](/tools/eurodns-domain-names/)
+- [Fredy](/tools/fredy/)
+- [Gandi](/tools/gandi/)
+- [Hostinger Domain](/tools/hostinger-domain/)
+- [Hostpoint Domains](/tools/hostpoint-domains/)
+- [Infomaniak Domains](/tools/infomaniak-domains/)
+- [Internxt](/tools/internxt/)
+- [INWX](/tools/inwx/)
+- [IONOS domains](/tools/ionos-domains/)
+- [Joker.com](/tools/joker-com/)
+- [ModernMT](/tools/modernmt/)
+- [netim](/tools/netim/)
+- [NordName](/tools/nordname/)
+- [Openprovider](/tools/openprovider/)
+- [OVHcloud Domains](/tools/ovhcloud-domains/)
+
+## EU alternatives index
+
+- [EU alternative to Google Analytics](/alternatives/eu-alternative-to-google-analytics/)
+- [EU alternative to Mailchimp](/alternatives/eu-alternative-to-mailchimp/)
+- [EU alternative to Slack](/alternatives/eu-alternative-to-slack/)
+- [EU alternative to Zoom](/alternatives/eu-alternative-to-zoom/)
+- [EU alternative to Notion](/alternatives/eu-alternative-to-notion/)
+- [EU alternative to Google Drive](/alternatives/eu-alternative-to-google-drive/)
+- [EU alternative to Dropbox](/alternatives/eu-alternative-to-dropbox/)
+- [EU alternative to AWS](/alternatives/eu-alternative-to-aws/)
+- [EU alternative to Google Cloud](/alternatives/eu-alternative-to-google-cloud/)
+- [EU alternative to GitHub](/alternatives/eu-alternative-to-github/)
+- [EU alternative to HubSpot](/alternatives/eu-alternative-to-hubspot/)
+- [EU alternative to Salesforce](/alternatives/eu-alternative-to-salesforce/)
+- [EU alternative to QuickBooks](/alternatives/eu-alternative-to-quickbooks/)
+- [EU alternative to 1Password](/alternatives/eu-alternative-to-1password/)
+- [EU alternative to Contentful](/alternatives/eu-alternative-to-contentful/)
+- [EU alternative to SendGrid](/alternatives/eu-alternative-to-sendgrid/)
+- [EU alternative to Datadog](/alternatives/eu-alternative-to-datadog/)
+- [EU alternative to Figma](/alternatives/eu-alternative-to-figma/)
+- [EU alternative to Jira](/alternatives/eu-alternative-to-jira/)
+- [EU alternative to Asana](/alternatives/eu-alternative-to-asana/)
+
+## How to use this directory
+
+- Search all tools: https://eutech-directory.github.io/
+- Browse by category: https://eutech-directory.github.io/category/[category]/
+- Find EU alternatives: https://eutech-directory.github.io/alternatives/eu-alternative-to-[tool]/
+- Individual tool pages: https://eutech-directory.github.io/tools/[tool-name]/
+
+## Submit a tool
+
+Know an EU-built tool we're missing? Submit via the form at https://eutech-directory.github.io/#submit
+
+## Featured listings
+
+EU software companies can get featured placement in their category.
+Contact: eutech.directory featured listings.
+
+## Data
+
+- Total verified EU tools: 746
+- Categories: 12
+- Last updated: 2026-04-19

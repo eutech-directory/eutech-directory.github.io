@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# AI crawlers — welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GoogleBot
+Allow: /
+
+User-agent: BingBot
+Allow: /
+
+Sitemap: https://eutech-directory.github.io/sitemap.xml
