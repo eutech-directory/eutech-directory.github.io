@@ -386,7 +386,58 @@
       :root { --card-w: 280px; }
       .stat-num { font-size: 1.4rem; }
     }
-  </style>
+  
+    /* ── Listing criteria ───────────────────────────────────────────────── */
+    .listing-criteria {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 48px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .listing-criteria h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .criteria-intro {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    @media (max-width: 600px) {
+      .criteria-grid { grid-template-columns: 1fr; }
+    }
+    .criterion {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+    .criterion-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .criterion strong { display: block; font-size: 0.9rem; margin-bottom: 3px; }
+    .criterion p { font-size: 0.82rem; color: var(--muted); line-height: 1.4; margin: 0; }
+    .criteria-cta {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    
+    </style>
 </head>
 <body>
 
@@ -450,10 +501,48 @@
 </div>
 
 <!-- â”€â”€ Submit â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+
+<!-- ── How to get listed ──────────────────────────────────────────────── -->
+<div class="listing-criteria">
+  <h2>How to get listed</h2>
+  <p class="criteria-intro">eutech.directory lists EU-built and EU-hosted software. To be included, your tool must meet all criteria:</p>
+  <div class="criteria-grid">
+    <div class="criterion">
+      <span class="criterion-icon">🇪🇺</span>
+      <div>
+        <strong>EU-built or EU-hosted</strong>
+        <p>Company founded in the EU, or primary servers in EU data centres.</p>
+      </div>
+    </div>
+    <div class="criterion">
+      <span class="criterion-icon">🔒</span>
+      <div>
+        <strong>GDPR compliant by default</strong>
+        <p>Data protection built into the architecture — not just a checkbox.</p>
+      </div>
+    </div>
+    <div class="criterion">
+      <span class="criterion-icon">☁️</span>
+      <div>
+        <strong>No US cloud dependencies</strong>
+        <p>Data does not transit through or rest on AWS, GCP, or Azure US regions.</p>
+      </div>
+    </div>
+    <div class="criterion">
+      <span class="criterion-icon">✅</span>
+      <div>
+        <strong>Actively maintained</strong>
+        <p>Live, usable, and updated within the last 12 months.</p>
+      </div>
+    </div>
+  </div>
+  <p class="criteria-cta">Meet all criteria? Submit below — we review within 24 hours.</p>
+</div>
+
 <div class="submit-section">
-  <h2>Submit a tool</h2>
+  <h2>Submit your tool</h2>
   <p>Know an EU-built alternative we're missing? Add it to the directory.</p>
-  <form id="submit-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+  <form id="submit-form" action="https://formspree.io/f/xqewnpwl" method="POST">
     <input type="text" name="tool_name" placeholder="Tool name" required/>
     <input type="url" name="website" placeholder="Website URL (https://...)" required/>
     <select name="category" required>
