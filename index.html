@@ -331,7 +331,7 @@ function onSearch(val) {
   if (!q || q.length < 2) { acClose(); return; }
   const matches = TOOLS.filter(t => t.n.toLowerCase().startsWith(q)).slice(0, 8);
   if (!matches.length) { acClose(); return; }
-  ac.innerHTML = matches.map((t, i) => '<div class="ac-item" data-idx="' + i + '" onclick="acSelect('' + t.n.replace(/'/g, "\'") + '')">' + t.n + ' <span style="color:var(--muted);font-size:0.75rem">' + t.c + '</span></div>').join("");
+  ac.innerHTML = matches.map((t, i) => '<div class="ac-item" data-idx="' + i + '" onclick="acSelect(this.dataset.name)"  data-name="' + t.n.replace(/"/g, '&quot;') + '">' + t.n + ' <span style="color:var(--muted);font-size:0.75rem">' + t.c + '</span></div>').join("");
   ac.style.display = "block";
   acIndex = -1;
 }
