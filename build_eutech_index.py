@@ -243,6 +243,24 @@ def build_html(tools, tools_json, cat_buttons, total_in_db):
       .stat-num {{ font-size: 1.4rem; }}
       .grid {{ grid-template-columns: 1fr; }}
     }}
+
+    /* Verification banner */
+    .verify-banner{background:#0d1117;border-top:1px solid #21262d;border-bottom:1px solid #21262d;padding:32px 24px}
+    .verify-inner{max-width:1100px;margin:0 auto}
+    .verify-title{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#64748b;margin:0 0 16px}
+    .verify-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:14px}
+    .verify-item{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:14px;transition:border-color .2s}
+    .verify-item:hover{border-color:#2563eb55}
+    .verify-label{font-size:13px;font-weight:600;color:#e6edf3;margin:0 0 5px}
+    .verify-desc{font-size:12px;color:#8b949e;line-height:1.5;margin:0}
+    .verify-criteria{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:18px 22px;margin-top:4px}
+    .criteria-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin:0 0 12px}
+    .criteria-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;margin-bottom:14px}
+    .criteria-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#8b949e;line-height:1.4}
+    /* Sticky get listed button */
+    .sticky-cta{position:fixed;bottom:24px;right:24px;z-index:999;background:#2563eb;color:#fff;border:none;border-radius:50px;padding:12px 20px;font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 4px 20px rgba(37,99,235,0.4);transition:all .2s;text-decoration:none;display:flex;align-items:center;gap:8px}
+    .sticky-cta:hover{background:#1d4ed8;transform:translateY(-2px);box-shadow:0 6px 24px rgba(37,99,235,0.5)}
+    .sticky-cta svg{flex-shrink:0}
   </style>
 </head>
 <body>
@@ -468,6 +486,10 @@ document.querySelector(".all-btn").classList.add("active");
 renderCards(TOOLS);
 </script>
 
+<a href="#submit" class="sticky-cta">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  Get listed
+</a>
 </body>
 </html>"""
 
