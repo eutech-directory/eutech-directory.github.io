@@ -62,10 +62,10 @@ def get_cat_counts(tools):
 
 def build_cat_buttons(counts):
     cats = [
-        "Other", "Analytics & Data", "Email & Communication",
-        "Cloud & Hosting", "Project Management", "AI & Automation",
-        "Security & Privacy", "Developer Tools", "Storage & Backup",
-        "HR & Team", "Finance & Payments", "Marketing & SEO"
+        "MCP Servers", "Project Management", "Developer Tools",
+        "Email & Communication", "Security & Privacy", "Analytics & Data",
+        "Storage & Backup", "AI & Automation", "Cloud & Hosting",
+        "Other", "Finance & Payments", "HR & Team", "Marketing & SEO"
     ]
     buttons = []
     for cat in cats:
