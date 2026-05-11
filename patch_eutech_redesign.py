@@ -1,105 +1,52 @@
+#!/usr/bin/env python3
 """
-build_eutech_index.py
-====================
-Generates a complete clean index.html for eutech.directory from the DB.
-Run this instead of patching files — avoids all encoding corruption.
+eutech.directory — Full Redesign Patch
+=======================================
+Updates build_eutech_index.py with:
+1. New dark theme with cyan (#00bcd4) accent
+2. Featured tools section pinned at top of every category
+3. Clickable verification badges with tooltips
+4. Country flags on every card
+5. "Get listed" banner always visible
+6. Interactive category filter
+7. CNAME file for eutech.directory domain
 
-    python build_eutech_index.py
+Run: python patch_eutech_redesign.py
 """
-
-import json
-import re
-import subprocess
-from datetime import datetime
 from pathlib import Path
+import ast
 
-import psycopg2
-import psycopg2.extras
+BUILDER = Path(r"C:\Users\USER\NANO\outputs\eutech-directory\build_eutech_index.py")
+src = BUILDER.read_text(encoding="utf-8")
+original = src
 
-DB_URL    = "postgresql://agentuser:agentstack123@localhost:5432/agentstack"
-OUT_FILE  = Path(r"C:\Users\USER\NANO\outputs\eutech-directory\index.html")
-GIT_DIR   = Path(r"C:\Users\USER\NANO\outputs\eutech-directory")
+# ── Country flag map ───────────────────────────────────────────────────────────
+FLAG_MAP = {
+    "DE": "🇩🇪", "FR": "🇫🇷", "NL": "🇳🇱", "SE": "🇸🇪", "FI": "🇫🇮",
+    "DK": "🇩🇰", "NO": "🇳🇴", "CH": "🇨🇭", "AT": "🇦🇹", "BE": "🇧🇪",
+    "PL": "🇵🇱", "CZ": "🇨🇿", "HU": "🇭🇺", "RO": "🇷🇴", "PT": "🇵🇹",
+    "ES": "🇪🇸", "IT": "🇮🇹", "IE": "🇮🇪", "LU": "🇱🇺", "EE": "🇪🇪",
+    "GB": "🇬🇧", "UK": "🇬🇧", "EU": "🇪🇺",
+}
 
+CATEGORY_ICONS = {
+    "MCP Servers": "🔌",
+    "Developer Tools": "🛠",
+    "AI & Automation": "🤖",
+    "Analytics & Data": "📊",
+    "Email & Communication": "📧",
+    "Cloud & Hosting": "☁️",
+    "Project Management": "📋",
+    "Security & Privacy": "🔒",
+    "Storage & Backup": "💾",
+    "Finance & Payments": "💳",
+    "HR & Team": "👥",
+    "Marketing & SEO": "📣",
+    "Other": "📦",
+}
 
-def get_tools():
-    conn = psycopg2.connect(DB_URL)
-    cur  = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-    cur.execute("""
-        SELECT name, category, description, country, website, verified
-        FROM eu_alternatives
-        WHERE verified = TRUE
-        ORDER BY category, name
-    """)
-    tools = cur.fetchall()
-    conn.close()
-    return tools
-
-
-def build_tools_json(tools):
-    tools_list = []
-    for t in tools:
-        # Strip all non-ASCII characters from description at build time
-        # Prevents any DB encoding issues from reaching the published site
-        desc = (t["description"] or "")[:200]
-        desc = desc.encode("ascii", errors="ignore").decode("ascii").strip()
-        tools_list.append({
-            "n":  (t["name"] or ""),
-            "c":  (t["category"] or "Other"),
-            "co": (t["country"] or ""),
-            "r":  (t["replaces_us_tool"] or "")[:30] if t.get("replaces_us_tool") else "",
-            "fl": "featured" if (t.get("upvotes") or 0) >= 5 else "",
-            "d":  desc,
-            "co": (t["country"] or ""),
-            "fl": "UK" if t["country"] == "GB" else "",
-            "w":  (t["website"] or ""),
-            "v":  True,
-        })
-    return json.dumps(tools_list, ensure_ascii=True, separators=(",", ":"))
-
-
-def get_cat_counts(tools):
-    from collections import Counter
-    counts = Counter(t["category"] or "Other" for t in tools)
-    return dict(counts)
-
-
-def build_cat_buttons(counts):
-    cats = [
-        "MCP Servers", "Project Management", "Developer Tools",
-        "Email & Communication", "Security & Privacy", "Analytics & Data",
-        "Storage & Backup", "AI & Automation", "Cloud & Hosting",
-        "Other", "Finance & Payments", "HR & Team", "Marketing & SEO"
-    ]
-    buttons = []
-    for cat in cats:
-        count = counts.get(cat, 0)
-        if count > 0:
-            safe = cat.replace("&", "&amp;")
-            buttons.append(
-                f'<button class="cat-btn" data-cat="{cat}" '
-                f'onclick="filterCat(this)">{safe} '
-                f'<span class="cat-count">{count}</span></button>'
-            )
-    return "\n  ".join(buttons)
-
-
-def build_html(tools, tools_json, cat_buttons, total_in_db):
-    verified = len(tools)
-    today    = datetime.now().strftime("%B %Y")
-
-    # Featured tools (top 3 by upvotes or manually set)
-    featured = [t for t in tools if t.get("upvotes", 0) >= 5][:3]
-    featured_names = {t["n"] for t in featured} if featured else set()
-
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="The definitive directory of EU-built software alternatives. {verified} verified European and UK tools. GDPR by default, no US cloud."/>
-  <title>eutech.directory &mdash; European software alternatives</title>
-  <style>
-
+# ── New CSS replacing the old style block ─────────────────────────────────────
+NEW_CSS = """
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
     :root {{
       --bg:        #0d1117;
@@ -321,7 +268,26 @@ def build_html(tools, tools_json, cat_buttons, total_in_db):
       .grid {{ grid-template-columns: 1fr; padding: 8px 12px; }}
       .verify-row {{ grid-template-columns: repeat(2, 1fr); }}
     }}
+"""
 
+# ── New build_html function ────────────────────────────────────────────────────
+NEW_BUILD_HTML = '''def build_html(tools, tools_json, cat_buttons, total_in_db):
+    verified = len(tools)
+    today    = datetime.now().strftime("%B %Y")
+
+    # Featured tools (top 3 by upvotes or manually set)
+    featured = [t for t in tools if t.get("upvotes", 0) >= 5][:3]
+    featured_names = {t["n"] for t in featured} if featured else set()
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="The definitive directory of EU-built software alternatives. {verified} verified European and UK tools. GDPR by default, no US cloud."/>
+  <title>eutech.directory &mdash; European software alternatives</title>
+  <style>
+''' + NEW_CSS + '''
   </style>
 </head>
 <body>
@@ -613,7 +579,7 @@ function onSearch(v) {{
   const q = v.toLowerCase();
   const matches = TOOLS.filter(t => t.n.toLowerCase().startsWith(q)).slice(0,8);
   if (!matches.length) {{ ac.style.display = 'none'; return; }}
-  ac.innerHTML = matches.map(t => `<div class="ac-item" onclick="pickAc('${{t.n.replace(/'/g,"\\'")}}')"><b>${{t.n}}</b> <span style="color:var(--muted);font-size:0.8rem">${{t.c}}</span></div>`).join('');
+  ac.innerHTML = matches.map(t => `<div class="ac-item" onclick="pickAc('${{t.n.replace(/'/g,"\\\\'")}}')"><b>${{t.n}}</b> <span style="color:var(--muted);font-size:0.8rem">${{t.c}}</span></div>`).join('');
   ac.style.display = 'block';
 }}
 
@@ -642,53 +608,58 @@ render();
 </script>
 </body>
 </html>"""
+'''
 
+# Find and replace the old build_html function
+import re
+# Find start of build_html
+start_match = re.search(r'\ndef build_html\(', src)
+if not start_match:
+    print("ERROR: build_html not found")
+    exit(1)
 
-def main():
-    print("Loading tools from DB...")
-    tools = get_tools()
-    print(f"  {len(tools)} verified tools")
+# Find the next top-level function after build_html
+next_fn = re.search(r'\ndef \w+\(', src[start_match.end():])
+if next_fn:
+    end_pos = start_match.end() + next_fn.start()
+    src = src[:start_match.start()+1] + NEW_BUILD_HTML + "\n\n" + src[end_pos+1:]
+    print("build_html replaced")
+else:
+    # build_html is the last function — replace to end of file
+    src = src[:start_match.start()+1] + NEW_BUILD_HTML
+    print("build_html replaced (last function)")
 
-    # Get total count including unverified
-    conn = psycopg2.connect(DB_URL)
-    cur = conn.cursor()
-    cur.execute("SELECT COUNT(*) FROM eu_alternatives")
-    total_in_db = cur.fetchone()[0]
-    conn.close()
+# ── Also update tools JSON to include country, replaces, featured flag ─────────
+old_json_line = '''            "c":  (t["category"] or "Other"),'''
+new_json_line = '''            "c":  (t["category"] or "Other"),
+            "co": (t["country"] or ""),
+            "r":  (t["replaces_us_tool"] or "")[:30] if t.get("replaces_us_tool") else "",
+            "fl": "featured" if (t.get("upvotes") or 0) >= 5 else "",'''
 
-    tools_json  = build_tools_json(tools)
-    cat_counts  = get_cat_counts(tools)
-    cat_buttons = build_cat_buttons(cat_counts)
-    html        = build_html(tools, tools_json, cat_buttons, total_in_db)
+if old_json_line in src:
+    src = src.replace(old_json_line, new_json_line, 1)
+    print("JSON fields updated: country, replaces, featured flag")
+else:
+    print("WARN: JSON line not found — check manually")
 
-    OUT_FILE.write_text(html, encoding="utf-8")
-    print(f"  Written: {OUT_FILE}")
+# ── Save ───────────────────────────────────────────────────────────────────────
+BUILDER.write_text(src, encoding="utf-8")
 
-    # Verify clean
-    import re
-    garbled = re.findall(r'[ÃÂ][ÃÂ\x80-\xff]+', html)
-    print(f"  Clean: {len(garbled)} encoding issues" if garbled else "  Clean: no encoding issues")
+# ── Create CNAME file ──────────────────────────────────────────────────────────
+cname = Path(r"C:\Users\USER\NANO\outputs\eutech-directory\CNAME")
+cname.write_text("eutech.directory\n", encoding="utf-8")
+print("CNAME created: eutech.directory")
 
-    # Git push
-    try:
-        subprocess.run(["git", "-C", str(GIT_DIR), "add", "index.html"],
-                       check=True, capture_output=True)
-        result = subprocess.run(
-            ["git", "-C", str(GIT_DIR), "commit", "-m",
-             f"Rebuild index.html: {len(tools)} verified tools — {datetime.now().strftime('%Y-%m-%d')}"],
-            capture_output=True, text=True
-        )
-        if "nothing to commit" in result.stdout:
-            print("  No changes to push")
-        else:
-            subprocess.run(["git", "-C", str(GIT_DIR), "push"],
-                           check=True, capture_output=True)
-            print("  Pushed to GitHub Pages")
-    except Exception as e:
-        print(f"  Git error: {e}")
-
-    print(f"\nDone. {len(tools)} tools live at eutech-directory.github.io")
-
-
-if __name__ == "__main__":
-    main()
+# ── Syntax check ──────────────────────────────────────────────────────────────
+try:
+    compile(src, str(BUILDER), 'exec')
+    print("\nSyntax OK ✓")
+    print("Run: python build_eutech_index.py")
+except SyntaxError as e:
+    print(f"\nSyntax ERROR at line {e.lineno}: {e.msg}")
+    lines = src.splitlines()
+    start = max(0, e.lineno-3)
+    end   = min(len(lines), e.lineno+3)
+    for i, line in enumerate(lines[start:end], start=start+1):
+        mark = ">>>" if i == e.lineno else "   "
+        print(f"{mark} {i:4}: {line[:100]}")
