@@ -312,25 +312,18 @@ def build_html(tools, tools_json, cat_buttons, total_in_db):
       font-weight: 700; cursor: pointer; transition: background .15s;
     }}
     .submit-btn:hover {{ background: var(--accent-h); }}
-
-
-    /* Back to top */
     .back-top {{
-      position: fixed; bottom: 80px; right: 24px; z-index: 998;
-      background: var(--surface); border: 1px solid var(--border);
-      color: var(--muted); width: 40px; height: 40px;
-      border-radius: 50%; display: flex; align-items: center;
-      justify-content: center; cursor: pointer; font-size: 18px;
+      position: fixed !important; bottom: 90px !important; right: 24px !important;
+      z-index: 9999 !important; background: #161b22;
+      border: 1px solid #21262d; color: #8b949e;
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex !important; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 22px; line-height: 1;
       transition: all .2s; opacity: 0; pointer-events: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4); text-decoration: none;
     }}
-    .back-top.visible {{
-      opacity: 1; pointer-events: auto;
-    }}
-    .back-top:hover {{
-      background: var(--accent); border-color: var(--accent);
-      color: #000; transform: translateY(-2px);
-    }}
+    .back-top.visible {{ opacity: 1 !important; pointer-events: auto !important; }}
+    .back-top:hover {{ background: #00bcd4 !important; border-color: #00bcd4 !important; color: #000 !important; transform: translateY(-3px); }}
     @media (max-width: 600px) {{
       .logo {{ font-size: 1.8rem; }}
       .stat-num {{ font-size: 1.4rem; }}
@@ -407,7 +400,7 @@ def build_html(tools, tools_json, cat_buttons, total_in_db):
           <li>Pinned at top of every category</li>
           <li>Gold border highlighted card</li>
           <li>Included in monthly newsletter</li>
-          <li><a href="/featured.html" style="color:#00bcd4;text-decoration:underline">Get featured listing &#8594;</a></li>
+          <li><a href="https://rickyfarmer.gumroad.com/l/eutech-featured" style="color:#00bcd4;text-decoration:underline">Get featured listing &#8594;</a></li>
         </ul>
       </div>
     </div>
@@ -533,7 +526,7 @@ def build_html(tools, tools_json, cat_buttons, total_in_db):
   <button class="gl-btn" onclick="document.getElementById('submit').scrollIntoView({{behavior:'smooth'}})">Submit tool &rarr;</button>
 </div>
 
-<a href="/featured.html" class="sticky-cta">
+<a href="https://rickyfarmer.gumroad.com/l/eutech-featured" class="sticky-cta">
   <span>+</span> Get listed
 </a>
 
@@ -655,14 +648,16 @@ document.addEventListener('click', function(e) {{
 }});
 
 window.addEventListener('scroll', function() {{
-  const btn = document.getElementById('back-top');
-  if (btn) btn.classList.toggle('visible', window.scrollY > 400);
+  var btn = document.getElementById('back-top');
+  if (!btn) return;
+  btn.classList.toggle('visible', window.scrollY > 300);
 }});
 
 render();
 </script>
 
-<a href="#" class="back-top" id="back-top" onclick="window.scrollTo({{top:0,behavior:'smooth'}})" title="Back to top">&#8679;</a>
+
+<a href="#" class="back-top" id="back-top" aria-label="Back to top" onclick="window.scrollTo({{top:0,behavior:'smooth'}});return false;">&#8679;</a>
 </body>
 </html>"""
 
