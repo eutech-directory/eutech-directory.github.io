@@ -49,8 +49,6 @@ def build_tools_json(tools):
             "r":  (t["replaces_us_tool"] or "")[:30] if t.get("replaces_us_tool") else "",
             "fl": "featured" if t.get("featured") or (t.get("upvotes") or 0) >= 5 else "",
             "d":  desc,
-            "co": (t["country"] or ""),
-            "fl": "UK" if t["country"] == "GB" else "",
             "w":  (t["website"] or ""),
             "v":  True,
         })
