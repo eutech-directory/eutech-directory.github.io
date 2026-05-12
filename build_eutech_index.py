@@ -526,7 +526,7 @@ def build_html(tools, tools_json, cat_buttons, total_in_db):
   <button class="gl-btn" onclick="document.getElementById('submit').scrollIntoView({{behavior:'smooth'}})">Submit tool &rarr;</button>
 </div>
 
-<a href="https://rickyfarmer.gumroad.com/l/eutech-featured" class="sticky-cta">
+<a href="#submit" class="sticky-cta" onclick="document.getElementById('submit').scrollIntoView({{behavior:'smooth'}});return false;">
   <span>+</span> Get listed
 </a>
 
