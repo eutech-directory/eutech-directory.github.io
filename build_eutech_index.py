@@ -661,6 +661,8 @@ window.addEventListener('scroll', function() {{
 
 render();
 </script>
+
+<a href="#" class="back-top" id="back-top" onclick="window.scrollTo({{top:0,behavior:'smooth'}})" title="Back to top">&#8679;</a>
 </body>
 </html>"""
 
