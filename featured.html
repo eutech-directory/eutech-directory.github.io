@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Get Featured on eutech.directory</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{background:#161b22;border:1px solid #21262d;border-radius:12px;padding:40px;max-width:520px;width:100%}
+.logo{font-size:18px;font-weight:700;color:#fff;margin-bottom:24px}
+.logo span{color:#00bcd4}
+h1{font-size:22px;font-weight:600;color:#fff;margin-bottom:8px;line-height:1.3}
+.sub{font-size:14px;color:#8b949e;margin-bottom:28px;line-height:1.6}
+.price-box{background:#0d1117;border:2px solid #00bcd4;border-radius:8px;padding:16px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between}
+.price{font-size:28px;font-weight:700;color:#00bcd4}
+.price-sub{font-size:13px;color:#64748b}
+.perks{list-style:none;margin-bottom:28px}
+.perks li{font-size:14px;color:#94a3b8;padding:6px 0;border-bottom:1px solid #21262d;display:flex;gap:10px;align-items:flex-start}
+.perks li:last-child{border-bottom:none}
+.perk-icon{color:#00bcd4;flex-shrink:0;margin-top:2px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:12px;color:#64748b;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.form-group input,.form-group select{width:100%;padding:10px 14px;background:#0d1117;border:1px solid #21262d;border-radius:6px;color:#e6edf3;font-size:14px;outline:none}
+.form-group input:focus,.form-group select:focus{border-color:#00bcd4}
+.form-group select option{background:#0d1117}
+.btn{width:100%;padding:12px;background:#00bcd4;color:#000;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;margin-top:8px;transition:background .15s}
+.btn:hover{background:#00acc1}
+.note{font-size:12px;color:#64748b;text-align:center;margin-top:12px}
+.back{font-size:13px;color:#00bcd4;text-decoration:none;display:inline-block;margin-bottom:20px}
+.back:hover{text-decoration:underline}
+.success{display:none;text-align:center;padding:20px 0}
+.success-icon{font-size:48px;margin-bottom:12px}
+.success h2{font-size:20px;font-weight:600;color:#fff;margin-bottom:8px}
+.success p{font-size:14px;color:#8b949e}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">eutech<span>.</span>directory</div>
+  <a href="https://eutech-directory.github.io" class="back">← Back to directory</a>
+
+  <div id="form-view">
+    <h1>Get your EU tool featured</h1>
+    <p class="sub">Appear at the top of your category. Reach developers actively replacing US software with EU alternatives.</p>
+
+    <div class="price-box">
+      <div>
+        <div class="price">$29<span style="font-size:16px;color:#64748b">/mo</span></div>
+        <div class="price-sub">Cancel anytime</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:13px;color:#e6edf3;font-weight:500">4,086 tools listed</div>
+        <div style="font-size:12px;color:#64748b">3,876 verified live</div>
+      </div>
+    </div>
+
+    <ul class="perks">
+      <li><span class="perk-icon">⭐</span>Featured badge — visible on every category page</li>
+      <li><span class="perk-icon">📌</span>Pinned at top of your category above 2,000+ tools</li>
+      <li><span class="perk-icon">🏆</span>Gold border card — stands out immediately</li>
+      <li><span class="perk-icon">📧</span>Included in monthly newsletter</li>
+      <li><span class="perk-icon">✅</span>Verified badge + direct Visit link</li>
+    </ul>
+
+    <form id="featured-form" action="https://formspree.io/f/xqewnpwl" method="POST">
+      <input type="hidden" name="type" value="featured_listing"/>
+      <div class="form-group">
+        <label>Tool name *</label>
+        <input type="text" name="tool_name" required placeholder="e.g. Nextcloud"/>
+      </div>
+      <div class="form-group">
+        <label>Your email *</label>
+        <input type="email" name="email" required placeholder="you@company.com"/>
+      </div>
+      <div class="form-group">
+        <label>Website *</label>
+        <input type="url" name="website" required placeholder="https://"/>
+      </div>
+      <div class="form-group">
+        <label>Category *</label>
+        <select name="category" required>
+          <option value="" disabled selected>Select category</option>
+          <option>MCP Servers</option>
+          <option>Developer Tools</option>
+          <option>AI &amp; Automation</option>
+          <option>Analytics &amp; Data</option>
+          <option>Email &amp; Communication</option>
+          <option>Cloud &amp; Hosting</option>
+          <option>Project Management</option>
+          <option>Security &amp; Privacy</option>
+          <option>Storage &amp; Backup</option>
+          <option>Finance &amp; Payments</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Country / HQ *</label>
+        <input type="text" name="country" required placeholder="e.g. DE, FR, NL, GB"/>
+      </div>
+      <button type="submit" class="btn">Request featured listing →</button>
+      <p class="note">We'll review your tool and send a payment link within 24 hours</p>
+    </form>
+  </div>
+
+  <div class="success" id="success-view">
+    <div class="success-icon">✅</div>
+    <h2>Request received!</h2>
+    <p>We'll review your tool and send a payment link to your email within 24 hours.</p>
+    <p style="margin-top:12px"><a href="https://eutech-directory.github.io" style="color:#00bcd4">← Back to directory</a></p>
+  </div>
+</div>
+
+<script>
+document.getElementById('featured-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  try {
+    const r = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: {'Accept': 'application/json'}
+    });
+    if (r.ok) {
+      document.getElementById('form-view').style.display = 'none';
+      document.getElementById('success-view').style.display = 'block';
+    }
+  } catch(err) {
+    alert('Something went wrong. Email ricky.farmerai@gmail.com directly.');
+  }
+});
+</script>
+</body>
+</html>

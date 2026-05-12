@@ -407,7 +407,7 @@ def build_html(tools, tools_json, cat_buttons, total_in_db):
           <li>Pinned at top of every category</li>
           <li>Gold border highlighted card</li>
           <li>Included in monthly newsletter</li>
-          <li><a href="mailto:ricky.farmerai@gmail.com?subject=Featured%20Listing%20eutech.directory&body=Hi%2C%20I%20would%20like%20to%20get%20my%20tool%20featured%20on%20eutech.directory" style="color:#00bcd4;text-decoration:underline" onclick="window.location.href=this.href;return false;">Email to get listed &#8594;</a></li>
+          <li><a href="/featured.html" style="color:#00bcd4;text-decoration:underline">Get featured listing &#8594;</a></li>
         </ul>
       </div>
     </div>
@@ -533,7 +533,7 @@ def build_html(tools, tools_json, cat_buttons, total_in_db):
   <button class="gl-btn" onclick="document.getElementById('submit').scrollIntoView({{behavior:'smooth'}})">Submit tool &rarr;</button>
 </div>
 
-<a href="#submit" class="sticky-cta">
+<a href="/featured.html" class="sticky-cta">
   <span>+</span> Get listed
 </a>
 
