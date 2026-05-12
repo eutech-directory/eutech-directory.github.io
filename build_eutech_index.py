@@ -315,6 +315,24 @@ def build_html(tools, tools_json, cat_buttons, total_in_db):
     }}
     .submit-btn:hover {{ background: var(--accent-h); }}
 
+
+    /* Back to top */
+    .back-top {{
+      position: fixed; bottom: 80px; right: 24px; z-index: 998;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--muted); width: 40px; height: 40px;
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; cursor: pointer; font-size: 18px;
+      transition: all .2s; opacity: 0; pointer-events: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }}
+    .back-top.visible {{
+      opacity: 1; pointer-events: auto;
+    }}
+    .back-top:hover {{
+      background: var(--accent); border-color: var(--accent);
+      color: #000; transform: translateY(-2px);
+    }}
     @media (max-width: 600px) {{
       .logo {{ font-size: 1.8rem; }}
       .stat-num {{ font-size: 1.4rem; }}
@@ -636,6 +654,11 @@ function toggleTip(id) {{
 document.addEventListener('click', function(e) {{
   if (!e.target.closest('.vbadge')) document.querySelectorAll('.vtip').forEach(t => t.classList.remove('show'));
   if (!e.target.closest('.search-wrap')) document.getElementById('ac').style.display = 'none';
+}});
+
+window.addEventListener('scroll', function() {{
+  const btn = document.getElementById('back-top');
+  if (btn) btn.classList.toggle('visible', window.scrollY > 400);
 }});
 
 render();
