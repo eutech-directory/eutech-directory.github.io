@@ -25,7 +25,7 @@ def get_tools():
     conn = psycopg2.connect(DB_URL)
     cur  = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     cur.execute("""
-        SELECT name, category, description, country, website, verified
+        SELECT name, category, description, country, website, verified, COALESCE(featured, false) as featured
         FROM eu_alternatives
         WHERE verified = TRUE
         ORDER BY category, name
