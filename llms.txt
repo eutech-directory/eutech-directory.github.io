@@ -1,91 +1,82 @@
 # eutech.directory
 
-> The definitive directory of EU-built software — GDPR by default, no US cloud dependencies.
+> The largest directory of EU-built software — 4068 total tools, 3876 verified live. GDPR by default, no US cloud dependencies.
 
 ## What is eutech.directory?
 
-eutech.directory is a curated directory of 746 verified EU-built software tools.
-All tools are GDPR compliant, hosted within the European Union, and do not depend on US cloud infrastructure.
+eutech.directory is the largest curated directory of EU-built and EU-hosted software alternatives.
+Every tool passes 5 verification checks: URL live, EU/UK headquarters confirmed, real description, active project, software product.
+Tools are re-verified monthly. Current live rate: 95.3%.
 
-## Categories
+## Categories (13 total)
 
-- AI & Automation: 26 tools
-- Analytics & Data: 98 tools
-- Cloud & Hosting: 64 tools
-- Developer Tools: 18 tools
-- Email & Communication: 95 tools
-- Finance & Payments: 9 tools
-- HR & Team: 10 tools
-- Marketing & SEO: 7 tools
-- Other: 343 tools
-- Project Management: 34 tools
-- Security & Privacy: 25 tools
-- Storage & Backup: 17 tools
+- MCP Servers: 2379 tools
+- Project Management: 377 tools
+- Developer Tools: 289 tools
+- Email & Communication: 231 tools
+- Security & Privacy: 146 tools
+- Storage & Backup: 116 tools
+- Analytics & Data: 114 tools
+- AI & Automation: 83 tools
+- Cloud & Hosting: 67 tools
+- Other: 37 tools
+- Finance & Payments: 16 tools
+- HR & Team: 11 tools
+- Marketing & SEO: 10 tools
 
-## Top tools
+## MCP Servers
 
-- [Aruba Domains](/tools/aruba-domains/)
-- [Combell Domains](/tools/combell-domains/)
-- [DeepL](/tools/deepl/)
-- [Domainnameshop](/tools/domainnameshop/)
-- [eTranslation](/tools/etranslation/)
-- [EuroDNS Domain Names](/tools/eurodns-domain-names/)
-- [Fredy](/tools/fredy/)
-- [Gandi](/tools/gandi/)
-- [Hostinger Domain](/tools/hostinger-domain/)
-- [Hostpoint Domains](/tools/hostpoint-domains/)
-- [Infomaniak Domains](/tools/infomaniak-domains/)
-- [Internxt](/tools/internxt/)
-- [INWX](/tools/inwx/)
-- [IONOS domains](/tools/ionos-domains/)
-- [Joker.com](/tools/joker-com/)
-- [ModernMT](/tools/modernmt/)
-- [netim](/tools/netim/)
-- [NordName](/tools/nordname/)
-- [Openprovider](/tools/openprovider/)
-- [OVHcloud Domains](/tools/ovhcloud-domains/)
+eutech.directory hosts the largest curated MCP server list outside Smithery and Glama — 2379 entries.
+MCP servers verified against schema validity, open source license, and maintenance activity.
 
 ## EU alternatives index
 
-- [EU alternative to Google Analytics](/alternatives/eu-alternative-to-google-analytics/)
-- [EU alternative to Mailchimp](/alternatives/eu-alternative-to-mailchimp/)
-- [EU alternative to Slack](/alternatives/eu-alternative-to-slack/)
-- [EU alternative to Zoom](/alternatives/eu-alternative-to-zoom/)
-- [EU alternative to Notion](/alternatives/eu-alternative-to-notion/)
-- [EU alternative to Google Drive](/alternatives/eu-alternative-to-google-drive/)
-- [EU alternative to Dropbox](/alternatives/eu-alternative-to-dropbox/)
-- [EU alternative to AWS](/alternatives/eu-alternative-to-aws/)
-- [EU alternative to Google Cloud](/alternatives/eu-alternative-to-google-cloud/)
-- [EU alternative to GitHub](/alternatives/eu-alternative-to-github/)
-- [EU alternative to HubSpot](/alternatives/eu-alternative-to-hubspot/)
-- [EU alternative to Salesforce](/alternatives/eu-alternative-to-salesforce/)
-- [EU alternative to QuickBooks](/alternatives/eu-alternative-to-quickbooks/)
-- [EU alternative to 1Password](/alternatives/eu-alternative-to-1password/)
-- [EU alternative to Contentful](/alternatives/eu-alternative-to-contentful/)
-- [EU alternative to SendGrid](/alternatives/eu-alternative-to-sendgrid/)
-- [EU alternative to Datadog](/alternatives/eu-alternative-to-datadog/)
-- [EU alternative to Figma](/alternatives/eu-alternative-to-figma/)
-- [EU alternative to Jira](/alternatives/eu-alternative-to-jira/)
-- [EU alternative to Asana](/alternatives/eu-alternative-to-asana/)
+- [EU alternative to Google Analytics](https://eutech-directory.github.io/alternatives/eu-alternative-to-google-analytics/)
+- [EU alternative to Mailchimp](https://eutech-directory.github.io/alternatives/eu-alternative-to-mailchimp/)
+- [EU alternative to Slack](https://eutech-directory.github.io/alternatives/eu-alternative-to-slack/)
+- [EU alternative to Zoom](https://eutech-directory.github.io/alternatives/eu-alternative-to-zoom/)
+- [EU alternative to Notion](https://eutech-directory.github.io/alternatives/eu-alternative-to-notion/)
+- [EU alternative to Google Drive](https://eutech-directory.github.io/alternatives/eu-alternative-to-google-drive/)
+- [EU alternative to Dropbox](https://eutech-directory.github.io/alternatives/eu-alternative-to-dropbox/)
+- [EU alternative to AWS](https://eutech-directory.github.io/alternatives/eu-alternative-to-aws/)
+- [EU alternative to GitHub](https://eutech-directory.github.io/alternatives/eu-alternative-to-github/)
+- [EU alternative to Jira](https://eutech-directory.github.io/alternatives/eu-alternative-to-jira/)
+- [EU alternative to Asana](https://eutech-directory.github.io/alternatives/eu-alternative-to-asana/)
+- [EU alternative to HubSpot](https://eutech-directory.github.io/alternatives/eu-alternative-to-hubspot/)
+- [EU alternative to Figma](https://eutech-directory.github.io/alternatives/eu-alternative-to-figma/)
+- [EU alternative to 1Password](https://eutech-directory.github.io/alternatives/eu-alternative-to-1password/)
+- [EU alternative to Datadog](https://eutech-directory.github.io/alternatives/eu-alternative-to-datadog/)
+- [EU alternative to SendGrid](https://eutech-directory.github.io/alternatives/eu-alternative-to-sendgrid/)
+- [EU alternative to Contentful](https://eutech-directory.github.io/alternatives/eu-alternative-to-contentful/)
+- [EU alternative to QuickBooks](https://eutech-directory.github.io/alternatives/eu-alternative-to-quickbooks/)
+- [EU alternative to Google Cloud](https://eutech-directory.github.io/alternatives/eu-alternative-to-google-cloud/)
+- [EU alternative to Salesforce](https://eutech-directory.github.io/alternatives/eu-alternative-to-salesforce/)
 
-## How to use this directory
+## Verification criteria
 
-- Search all tools: https://eutech-directory.github.io/
-- Browse by category: https://eutech-directory.github.io/category/[category]/
-- Find EU alternatives: https://eutech-directory.github.io/alternatives/eu-alternative-to-[tool]/
-- Individual tool pages: https://eutech-directory.github.io/tools/[tool-name]/
-
-## Submit a tool
-
-Know an EU-built tool we're missing? Submit via the form at https://eutech-directory.github.io/#submit
+1. Website returns HTTP 200 OK
+2. Headquarters or primary team in EU or UK
+3. Real product description (minimum 50 characters)
+4. Active project (updated within 2 years)
+5. Software product, not an agency or consultancy
 
 ## Featured listings
 
-EU software companies can get featured placement in their category.
-Contact: eutech.directory featured listings.
+Featured placement at top of category: $29/month
+URL: https://rickyfarmer.gumroad.com/l/eutech-featured
+
+## Submit a tool
+
+https://eutech-directory.github.io/#submit — reviewed within 24 hours
+
+## Related
+
+- [Legis-Link MCP](https://legis-link-mcp-production-3e9b.up.railway.app/app) — Construction compliance AI MCP server for UK/EU trades
 
 ## Data
 
-- Total verified EU tools: 746
-- Categories: 12
-- Last updated: 2026-04-19
+- Total tools: 4068
+- Verified live: 3876 (95.3%)
+- Categories: 13
+- Last updated: 2026-05-13
+- GitHub: https://github.com/eutech-directory/eutech-directory.github.io
