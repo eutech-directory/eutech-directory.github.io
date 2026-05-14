@@ -422,6 +422,59 @@ def build_html(tools, tools_json, cat_buttons, total_in_db):
   </div>
 </div>
 
+
+<div class="static-intro" style="max-width:960px;margin:0 auto;padding:24px;color:#e6edf3">
+  <p style="font-size:15px;line-height:1.7;color:#94a3b8;margin-bottom:12px">
+    eutech.directory is the largest verified directory of EU-built software alternatives.
+    We list <strong style="color:#e6edf3">4,086 tools</strong> across 13 categories including
+    MCP Servers, Developer Tools, Analytics, Cloud Hosting, and Email platforms —
+    all headquartered in the EU or UK, GDPR-compliant by default,
+    with no US cloud dependencies.
+    Every tool passes 5 verification checks: URL live, EU/UK origin confirmed,
+    real product description, active project, and software product.
+  </p>
+  <p style="font-size:14px;color:#64748b">
+    Browse verified EU alternatives to Google Analytics, Slack, Notion, GitHub, Jira,
+    Mailchimp, Zoom, Dropbox, AWS, HubSpot, Figma, and 4,000+ more US software tools.
+    Updated monthly. 95.3% of listed tools verified live.
+  </p>
+</div>
+
+<noscript>
+<div style="max-width:960px;margin:0 auto;padding:24px;font-family:system-ui,sans-serif;color:#e6edf3;background:#0d1117">
+  <h2 style="font-size:18px;margin-bottom:16px;color:#e6edf3">EU Software Alternatives Directory</h2>
+  <p style="font-size:14px;color:#94a3b8;margin-bottom:16px">
+    This directory requires JavaScript to browse all 4,086 tools interactively.
+    Below are direct links to our most popular EU alternative pages:
+  </p>
+  <ul style="list-style:none;padding:0;columns:2;gap:24px">
+    <li><a href="/alternatives/eu-alternative-to-google-analytics/" style="color:#00bcd4">EU alternative to Google Analytics</a></li>
+    <li><a href="/alternatives/eu-alternative-to-slack/" style="color:#00bcd4">EU alternative to Slack</a></li>
+    <li><a href="/alternatives/eu-alternative-to-notion/" style="color:#00bcd4">EU alternative to Notion</a></li>
+    <li><a href="/alternatives/eu-alternative-to-github/" style="color:#00bcd4">EU alternative to GitHub</a></li>
+    <li><a href="/alternatives/eu-alternative-to-jira/" style="color:#00bcd4">EU alternative to Jira</a></li>
+    <li><a href="/alternatives/eu-alternative-to-zoom/" style="color:#00bcd4">EU alternative to Zoom</a></li>
+    <li><a href="/alternatives/eu-alternative-to-mailchimp/" style="color:#00bcd4">EU alternative to Mailchimp</a></li>
+    <li><a href="/alternatives/eu-alternative-to-dropbox/" style="color:#00bcd4">EU alternative to Dropbox</a></li>
+    <li><a href="/alternatives/eu-alternative-to-aws/" style="color:#00bcd4">EU alternative to AWS</a></li>
+    <li><a href="/alternatives/eu-alternative-to-hubspot/" style="color:#00bcd4">EU alternative to HubSpot</a></li>
+    <li><a href="/alternatives/eu-alternative-to-figma/" style="color:#00bcd4">EU alternative to Figma</a></li>
+    <li><a href="/alternatives/eu-alternative-to-asana/" style="color:#00bcd4">EU alternative to Asana</a></li>
+    <li><a href="/alternatives/eu-alternative-to-google-drive/" style="color:#00bcd4">EU alternative to Google Drive</a></li>
+    <li><a href="/alternatives/eu-alternative-to-datadog/" style="color:#00bcd4">EU alternative to Datadog</a></li>
+    <li><a href="/alternatives/eu-alternative-to-1password/" style="color:#00bcd4">EU alternative to 1Password</a></li>
+    <li><a href="/alternatives/eu-alternative-to-sendgrid/" style="color:#00bcd4">EU alternative to SendGrid</a></li>
+    <li><a href="/alternatives/eu-alternative-to-salesforce/" style="color:#00bcd4">EU alternative to Salesforce</a></li>
+    <li><a href="/alternatives/eu-alternative-to-quickbooks/" style="color:#00bcd4">EU alternative to QuickBooks</a></li>
+    <li><a href="/alternatives/eu-alternative-to-google-cloud/" style="color:#00bcd4">EU alternative to Google Cloud</a></li>
+    <li><a href="/alternatives/eu-alternative-to-contentful/" style="color:#00bcd4">EU alternative to Contentful</a></li>
+  </ul>
+  <p style="font-size:13px;color:#64748b;margin-top:16px">
+    <a href="https://eutech-directory.github.io/#submit" style="color:#00bcd4">Submit your EU tool</a> |
+    Featured listings from $29/month
+  </p>
+</div>
+</noscript>
 <div class="cat-bar">
   <button class="all-btn active" onclick="filterCat(this)" data-cat="">All categories</button>
   {cat_buttons}
