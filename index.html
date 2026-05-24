@@ -386,6 +386,15 @@
       :root { --card-w: 280px; }
       .stat-num { font-size: 1.4rem; }
     }
+  
+  /* Floating UI buttons */
+  .fab-wrap { position:fixed; bottom:24px; right:24px; z-index:9999; display:flex; flex-direction:column; gap:12px; align-items:flex-end; }
+  .fab-listed { background:#2563eb; color:#fff; border:none; border-radius:50px; padding:12px 22px; font-size:14px; font-weight:600; cursor:pointer; box-shadow:0 4px 16px rgba(37,99,235,.35); transition:all .2s; white-space:nowrap; text-decoration:none; display:inline-flex; align-items:center; gap:8px; }
+  .fab-listed:hover { background:#1d4ed8; transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,99,235,.45); }
+  .fab-top { background:#1e293b; color:#fff; border:none; border-radius:50%; width:44px; height:44px; font-size:20px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.25); display:none; align-items:center; justify-content:center; transition:all .2s; }
+  .fab-top.visible { display:flex; }
+  .fab-top:hover { background:#334155; transform:translateY(-2px); }
+
   </style>
 </head>
 <body>
@@ -493,7 +502,16 @@
   let activeQuery    = "";
 
   // â”€â”€ Render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  function renderCards(tools) {
+  
+    // Add verification badge to verified tools
+    function getVerifiedBadge(tool) {
+      if (tool.v === true || tool.verified === true) {
+        return '<span style="display:inline-flex;align-items:center;gap:3px;background:#dcfce7;color:#166534;font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;margin-left:6px;vertical-align:middle;" title="Verified live by AfriCompliance team">✓ Verified</span>';
+      }
+      return '';
+    }
+
+    function renderCards(tools) {
     const grid  = document.getElementById("grid");
     const empty = document.getElementById("empty");
     const count = document.getElementById("results-count");
