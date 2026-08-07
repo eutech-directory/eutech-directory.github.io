@@ -248,7 +248,7 @@
   <p class="tagline">The definitive directory of EU-built software. No US cloud dependencies, GDPR by default.</p>
   <div class="stats">
     <div class="stat">
-      <div class="stat-num" id="total-count">4067</div>
+      <div class="stat-num" id="verified-count">4074</div>
       <div class="stat-label">Verified live</div>
     </div>
     <div class="stat">
@@ -256,7 +256,7 @@
       <div class="stat-label">categories</div>
     </div>
     <div class="stat">
-      <div class="stat-num">4067</div>
+      <div class="stat-num" id="total-count">4076</div>
       <div class="stat-label">total tools</div>
     </div>
   </div>
@@ -632,5 +632,19 @@ render();
 
 
 <a href="#" class="back-top" id="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8679;</a>
+<script>
+(function(){
+  try{
+    var t=document.getElementById("total-count");
+    var v=document.getElementById("verified-count");
+    if(typeof TOOLS!=="undefined"){
+      if(t) t.textContent=TOOLS.length;
+      if(v) v.textContent=TOOLS.filter(function(x){return x.v===true;}).length;
+      var cats={};TOOLS.forEach(function(x){if(x.c)cats[x.c]=1;});
+      var cel=document.querySelectorAll(".stat-num");
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
