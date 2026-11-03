@@ -1,0 +1,19 @@
+{
+ "name": "eutech.directory",
+ "short_name": "eutech",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#0B3D91",
+ "background_color": "#ffffff",
+ "display": "browser"
+}

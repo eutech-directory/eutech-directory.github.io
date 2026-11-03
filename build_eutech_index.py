@@ -16,7 +16,10 @@ from pathlib import Path
 import psycopg2
 import psycopg2.extras
 
-DB_URL    = "postgresql://agentuser:agentstack123@localhost:5432/agentstack"
+import os as _os_env
+DB_URL = _os_env.environ.get("EUTECH_DB_URL", "")   # stored on this PC, never in the code
+if not DB_URL:
+    raise SystemExit("EUTECH_DB_URL is not set - run eutech_favicon_and_db.py --apply, then open a new window")
 OUT_FILE  = Path(r"C:\Users\USER\NANO\outputs\eutech-directory\index.html")
 GIT_DIR   = Path(r"C:\Users\USER\NANO\outputs\eutech-directory")
 
@@ -332,6 +335,7 @@ def build_html(tools, tools_json, cat_buttons, total_in_db):
     }}
 
   </style>
+<!-- eutech favicon --><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#0B3D91">
 </head>
 <body>
 <header>
