@@ -71,7 +71,7 @@ https://eutech-directory.github.io/#submit — reviewed within 24 hours
 
 ## Related
 
-- [Legis-Link MCP](https://legis-link-mcp-production-3e9b.up.railway.app/app) — Construction compliance AI MCP server for UK/EU trades
+- [Legis-Link MCP](https://legis-link.com/app) — Construction compliance AI MCP server for UK/EU trades
 
 ## Data
 
