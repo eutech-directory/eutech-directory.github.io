@@ -711,6 +711,7 @@ render();
 
 
 <a href="#" class="back-top" id="back-top" aria-label="Back to top" onclick="window.scrollTo({{top:0,behavior:'smooth'}});return false;">&#8679;</a>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "c87f4229eb7e44a19c5e152941ca0275"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>"""
 
