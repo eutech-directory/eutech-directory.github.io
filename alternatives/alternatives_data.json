@@ -1,0 +1,649 @@
+{
+ "checked": "2026-11-12",
+ "tools": {
+  "plausible": {
+   "name": "Plausible Analytics",
+   "url": "https://plausible.io",
+   "country": "EE",
+   "entity": "Plausible Insights OÜ, Tartu",
+   "description": "Lightweight, cookie-free website analytics. Open source; can be self-hosted.",
+   "source": "https://plausible.io/privacy",
+   "note": ""
+  },
+  "simpleanalytics": {
+   "name": "Simple Analytics",
+   "url": "https://www.simpleanalytics.com",
+   "country": "NL",
+   "entity": "Simple Analytics B.V., Amsterdam",
+   "description": "Privacy-first website analytics with no cookies and no personal data collected.",
+   "source": "https://www.simpleanalytics.com/about",
+   "note": ""
+  },
+  "pirsch": {
+   "name": "Pirsch",
+   "url": "https://pirsch.io",
+   "country": "DE",
+   "entity": "Emvi Software GmbH",
+   "description": "Cookie-free, server-side website analytics.",
+   "source": "https://pirsch.io/about-us",
+   "note": ""
+  },
+  "piwikpro": {
+   "name": "Piwik PRO",
+   "url": "https://piwik.pro",
+   "country": "PL",
+   "entity": "Piwik PRO SA, Wrocław",
+   "description": "Analytics suite with tag manager and consent manager, aimed at larger organisations.",
+   "source": "https://piwik.pro/privacy-policy/",
+   "note": ""
+  },
+  "element": {
+   "name": "Element",
+   "url": "https://element.io",
+   "country": "UK",
+   "entity": "Element Creations Ltd, London (Companies House 10873661)",
+   "description": "Team chat and calls on the open Matrix protocol. Hosted or self-hosted, end-to-end encrypted.",
+   "source": "https://find-and-update.company-information.service.gov.uk/company/10873661",
+   "note": ""
+  },
+  "stackfield": {
+   "name": "Stackfield",
+   "url": "https://www.stackfield.com",
+   "country": "DE",
+   "entity": "Stackfield GmbH, Munich",
+   "description": "All-in-one workspace: chat, tasks, video calls, documents and calendar.",
+   "source": "https://www.stackfield.com/contact",
+   "note": ""
+  },
+  "threema": {
+   "name": "Threema Work",
+   "url": "https://threema.ch/en/work",
+   "country": "CH",
+   "entity": "Threema AG, Pfäffikon SZ",
+   "description": "Encrypted business messenger with group chats and calls.",
+   "source": "https://threema.com/en/impressum",
+   "note": ""
+  },
+  "nuclino": {
+   "name": "Nuclino",
+   "url": "https://www.nuclino.com",
+   "country": "DE",
+   "entity": "Nuclino GmbH, Grünwald",
+   "description": "Team wiki and docs with linked pages, boards and graph view.",
+   "source": "https://www.nuclino.com/terms",
+   "note": ""
+  },
+  "anytype": {
+   "name": "Anytype",
+   "url": "https://anytype.io",
+   "country": "CH",
+   "entity": "Any Association, Zug",
+   "description": "Local-first notes, docs and databases with end-to-end encrypted sync.",
+   "source": "https://business.anytype.io/tos",
+   "note": "EU representative: Anylab GmbH, Berlin."
+  },
+  "nextcloud": {
+   "name": "Nextcloud",
+   "url": "https://nextcloud.com",
+   "country": "DE",
+   "entity": "Nextcloud GmbH, Stuttgart",
+   "description": "Open-source file sync and sharing with office, calendar and chat. Self-hosted or via a provider.",
+   "source": "https://nextcloud.com/de/impressum/",
+   "note": ""
+  },
+  "codeberg": {
+   "name": "Codeberg",
+   "url": "https://codeberg.org",
+   "country": "DE",
+   "entity": "Codeberg e.V. (non-profit association), Berlin",
+   "description": "Non-profit Git hosting for open-source projects, running Forgejo.",
+   "source": "https://docs.codeberg.org/getting-started/what-is-codeberg/",
+   "note": "Meant mainly for free and open-source projects. For private company code, self-host Forgejo."
+  },
+  "youtrack": {
+   "name": "YouTrack",
+   "url": "https://www.jetbrains.com/youtrack/",
+   "country": "CZ",
+   "entity": "JetBrains s.r.o., Prague",
+   "description": "Issue tracker and agile boards, with a knowledge base.",
+   "source": "https://www.jetbrains.com/youtrack/buy/license.html",
+   "note": ""
+  },
+  "openproject": {
+   "name": "OpenProject",
+   "url": "https://www.openproject.org",
+   "country": "DE",
+   "entity": "OpenProject GmbH, Berlin",
+   "description": "Open-source project management: work packages, Gantt charts, agile boards.",
+   "source": "https://www.openproject.org/legal/imprint/",
+   "note": ""
+  },
+  "taiga": {
+   "name": "Taiga",
+   "url": "https://taiga.io",
+   "country": "ES",
+   "entity": "Kaleidos group, Spain",
+   "description": "Open-source agile project management with Scrum and Kanban boards.",
+   "source": "https://taiga.io/privacy-policy",
+   "note": ""
+  },
+  "meistertask": {
+   "name": "MeisterTask",
+   "url": "https://www.meistertask.com",
+   "country": "DE",
+   "entity": "MeisterLabs GmbH, Vaterstetten (Munich area)",
+   "description": "Kanban-style task and project management for teams.",
+   "source": "https://search.lei-registrar.com/8945004PCX5QF4Y9O610",
+   "note": ""
+  },
+  "penpot": {
+   "name": "Penpot",
+   "url": "https://penpot.app",
+   "country": "ES",
+   "entity": "Kaleidos Subsidiary S.L., Madrid",
+   "description": "Open-source design and prototyping tool. Runs in the browser; can be self-hosted.",
+   "source": "https://penpot.app/terms",
+   "note": ""
+  },
+  "alfaview": {
+   "name": "alfaview",
+   "url": "https://alfaview.com",
+   "country": "DE",
+   "entity": "alfaview gmbh, Karlsruhe",
+   "description": "Video conferencing for meetings, teaching and webinars.",
+   "source": "https://alfaview.com/en/terms/",
+   "note": ""
+  },
+  "eyeson": {
+   "name": "eyeson",
+   "url": "https://www.eyeson.com",
+   "country": "AT",
+   "entity": "eyeson GmbH, Graz",
+   "description": "Video meeting platform and video API.",
+   "source": "https://www.eyeson.com/terms-of-service",
+   "note": ""
+  },
+  "brevo": {
+   "name": "Brevo",
+   "url": "https://www.brevo.com",
+   "country": "DE",
+   "entity": "Brevo GmbH, Berlin (part of the French Brevo group)",
+   "description": "Email marketing, transactional email, SMS and a simple CRM.",
+   "source": "https://www.brevo.com/de/legal/impressum/",
+   "note": ""
+  },
+  "mailerlite": {
+   "name": "MailerLite",
+   "url": "https://www.mailerlite.com",
+   "country": "LT",
+   "entity": "MailerLite UAB, Vilnius",
+   "description": "Email marketing with newsletters, automations and landing pages.",
+   "source": "https://www.emis.cn/php/company-profile/LT/Mailerlite_UAB_en_8380920.html",
+   "note": ""
+  },
+  "cleverreach": {
+   "name": "CleverReach",
+   "url": "https://www.cleverreach.com",
+   "country": "DE",
+   "entity": "CleverReach GmbH & Co. KG, Rastede",
+   "description": "Email marketing and newsletter software.",
+   "source": "https://datarequests.org/company/cleverreach",
+   "note": ""
+  },
+  "mailjet": {
+   "name": "Mailjet",
+   "url": "https://www.mailjet.com",
+   "country": "DE",
+   "entity": "Mailjet GmbH, Berlin (owned by Sinch, Sweden)",
+   "description": "Email marketing and transactional email API.",
+   "source": "https://www.mailjet.com/impressum/",
+   "note": ""
+  },
+  "scalewaytem": {
+   "name": "Scaleway Transactional Email",
+   "url": "https://www.scaleway.com/en/transactional-email-tem/",
+   "country": "FR",
+   "entity": "Scaleway SAS, Paris (RCS Paris 433 115 904)",
+   "description": "Transactional email sending (API and SMTP) from a European cloud.",
+   "source": "https://www.scaleway.com/en/legal-notice/",
+   "note": ""
+  },
+  "internxt": {
+   "name": "Internxt",
+   "url": "https://internxt.com",
+   "country": "ES",
+   "entity": "Internxt Universal Technologies SL, Valencia",
+   "description": "Encrypted cloud storage. Open source.",
+   "source": "https://help.internxt.com",
+   "note": ""
+  },
+  "filen": {
+   "name": "Filen",
+   "url": "https://filen.io",
+   "country": "DE",
+   "entity": "Filen Cloud Dienste UG",
+   "description": "End-to-end encrypted cloud storage.",
+   "source": "https://filen.io/about",
+   "note": ""
+  },
+  "koofr": {
+   "name": "Koofr",
+   "url": "https://koofr.eu",
+   "country": "SI",
+   "entity": "Koofr d.o.o., Ljubljana",
+   "description": "Cloud storage that can also connect your other cloud accounts.",
+   "source": "https://www.startup.si/en-us/startup-map/startups-scaleups/koofr",
+   "note": ""
+  },
+  "pcloud": {
+   "name": "pCloud",
+   "url": "https://www.pcloud.com",
+   "country": "CH",
+   "entity": "pCloud International AG, Baar",
+   "description": "Cloud storage with optional client-side encryption and EU data region.",
+   "source": "https://help.pcloud.com/article/terms-of-service",
+   "note": "Choose the EU data region when you sign up."
+  },
+  "tresorit": {
+   "name": "Tresorit",
+   "url": "https://tresorit.com",
+   "country": "CH",
+   "entity": "Tresorit AG, Zurich",
+   "description": "End-to-end encrypted file sharing and storage for business.",
+   "source": "https://tresorit.com/terms-of-use",
+   "note": ""
+  },
+  "hetzner": {
+   "name": "Hetzner",
+   "url": "https://www.hetzner.com",
+   "country": "DE",
+   "entity": "Hetzner Online GmbH, Gunzenhausen (HRB 6089)",
+   "description": "Cloud servers, dedicated servers, storage and load balancers.",
+   "source": "https://www.hetzner.com/legal/legal-notice/",
+   "note": "Has data centres in Germany and Finland, and also in the US and Singapore. Pick an EU location."
+  },
+  "ovhcloud": {
+   "name": "OVHcloud",
+   "url": "https://www.ovhcloud.com",
+   "country": "FR",
+   "entity": "OVH SAS, Roubaix (RCS Lille 424 761 419)",
+   "description": "Public cloud, bare-metal servers, storage and managed Kubernetes.",
+   "source": "https://www.ovhcloud.com/en-gb/terms-and-conditions/",
+   "note": "Pick an EU region; it also runs data centres outside Europe."
+  },
+  "scaleway": {
+   "name": "Scaleway",
+   "url": "https://www.scaleway.com",
+   "country": "FR",
+   "entity": "Scaleway SAS, Paris (RCS Paris 433 115 904)",
+   "description": "Cloud instances, GPUs, object storage, managed databases and Kubernetes.",
+   "source": "https://www.scaleway.com/en/legal-notice/",
+   "note": ""
+  },
+  "ionos": {
+   "name": "IONOS Cloud",
+   "url": "https://cloud.ionos.com",
+   "country": "DE",
+   "entity": "IONOS SE, Montabaur (HRB 24498)",
+   "description": "Compute, storage, managed Kubernetes and hosting.",
+   "source": "https://www.ionos.de/impressum",
+   "note": ""
+  },
+  "teamleader": {
+   "name": "Teamleader",
+   "url": "https://www.teamleader.eu",
+   "country": "BE",
+   "entity": "Teamleader NV, Ghent",
+   "description": "CRM with quotes, invoicing and projects for small businesses.",
+   "source": "https://www.teamleader.eu/legal/terms-of-service-teamleader-focus",
+   "note": ""
+  },
+  "superoffice": {
+   "name": "SuperOffice CRM",
+   "url": "https://www.superoffice.com",
+   "country": "NO",
+   "entity": "SuperOffice AS, Oslo",
+   "description": "CRM for sales, marketing and customer service.",
+   "source": "https://www.superoffice.com/trust-center/transparency/",
+   "note": ""
+  },
+  "odoo": {
+   "name": "Odoo",
+   "url": "https://www.odoo.com",
+   "country": "BE",
+   "entity": "Odoo SA, Ramillies",
+   "description": "Open-source business apps: CRM, sales, accounting, inventory and more.",
+   "source": "https://companyweb.be/en/0477472701/odoo",
+   "note": ""
+  },
+  "checkmk": {
+   "name": "Checkmk",
+   "url": "https://checkmk.com",
+   "country": "DE",
+   "entity": "Checkmk GmbH, Munich (HRB 165902)",
+   "description": "Infrastructure and application monitoring. Open-source edition available.",
+   "source": "https://checkmk.com/imprint",
+   "note": ""
+  },
+  "zabbix": {
+   "name": "Zabbix",
+   "url": "https://www.zabbix.com",
+   "country": "LV",
+   "entity": "SIA Zabbix, Riga (reg. 40003738045)",
+   "description": "Open-source monitoring for networks, servers, cloud and applications.",
+   "source": "https://www.zabbix.com/privacy_policy",
+   "note": ""
+  },
+  "passbolt": {
+   "name": "Passbolt",
+   "url": "https://www.passbolt.com",
+   "country": "LU",
+   "entity": "Passbolt SA, Belvaux",
+   "description": "Open-source password manager built for teams. Cloud or self-hosted.",
+   "source": "https://www.passbolt.com/terms/cloud/customer",
+   "note": ""
+  },
+  "psono": {
+   "name": "Psono",
+   "url": "https://psono.com",
+   "country": "DE",
+   "entity": "esaqa GmbH, Vorra (HRB 37978)",
+   "description": "Open-source password manager for teams, self-hosted or cloud.",
+   "source": "https://psono.com/da/legal-notice",
+   "note": ""
+  },
+  "protonpass": {
+   "name": "Proton Pass",
+   "url": "https://proton.me/pass",
+   "country": "CH",
+   "entity": "Proton AG, Plan-les-Ouates (Geneva)",
+   "description": "End-to-end encrypted password manager with email aliases.",
+   "source": "https://moneyhouse.ch/en/company/proton-ag-4537282131",
+   "note": ""
+  },
+  "sage": {
+   "name": "Sage Accounting",
+   "url": "https://www.sage.com",
+   "country": "UK",
+   "entity": "The Sage Group plc, Newcastle upon Tyne (02231246)",
+   "description": "Cloud accounting and payroll for small businesses.",
+   "source": "https://find-and-update.company-information.service.gov.uk/company/02231246",
+   "note": "Product versions differ by country."
+  },
+  "freeagent": {
+   "name": "FreeAgent",
+   "url": "https://www.freeagent.com",
+   "country": "UK",
+   "entity": "FreeAgent Central Ltd, Edinburgh (SC316774)",
+   "description": "Accounting for freelancers and small businesses, built for UK tax.",
+   "source": "https://find-and-update.company-information.service.gov.uk/company/SC316774",
+   "note": "UK only."
+  },
+  "exact": {
+   "name": "Exact Online",
+   "url": "https://www.exact.com",
+   "country": "NL",
+   "entity": "Exact Group B.V., Delft (KvK 27225823)",
+   "description": "Cloud accounting and ERP for small and mid-sized businesses.",
+   "source": "https://files.exact.com/static/web/pdf/Privacy-Policy-for-Exact-Services-EN.pdf",
+   "note": "Available in selected countries (for example NL, BE, DE, UK, FR, ES)."
+  },
+  "pennylane": {
+   "name": "Pennylane",
+   "url": "https://www.pennylane.com",
+   "country": "FR",
+   "entity": "Pennylane SAS, Paris (RCS 880 265 921)",
+   "description": "Accounting and finance platform shared by businesses and their accountants.",
+   "source": "https://www.pennylane.com/fr/legal/mentions-legales",
+   "note": "Mainly for French businesses."
+  },
+  "storyblok": {
+   "name": "Storyblok",
+   "url": "https://www.storyblok.com",
+   "country": "AT",
+   "entity": "Storyblok GmbH, Linz (FN 479743f)",
+   "description": "Headless CMS with a visual editor.",
+   "source": "https://www.storyblok.com/legal/general-terms-and-conditions-31082023",
+   "note": ""
+  },
+  "kontent": {
+   "name": "Kontent.ai",
+   "url": "https://kontent.ai",
+   "country": "CZ",
+   "entity": "Kontent CZ s.r.o., Brno",
+   "description": "Headless CMS for teams and enterprises.",
+   "source": "https://europeanpurpose.com/tool/kontent-ai",
+   "note": "Its terms allow a US group company to be the contracting party. Check who signs your contract."
+  }
+ },
+ "pages": [
+  {
+   "slug": "google-analytics",
+   "product": "Google Analytics",
+   "kind": "web analytics",
+   "tools": [
+    "plausible",
+    "simpleanalytics",
+    "pirsch",
+    "piwikpro"
+   ],
+   "tip": "Most of these work without cookies, so you may not need a cookie banner for analytics. Check that with your own legal advice."
+  },
+  {
+   "slug": "slack",
+   "product": "Slack",
+   "kind": "team chat",
+   "tools": [
+    "element",
+    "stackfield",
+    "threema"
+   ],
+   "tip": "Element is closest to Slack for channels and integrations. Stackfield adds tasks and documents in one place."
+  },
+  {
+   "slug": "notion",
+   "product": "Notion",
+   "kind": "docs and wiki",
+   "tools": [
+    "nuclino",
+    "anytype",
+    "nextcloud"
+   ],
+   "tip": "Nuclino is the closest for a team wiki. Anytype keeps your data on your own devices first."
+  },
+  {
+   "slug": "github",
+   "product": "GitHub",
+   "kind": "code hosting",
+   "tools": [
+    "codeberg"
+   ],
+   "tip": "Only one hosted option passed our checks. Many teams self-host Forgejo (the software behind Codeberg) on an EU server instead."
+  },
+  {
+   "slug": "jira",
+   "product": "Jira",
+   "kind": "issue tracking",
+   "tools": [
+    "youtrack",
+    "openproject",
+    "taiga",
+    "stackfield"
+   ],
+   "tip": "YouTrack is the closest to Jira for software teams. OpenProject and Taiga are open source and can be self-hosted."
+  },
+  {
+   "slug": "zoom",
+   "product": "Zoom",
+   "kind": "video meetings",
+   "tools": [
+    "alfaview",
+    "eyeson",
+    "element"
+   ],
+   "tip": "Check how many participants each plan allows and whether webinars are included."
+  },
+  {
+   "slug": "mailchimp",
+   "product": "Mailchimp",
+   "kind": "email marketing",
+   "tools": [
+    "brevo",
+    "mailerlite",
+    "cleverreach",
+    "mailjet"
+   ],
+   "tip": "All four import contact lists from Mailchimp as a CSV file."
+  },
+  {
+   "slug": "dropbox",
+   "product": "Dropbox",
+   "kind": "file storage and sharing",
+   "tools": [
+    "internxt",
+    "filen",
+    "koofr",
+    "pcloud",
+    "tresorit",
+    "nextcloud"
+   ],
+   "tip": "Tresorit, Filen and Internxt encrypt files end to end. For pCloud, choose the EU data region."
+  },
+  {
+   "slug": "google-drive",
+   "product": "Google Drive",
+   "kind": "cloud storage",
+   "tools": [
+    "nextcloud",
+    "internxt",
+    "filen",
+    "koofr",
+    "pcloud",
+    "tresorit"
+   ],
+   "tip": "Nextcloud adds online office documents, which is the closest match to Google Drive with Docs and Sheets."
+  },
+  {
+   "slug": "aws",
+   "product": "AWS",
+   "kind": "cloud infrastructure",
+   "tools": [
+    "hetzner",
+    "ovhcloud",
+    "scaleway",
+    "ionos"
+   ],
+   "tip": "None of these offer every AWS service. Compare the specific services you use, and pick an EU region."
+  },
+  {
+   "slug": "google-cloud",
+   "product": "Google Cloud",
+   "kind": "cloud infrastructure",
+   "tools": [
+    "scaleway",
+    "ovhcloud",
+    "hetzner",
+    "ionos"
+   ],
+   "tip": "None of these offer every Google Cloud service. Compare the specific services you use, and pick an EU region."
+  },
+  {
+   "slug": "hubspot",
+   "product": "HubSpot",
+   "kind": "CRM and marketing",
+   "tools": [
+    "brevo",
+    "teamleader",
+    "odoo",
+    "superoffice"
+   ],
+   "tip": "Brevo is the closest for email marketing plus CRM. Teamleader and Odoo add quotes and invoicing."
+  },
+  {
+   "slug": "salesforce",
+   "product": "Salesforce",
+   "kind": "CRM",
+   "tools": [
+    "superoffice",
+    "odoo",
+    "teamleader"
+   ],
+   "tip": "SuperOffice is closest for larger sales teams. Odoo covers CRM plus the rest of the business."
+  },
+  {
+   "slug": "figma",
+   "product": "Figma",
+   "kind": "design and prototyping",
+   "tools": [
+    "penpot"
+   ],
+   "tip": "Penpot is the only close match that passed our checks. It can import Figma files through a plugin; check how well your files convert."
+  },
+  {
+   "slug": "asana",
+   "product": "Asana",
+   "kind": "task and project management",
+   "tools": [
+    "meistertask",
+    "stackfield",
+    "openproject",
+    "taiga"
+   ],
+   "tip": "MeisterTask is the closest for simple task boards. OpenProject suits bigger projects with timelines."
+  },
+  {
+   "slug": "datadog",
+   "product": "Datadog",
+   "kind": "monitoring",
+   "tools": [
+    "checkmk",
+    "zabbix"
+   ],
+   "tip": "Both are mature monitoring tools with open-source editions. Neither copies every Datadog feature."
+  },
+  {
+   "slug": "1password",
+   "product": "1Password",
+   "kind": "password management",
+   "tools": [
+    "passbolt",
+    "psono",
+    "protonpass"
+   ],
+   "tip": "Passbolt and Psono are built for teams and can be self-hosted. Proton Pass is simplest for individuals and small teams."
+  },
+  {
+   "slug": "sendgrid",
+   "product": "SendGrid",
+   "kind": "transactional email",
+   "tools": [
+    "brevo",
+    "mailjet",
+    "scalewaytem"
+   ],
+   "tip": "Check sending limits and dedicated IP options on each plan."
+  },
+  {
+   "slug": "quickbooks",
+   "product": "QuickBooks",
+   "kind": "accounting",
+   "tools": [
+    "sage",
+    "exact",
+    "pennylane",
+    "freeagent"
+   ],
+   "tip": "Accounting software must follow your country's tax rules. Check that the tool supports your country before you switch."
+  },
+  {
+   "slug": "contentful",
+   "product": "Contentful",
+   "kind": "headless CMS",
+   "tools": [
+    "storyblok",
+    "kontent"
+   ],
+   "tip": "Both are hosted headless CMSs with APIs similar to Contentful's."
+  }
+ ]
+}
