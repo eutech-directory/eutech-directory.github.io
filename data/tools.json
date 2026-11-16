@@ -14,7 +14,7 @@
   {
    "name": "Aruba Cloud",
    "category": "Cloud & Hosting",
-   "country": "IT",
+   "country": "Italy",
    "replaces": "",
    "description": "Aruba Cloud",
    "website": "https://www.arubacloud.com",
@@ -23,7 +23,7 @@
   {
    "name": "Internxt",
    "category": "Cloud & Hosting",
-   "country": "ES",
+   "country": "Spain",
    "replaces": "",
    "description": "Dezentraler Cloud-Speicher mit Open-Source-Architektur",
    "website": "https://internxt.com",
@@ -113,11 +113,12 @@
   {
    "name": "Castopod",
    "category": "AI & Automation",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "Podcast management hosting platform that includes the latest podcast 2.0 standards, an automated Fediverse feed, analytics, an embeddable player, and more. (Source Code) AGPL-3.0 PHP/Docker",
    "website": "https://castopod.org",
-   "verified": true
+   "verified": true,
+   "country_source": "https://castopod.org/legal/"
   },
   {
    "name": "changedetection.io",
@@ -212,20 +213,22 @@
   {
    "name": "Dittofeed",
    "category": "AI & Automation",
-   "country": "EU-friendly",
+   "country": "Norway",
    "replaces": "",
    "description": "Omni-channel customer engagement and messaging automation platform (alternative to Braze, Customer.io, Iterable). (Demo, Source Code) MIT Docker",
    "website": "https://www.dittofeed.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.dittofeed.com/terms-of-service"
   },
   {
    "name": "Domainnameshop",
    "category": "AI & Automation",
-   "country": "",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Domainnameshop",
    "website": "https://www.domainnameshop.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://domainname.shop/terms"
   },
   {
    "name": "Dotclear",
@@ -284,7 +287,7 @@
   {
    "name": "Faculty AI",
    "category": "AI & Automation",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK AI platform and applied ML, London-based",
    "website": "https://faculty.ai",
@@ -320,7 +323,7 @@
   {
    "name": "Fredy",
    "category": "AI & Automation",
-   "country": "DE",
+   "country": "Germany",
    "replaces": "",
    "description": "Searches for new apartments, houses, and flats in Germany on platforms like ImmoScout24, Immowelt, and others, and instantly delivers the results to you via Slack, Telegram, and more. ([Demo](https://fredy-demo.orange-co...",
    "website": "https://fredy.orange-coding.net",
@@ -392,20 +395,22 @@
   {
    "name": "Healthchecks",
    "category": "AI & Automation",
-   "country": "EU-friendly",
+   "country": "Latvia",
    "replaces": "",
    "description": "Listen for pings and sends alerts when pings are late. (Source Code) BSD-3-Clause Python/Docker",
    "website": "https://healthchecks.io/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://healthchecks.io/terms/"
   },
   {
    "name": "Hi.Events",
    "category": "AI & Automation",
-   "country": "EU-friendly",
+   "country": "Ireland",
    "replaces": "",
    "description": "Event management and ticketing platform for conferences, concerts, and more. Offering customizable event pages and embeddable ticket widgets. (Demo, Source Code) AGPL-3.0 Docker",
    "website": "https://hi.events",
-   "verified": true
+   "verified": true,
+   "country_source": "https://hi.events/terms-of-service"
   },
   {
    "name": "Hostinger Domain",
@@ -455,11 +460,12 @@
   {
    "name": "INWX",
    "category": "AI & Automation",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "INWX",
    "website": "https://www.inwx.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.inwx.com/en/aboutus/imprint"
   },
   {
    "name": "IONOS domains",
@@ -482,11 +488,12 @@
   {
    "name": "Karakeep",
    "category": "AI & Automation",
-   "country": "EU-friendly",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Bookmark-everything app with a touch of AI for the data hoarders out there. (Demo, Source Code) AGPL-3.0 Docker",
    "website": "https://karakeep.app/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://karakeep.com/terms/"
   },
   {
    "name": "Kestra",
@@ -599,11 +606,12 @@
   {
    "name": "ModernMT",
    "category": "AI & Automation",
-   "country": "",
+   "country": "Italy",
    "replaces": "",
    "description": "ModernMT",
    "website": "https://www.modernmt.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.modernmt.com/terms"
   },
   {
    "name": "Mylar3",
@@ -626,20 +634,22 @@
   {
    "name": "netim",
    "category": "AI & Automation",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "netim",
    "website": "https://www.netim.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.netim.com/en/legal-notices"
   },
   {
    "name": "NordName",
    "category": "AI & Automation",
-   "country": "",
+   "country": "Finland",
    "replaces": "",
    "description": "NordName",
    "website": "https://www.nordname.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.nordname.com/contact-us"
   },
   {
    "name": "OliveTin",
@@ -653,20 +663,22 @@
   {
    "name": "Openprovider",
    "category": "AI & Automation",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Openprovider",
    "website": "https://www.openprovider.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.openprovider.com/legal/terms-conditions"
   },
   {
    "name": "OVHcloud Domains",
    "category": "AI & Automation",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "OVHcloud Domains",
    "website": "https://www.ovhcloud.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://us.ovhcloud.com/about/contact/"
   },
   {
    "name": "PluXml",
@@ -743,11 +755,12 @@
   {
    "name": "Seatsurfing",
    "category": "AI & Automation",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Webbased app to book seats, desks and rooms for offices. (Source Code) GPL-3.0 Docker",
    "website": "https://seatsurfing.app/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://seatsurfing.io/terms/"
   },
   {
    "name": "Serendipity",
@@ -815,7 +828,7 @@
   {
    "name": "Wayve",
    "category": "AI & Automation",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK autonomous driving AI, Cambridge and London",
    "website": "https://wayve.ai",
@@ -941,7 +954,7 @@
   {
    "name": "Brandwatch",
    "category": "Analytics & Data",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK social media analytics and consumer intelligence platform",
    "website": "https://brandwatch.com",
@@ -959,11 +972,12 @@
   {
    "name": "Centreon",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Centreon",
    "website": "https://www.centreon.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.centreon.com/legal-notice/"
   },
   {
    "name": "Checkmk",
@@ -1031,11 +1045,12 @@
   {
    "name": "d8a.tech",
    "category": "Analytics & Data",
-   "country": "EU-friendly",
+   "country": "Netherlands",
    "replaces": "Google Analytics",
    "description": "A data collection service that works with your existing Google Analytics setup to capture user activity and send it straight to your own private database. (Demo, Source Code) MIT Go/Docker",
    "website": "https://d8a.tech",
-   "verified": true
+   "verified": true,
+   "country_source": "https://d8a.tech/terms/"
   },
   {
    "name": "DashLord",
@@ -1049,20 +1064,22 @@
   {
    "name": "DiGEiZ",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "DiGEiZ",
    "website": "https://www.digeiz.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://digeiz.ai/privacy-policy"
   },
   {
    "name": "Dreamdata",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Denmark",
    "replaces": "",
    "description": "Dreamdata",
    "website": "https://dreamdata.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://dreamdata.io/legal"
   },
   {
    "name": "Druid",
@@ -1103,11 +1120,12 @@
   {
    "name": "etracker",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Cookiefreies Web-Analytics aus Deutschland",
    "website": "https://etracker.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.etracker.com/impressum/"
   },
   {
    "name": "Facette",
@@ -1121,20 +1139,22 @@
   {
    "name": "Friendly Analytics",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "Friendly Analytics",
    "website": "https://friendly.is/en/analytics",
-   "verified": true
+   "verified": true,
+   "country_source": "https://friendly.ch/en/imprint"
   },
   {
    "name": "fusedeck",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "fusedeck",
    "website": "https://fusedeck.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://fusedeck.com/de/impressum/"
   },
   {
    "name": "Glances",
@@ -1193,20 +1213,22 @@
   {
    "name": "hyperdx",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Norway",
    "replaces": "",
    "description": "hyperdx",
    "website": "https://www.hyperdx.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.hyperdx.io/terms/service"
   },
   {
    "name": "Hyperping",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Hyperping",
    "website": "https://hyperping.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://hyperping.com/terms"
   },
   {
    "name": "Icinga",
@@ -1247,11 +1269,12 @@
   {
    "name": "Litlyx",
    "category": "Analytics & Data",
-   "country": "EU",
+   "country": "Italy",
    "replaces": "",
    "description": "All-in-one Analytics Solution. Setup in 30 seconds. Display all your data on an AI-powered dashboard. Fully self-hostable and GDPR compliant. ([Source Code](https://github.com/Litlyx/litlyx))",
    "website": "https://litlyx.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://litlyx.com/terms-of-service"
   },
   {
    "name": "Liwan",
@@ -1328,7 +1351,7 @@
   {
    "name": "Mention Me",
    "category": "Analytics & Data",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK referral marketing and analytics platform",
    "website": "https://mention-me.com",
@@ -1418,11 +1441,12 @@
   {
    "name": "Neuralk-AI",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Neuralk-AI",
    "website": "https://www.neuralk-ai.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.neuralk.ai/terms-conditions"
   },
   {
    "name": "Node Exporter",
@@ -1499,11 +1523,12 @@
   {
    "name": "Open Archiver",
    "category": "Analytics & Data",
-   "country": "EU-friendly",
+   "country": "Estonia",
    "replaces": "",
    "description": "Email archiving solution with full-text search and eDiscovery search features. (Demo, Source Code) AGPL-3.0 Docker",
    "website": "https://openarchiver.com/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://openarchiver.com/terms"
   },
   {
    "name": "Phare Uptime",
@@ -1571,20 +1596,22 @@
   {
    "name": "Plausible",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Estonia",
    "replaces": "",
    "description": "Schlanke, DSGVO-konforme Web-Analytics ohne Cookies",
    "website": "https://plausible.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://plausible.io/imprint"
   },
   {
    "name": "Plausible Analytics",
    "category": "Analytics & Data",
-   "country": "EU-friendly",
+   "country": "Estonia",
    "replaces": "",
    "description": "Simple, lightweight (< 1 KB) and privacy-friendly web analytics. (Source Code) AGPL-3.0 Elixir",
    "website": "https://plausible.io/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://plausible.io/imprint"
   },
   {
    "name": "PoeticMetric",
@@ -1607,11 +1634,12 @@
   {
    "name": "Profitap",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Profitap",
    "website": "https://www.profitap.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.profitap.com/terms-and-conditions/"
   },
   {
    "name": "Prometheus",
@@ -1634,11 +1662,12 @@
   {
    "name": "Publytics",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Italy",
    "replaces": "",
    "description": "Publytics",
    "website": "https://publytics.net",
-   "verified": true
+   "verified": true,
+   "country_source": "https://publytics.net/contact-us"
   },
   {
    "name": "Quickwit",
@@ -1679,11 +1708,12 @@
   {
    "name": "SEAL Metrics",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Spain",
    "replaces": "",
    "description": "SEAL Metrics",
    "website": "https://sealmetrics.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://sealmetrics.com/privacy/"
   },
   {
    "name": "Semonto",
@@ -1796,20 +1826,22 @@
   {
    "name": "Statuspal",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Statuspal",
    "website": "https://statuspal.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.statuspal.io/terms"
   },
   {
    "name": "Stormly",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Stormly",
    "website": "https://stormly.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.stormly.com/terms"
   },
   {
    "name": "Superset",
@@ -1823,11 +1855,12 @@
   {
    "name": "Swetrix",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Swetrix",
    "website": "https://swetrix.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://swetrix.com/terms"
   },
   {
    "name": "Syslog-ng",
@@ -1877,11 +1910,12 @@
   {
    "name": "Tirreno",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "Tirreno",
    "website": "https://tirreno.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.tirreno.com/imprint/"
   },
   {
    "name": "Totsum Data Explorer",
@@ -1895,11 +1929,12 @@
   {
    "name": "Trackboxx",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Trackboxx",
    "website": "https://www.trackboxx.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://trackboxx.com/impressum/"
   },
   {
    "name": "Umami",
@@ -1940,11 +1975,12 @@
   {
    "name": "Vantevo",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Italy",
    "replaces": "",
    "description": "Vantevo",
    "website": "https://vantevo.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://vantevo.io/about-us"
   },
   {
    "name": "Vector",
@@ -2012,11 +2048,12 @@
   {
    "name": "Zabbix",
    "category": "Analytics & Data",
-   "country": "",
+   "country": "Latvia",
    "replaces": "",
    "description": "Zabbix",
    "website": "https://www.zabbix.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.zabbix.com/contact"
   },
   {
    "name": "AlphaVPS",
@@ -2066,7 +2103,7 @@
   {
    "name": "Bytemark",
    "category": "Cloud & Hosting",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK-owned hosting and cloud, transparent infrastructure in York",
    "website": "https://bytemark.co.uk",
@@ -2075,7 +2112,7 @@
   {
    "name": "Canonical",
    "category": "Cloud & Hosting",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Ubuntu Linux and cloud infrastructure, UK-founded Cambridge company",
    "website": "https://canonical.com",
@@ -2084,20 +2121,22 @@
   {
    "name": "Clouding",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Spain",
    "replaces": "",
    "description": "Clouding",
    "website": "https://clouding.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://clouding.io"
   },
   {
    "name": "cloudscale",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "cloudscale",
    "website": "https://www.cloudscale.ch",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.cloudscale.ch/en/about"
   },
   {
    "name": "Collabora Online",
@@ -2147,20 +2186,22 @@
   {
    "name": "cryptee",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Estonia",
    "replaces": "",
    "description": "cryptee",
    "website": "https://crypt.ee",
-   "verified": true
+   "verified": true,
+   "country_source": "https://crypt.ee/security"
   },
   {
    "name": "Cyso Cloud",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Cyso Cloud",
    "website": "https://cyso.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://cyso.com/legal"
   },
   {
    "name": "Elastx",
@@ -2183,16 +2224,17 @@
   {
    "name": "Exoscale",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "Exoscale",
    "website": "https://exoscale.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.exoscale.com/support/"
   },
   {
    "name": "Fasthosts",
    "category": "Cloud & Hosting",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK web hosting and cloud servers from Gloucester",
    "website": "https://fasthosts.co.uk",
@@ -2201,11 +2243,12 @@
   {
    "name": "Filen",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Ende-zu-Ende-verschlüsselter Cloud-Speicher aus Deutschland",
    "website": "https://filen.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://filen.io/imprint"
   },
   {
    "name": "GarageHQ",
@@ -2228,11 +2271,12 @@
   {
    "name": "Hetzner",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Deutsche Cloud-Infrastruktur und Hosting-Dienste",
    "website": "https://hetzner.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.hetzner.com/legal/legal-notice/"
   },
   {
    "name": "Home Assistant",
@@ -2318,20 +2362,22 @@
   {
    "name": "Jet-Stream",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Jet-Stream",
    "website": "https://www.jet-stream.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.jet-stream.com/impressum/"
   },
   {
    "name": "Jottacloud",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Norway",
    "replaces": "",
    "description": "Plattformunabhängiger Cloud-Speicher aus Norwegen",
    "website": "https://jottacloud.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://jottacloud.com/en/about/careers"
   },
   {
    "name": "Koofr",
@@ -2345,7 +2391,7 @@
   {
    "name": "Krystal",
    "category": "Cloud & Hosting",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK green web hosting powered by 100% renewable energy",
    "website": "https://krystal.uk",
@@ -2390,11 +2436,12 @@
   {
    "name": "Nextcloud",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Selbst-gehostete Collaboration-Suite mit vollständiger Kontrolle",
    "website": "https://nextcloud.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://nextcloud.com/impressum/"
   },
   {
    "name": "Nirvati",
@@ -2426,20 +2473,22 @@
   {
    "name": "OVHcloud",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Cloud-Infrastruktur mit europäischen Rechenzentren",
    "website": "https://ovhcloud.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://us.ovhcloud.com/about/contact/"
   },
   {
    "name": "OVHcloud WordPress",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "OVHcloud WordPress",
    "website": "https://www.ovhcloud.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://us.ovhcloud.com/about/contact/"
   },
   {
    "name": "pCloud",
@@ -2471,11 +2520,12 @@
   {
    "name": "Raidboxes",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Ireland",
    "replaces": "",
    "description": "Raidboxes",
    "website": "https://raidboxes.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://raidboxes.io/legal/privacy/"
   },
   {
    "name": "Sandstorm",
@@ -2498,20 +2548,22 @@
   {
    "name": "Seeweb",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Italy",
    "replaces": "",
    "description": "Seeweb",
    "website": "https://www.seeweb.it",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.seeweb.it/privacy-e-cookie-policy"
   },
   {
    "name": "Servebolt",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Norway",
    "replaces": "",
    "description": "Servebolt",
    "website": "https://servebolt.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://servebolt.com/legal/privacy/"
   },
   {
    "name": "Simplenet",
@@ -2543,20 +2595,22 @@
   {
    "name": "STACKIT",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "STACKIT",
    "website": "https://www.stackit.de",
-   "verified": true
+   "verified": true,
+   "country_source": "https://stackit.com/de/impressum"
   },
   {
    "name": "Strato WordPress",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Strato WordPress",
    "website": "https://www.strato.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.strato.com/legal-notice/?lang=TR"
   },
   {
    "name": "Sync Motion Managed SFTP",
@@ -2579,11 +2633,12 @@
   {
    "name": "TimmeHosting",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "TimmeHosting",
    "website": "https://timmehosting.de",
-   "verified": true
+   "verified": true,
+   "country_source": "https://timmehosting.de/impressum"
   },
   {
    "name": "Tipi",
@@ -2597,16 +2652,17 @@
   {
    "name": "tresorit",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "Enterprise-Cloud-Speicher mit Zero-Knowledge-Verschlüsselung",
    "website": "https://tresorit.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://tresorit.com/legal/privacy-policy"
   },
   {
    "name": "UKCloud",
    "category": "Cloud & Hosting",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK sovereign cloud for public sector, OFFICIAL and SECRET data",
    "website": "https://ukcloud.com",
@@ -2615,29 +2671,32 @@
   {
    "name": "UpCloud",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Finland",
    "replaces": "",
    "description": "Cloud-Hosting mit MaxIOPS-Speichertechnologie",
    "website": "https://upcloud.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://upcloud.com/terms-of-service/"
   },
   {
    "name": "V.PS",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "Estonia",
    "replaces": "",
    "description": "V.PS",
    "website": "https://v.ps",
-   "verified": true
+   "verified": true,
+   "country_source": "https://v.ps/tos/"
   },
   {
    "name": "Virtua.Cloud",
    "category": "Cloud & Hosting",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Virtua.Cloud",
    "website": "https://virtua.cloud",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.virtua.cloud/legal/service-level-agreement"
   },
   {
    "name": "VPSBG",
@@ -2759,11 +2818,12 @@
   {
    "name": "Aimeos",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "E-commerce framework for building custom online shops, market places and complex B2B applications scaling to billions of items with Laravel. (Demo, Source Code) LGPL-3.0/MIT PHP",
    "website": "https://aimeos.org/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://aimeos.org/contact"
   },
   {
    "name": "Aleph",
@@ -3065,11 +3125,12 @@
   {
    "name": "ChartDB",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "Norway",
    "replaces": "",
    "description": "Database diagrams editor that allows you to visualize and design your DB with a single query. (Demo, Source Code) AGPL-3.0 Nodejs/Docker",
    "website": "https://chartdb.io/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://chartdb.io/terms"
   },
   {
    "name": "CloudBeaver",
@@ -3146,7 +3207,7 @@
   {
    "name": "Codio",
    "category": "Developer Tools",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK cloud-based coding platform for education",
    "website": "https://codio.com",
@@ -3830,11 +3891,12 @@
   {
    "name": "KeyCDN",
    "category": "Developer Tools",
-   "country": "",
+   "country": "Norway",
    "replaces": "",
    "description": "KeyCDN",
    "website": "https://www.keycdn.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.keycdn.com/terms"
   },
   {
    "name": "KeystoneJS",
@@ -3911,11 +3973,12 @@
   {
    "name": "Langfuse",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "Norway",
    "replaces": "",
    "description": "LLM engineering platform for model tracing, prompt management, and application evaluation. Langfuse helps teams collaboratively debug, analyze, and iterate on their LLM applications such as chatbots or AI agents. (Demo,...",
    "website": "https://langfuse.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://clickhouse.com/legal/clickhouse-general-terms-and-conditions"
   },
   {
    "name": "LeafWiki",
@@ -3956,11 +4019,12 @@
   {
    "name": "LibreOffice",
    "category": "Developer Tools",
-   "country": "",
+   "country": "Ireland",
    "replaces": "",
    "description": "Lokale Open-Source Office-Suite der Document Foundation",
    "website": "https://www.libreoffice.org",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.libreoffice.org/privacy-policy/"
   },
   {
    "name": "LibreServer",
@@ -4163,11 +4227,12 @@
   {
    "name": "Myra CDN",
    "category": "Developer Tools",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Myra CDN",
    "website": "https://myrasecurity.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.myrasecurity.com/en/legal-notice/"
   },
   {
    "name": "MySpeed",
@@ -4307,11 +4372,12 @@
   {
    "name": "Overleaf",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Web-based collaborative LaTeX editor. (Source Code) AGPL-3.0 Ruby",
    "website": "https://www.overleaf.com/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.overleaf.com/legal"
   },
   {
    "name": "ownCloud",
@@ -4424,20 +4490,22 @@
   {
    "name": "PrestaShop",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "Fully scalable e-commerce solution. (Demo, Source Code) OSL-3.0 PHP",
    "website": "https://www.prestashop.com/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://prestashop.com/legal-notice/"
   },
   {
    "name": "Pretix",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Ticket sales platform for events. (Source Code) AGPL-3.0 Python/Docker",
    "website": "https://pretix.eu/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://pretix.eu/about/en/imprint"
   },
   {
    "name": "Publify",
@@ -4460,11 +4528,12 @@
   {
    "name": "Pydio",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "Turn any web server into a powerful file management system and an alternative to mainstream cloud storage providers. (Demo, Source Code) AGPL-3.0 Go",
    "website": "https://pydio.com/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.pydio.com/en/about-us"
   },
   {
    "name": "Raneto",
@@ -4487,7 +4556,7 @@
   {
    "name": "Raspberry Pi",
    "category": "Developer Tools",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Single-board computers and educational computing, Cambridge UK",
    "website": "https://raspberrypi.org",
@@ -4514,11 +4583,12 @@
   {
    "name": "REDAXO",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Simple, flexible and useful content management system (documentation in German). (Source Code) MIT PHP/Docker",
    "website": "https://www.redaxo.org",
-   "verified": true
+   "verified": true,
+   "country_source": "https://redaxo.org/cms/impressum/"
   },
   {
    "name": "RERO ILS",
@@ -4586,11 +4656,12 @@
   {
    "name": "Saleor",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "Poland",
    "replaces": "",
    "description": "Django based open-sourced e-commerce storefront. (Demo, Source Code) BSD-3-Clause Docker/Python",
    "website": "https://saleor.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://saleor.io/legal/terms"
   },
   {
    "name": "Saltcorn",
@@ -4658,7 +4729,7 @@
   {
    "name": "Shopware Community Edition",
    "category": "Developer Tools",
-   "country": "DE",
+   "country": "Germany",
    "replaces": "",
    "description": "PHP based open source e-commerce software made in Germany. ([Demo](https://www.shopware.com/en/test-demo/), [Source Code](https://github.com/shopware/shopware))",
    "website": "https://shopware.com/en/community/community-edition",
@@ -4676,11 +4747,12 @@
   {
    "name": "SIGNETTA",
    "category": "Developer Tools",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Signetta is a credit-based e-signature platform tailored for mobile teams and high-volume HR workflows in industries with strict compliance needs.",
    "website": "https://www.signetta.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.signetta.eu/en/imprint"
   },
   {
    "name": "SilverBullet",
@@ -4856,20 +4928,22 @@
   {
    "name": "Sylius",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "Poland",
    "replaces": "",
    "description": "Symfony2 powered open source full-stack platform for eCommerce. (Demo, Source Code) MIT PHP",
    "website": "https://sylius.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://sylius.com/terms-and-conditions/"
   },
   {
    "name": "Sync-in",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "File storage, syncing, sharing, and collaboration with real-time editing, permission management, and desktop/CLI clients. (Demo, Source Code, Clients) AGPL-3.0 Nodejs/Docker",
    "website": "https://sync-in.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://sync-in.com/legal/"
   },
   {
    "name": "Syncloud",
@@ -4910,11 +4984,12 @@
   {
    "name": "Thelia",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "Thelia is an open source and flexible e-commerce solution. (Demo, Source Code) LGPL-3.0 PHP",
    "website": "https://thelia.net/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://thelia.net/mentions-legales.html"
   },
   {
    "name": "theme.park",
@@ -4964,11 +5039,12 @@
   {
    "name": "Tolgee",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "Czechia",
    "replaces": "",
    "description": "Developer & translator friendly web-based localization platform enabling users to translate directly in the app they develop. (Source Code) Apache-2.0 Docker/Java",
    "website": "https://tolgee.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://tolgee.io/terms_and_conditions_2026_10_15"
   },
   {
    "name": "ToolJet",
@@ -4982,11 +5058,12 @@
   {
    "name": "Traduora",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "Belgium",
    "replaces": "",
    "description": "Translation management platform for teams. (Source Code) AGPL-3.0 Docker/K8S/Nodejs",
    "website": "https://traduora.co",
-   "verified": true
+   "verified": true,
+   "country_source": "https://traduora.co/tos"
   },
   {
    "name": "TrailBase",
@@ -5027,11 +5104,12 @@
   {
    "name": "Tyk",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Fast and scalable open source API Gateway. Out of the box, Tyk offers an API Management Platform with an API Gateway, API Analytics, Developer Portal and API Management Dashboard. (Source Code) MPL-2.0 Go/Docker/K8S",
    "website": "https://tyk.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://tyk.io/terms-conditions/"
   },
   {
    "name": "Typemill",
@@ -5072,11 +5150,12 @@
   {
    "name": "Umbraco",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "Denmark",
    "replaces": "",
    "description": "The friendly CMS. Free and open source with an amazing community. (Source Code) MIT .NET",
    "website": "https://umbraco.com/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://umbraco.com/contact-us/"
   },
   {
    "name": "Unison",
@@ -5099,20 +5178,22 @@
   {
    "name": "Vendure",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "Austria",
    "replaces": "",
    "description": "A headless commerce framework. (Demo, Source Code) MIT Nodejs",
    "website": "https://www.vendure.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://vendure.io/company/legal-notice"
   },
   {
    "name": "Vivaldi",
    "category": "Developer Tools",
-   "country": "",
+   "country": "Norway",
    "replaces": "",
    "description": "Anpassbarer Browser mit integriertem Mail-Client aus Norwegen",
    "website": "https://vivaldi.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://vivaldi.com/contact/"
   },
   {
    "name": "Vvveb CMS",
@@ -5144,11 +5225,12 @@
   {
    "name": "Wagtail",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Django content management system focused on flexibility and user experience. (Source Code) BSD-3-Clause Python",
    "website": "https://wagtail.io/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://wagtail.org/privacy/"
   },
   {
    "name": "Wakupator",
@@ -5297,11 +5379,12 @@
   {
    "name": "XWiki",
    "category": "Developer Tools",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "Second generation wiki that allows the user to extend its functionalities with a powerful extension-based architecture. (Demo, Source Code) LGPL-2.1 Java/Docker/deb",
    "website": "https://www.xwiki.org",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.xwiki.org/xwiki/bin/view/Main/LegalNotice/"
   },
   {
    "name": "Yacy",
@@ -5342,20 +5425,22 @@
   {
    "name": "ACP Admin",
    "category": "Email & Communication",
-   "country": "EU-friendly",
+   "country": "Switzerland",
    "replaces": "",
    "description": "CSA administration. Manage members, subscriptions, deliveries, drop-off locations, member participation, invoices and emails (documentation in French). (Source Code) MIT Ruby",
    "website": "https://acp-admin.ch/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://csa-admin.org/terms/"
   },
   {
    "name": "Acumbamail",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Spain",
    "replaces": "",
    "description": "Acumbamail",
    "website": "https://acumbamail.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://acumbamail.com/contacto/"
   },
   {
    "name": "Akkoma",
@@ -5522,29 +5607,32 @@
   {
    "name": "Clever Elements",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Clever Elements",
    "website": "https://www.cleverelements.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.cleverelements.com/en/kontakt/"
   },
   {
    "name": "CleverReach",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "CleverReach",
    "website": "https://www.cleverreach.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.cleverreach.com/de-de/impressum/"
   },
   {
    "name": "ClickMeeting",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Poland",
    "replaces": "",
    "description": "Webinar- und Konferenzplattform mit EU-Infrastruktur",
    "website": "https://clickmeeting.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://legal.clickmeeting.com/privacy-security/privacy-policy/"
   },
   {
    "name": "Conduit",
@@ -5585,11 +5673,12 @@
   {
    "name": "Crisp",
    "category": "Email & Communication",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Crisp",
    "website": "https://crisp.chat",
-   "verified": true
+   "verified": true,
+   "country_source": "https://crisp.chat/en/terms/"
   },
   {
    "name": "Cypht",
@@ -5675,11 +5764,12 @@
   {
    "name": "Dovecot",
    "category": "Email & Communication",
-   "country": "EU-friendly",
+   "country": "Finland",
    "replaces": "",
    "description": "IMAP and POP3 server written primarily with security in mind. (Source Code) MIT/LGPL-2.1 C/deb",
    "website": "https://www.dovecot.org/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://dovecot.org/contact"
   },
   {
    "name": "DragonFly",
@@ -5693,11 +5783,12 @@
   {
    "name": "eclipso",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "eclipso",
    "website": "https://www.eclipso.eu",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.eclipso.eu/privacy/"
   },
   {
    "name": "ejabberd",
@@ -5729,11 +5820,12 @@
   {
    "name": "EmailLabs",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Poland",
    "replaces": "",
    "description": "EmailLabs",
    "website": "https://emaillabs.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://emaillabs.io/dsa-punkt-kontaktowy/"
   },
   {
    "name": "EmailRelay",
@@ -5783,29 +5875,32 @@
   {
    "name": "Flarum",
    "category": "Email & Communication",
-   "country": "EU-friendly",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Delightfully simple forums. Flarum is the next-generation forum software that makes online discussion fun again. (Source Code) MIT PHP",
    "website": "https://flarum.org",
-   "verified": true
+   "verified": true,
+   "country_source": "https://flarum.org/foundation/about"
   },
   {
    "name": "Fleep",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Estonia",
    "replaces": "",
    "description": "Fleep",
    "website": "https://fleep.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://fleep.io/terms"
   },
   {
    "name": "Flexisip",
    "category": "Email & Communication",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "Complete, modular and scalable SIP server, includes a push gateway, to deliver SIP incoming calls or text messages on mobile device platforms where push notifications are required to receive information when the app is n...",
    "website": "https://www.linphone.org/en/flexisip-sip-server/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.linphone.org/en/contact/"
   },
   {
    "name": "FoodCoopShop",
@@ -5855,11 +5950,12 @@
   {
    "name": "Friendly Automate",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "Friendly Automate",
    "website": "https://friendlyautomate.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://friendly.ch/en/imprint"
   },
   {
    "name": "FusionPBX",
@@ -5882,29 +5978,32 @@
   {
    "name": "GetResponse",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Poland",
    "replaces": "",
    "description": "GetResponse",
    "website": "https://www.getresponse.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.getresponse.com/legal/whistleblowers"
   },
   {
    "name": "ginlo Business",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "ginlo Business",
    "website": "https://www.ginlo.net",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.ginlo.net/agb/"
   },
   {
    "name": "ginlo Private",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "ginlo Private",
    "website": "https://www.ginlo.net",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.ginlo.net/agb/"
   },
   {
    "name": "GlobaLeaks",
@@ -5927,11 +6026,12 @@
   {
    "name": "GMX Email",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "GMX Email",
    "website": "https://www.gmx.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.gmx.com/company/about/"
   },
   {
    "name": "GNUnet",
@@ -6017,11 +6117,12 @@
   {
    "name": "HumHub",
    "category": "Email & Communication",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Flexible kit for private social networks. (Source Code) AGPL-3.0 PHP",
    "website": "https://www.humhub.org/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.humhub.com/legal/imprint/"
   },
   {
    "name": "HyperKitty",
@@ -6161,11 +6262,12 @@
   {
    "name": "Keila",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Keila",
    "website": "https://www.keila.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.keila.io/legal/"
   },
   {
    "name": "Kiwi IRC",
@@ -6197,11 +6299,12 @@
   {
    "name": "Lettermint",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Lettermint is a European-based email delivery service offering transactional, broadcast, and inbound email solutions with high deliverability and GDPR compliance.",
    "website": "https://lettermint.co",
-   "verified": true
+   "verified": true,
+   "country_source": "https://lettermint.co/terms-of-service"
   },
   {
    "name": "Libervia",
@@ -6287,29 +6390,32 @@
   {
    "name": "mail.de",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "mail.de",
    "website": "https://www.mail.de",
-   "verified": true
+   "verified": true,
+   "country_source": "https://mail.de/de/impressum/"
   },
   {
    "name": "mailbox",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "mailbox",
    "website": "https://mailbox.org",
-   "verified": true
+   "verified": true,
+   "country_source": "https://mailbox.org/en/legal-information/"
   },
   {
    "name": "mailbox.org",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Integrierte Business-Plattform auf deutschen Servern",
    "website": "https://mailbox.org",
-   "verified": true
+   "verified": true,
+   "country_source": "https://mailbox.org/en/legal-information/"
   },
   {
    "name": "Mailcoach",
@@ -6368,11 +6474,12 @@
   {
    "name": "Mailo",
    "category": "Email & Communication",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Mailo",
    "website": "https://www.mailo.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.mailo.com/mailo/en/terms-of-use.php"
   },
   {
    "name": "Mailu",
@@ -6386,20 +6493,22 @@
   {
    "name": "MailUp",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Italy",
    "replaces": "",
    "description": "MailUp",
    "website": "https://www.mailup.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://mailup.com/about-us/"
   },
   {
    "name": "Mastodon",
    "category": "Email & Communication",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Federated microblogging server. (Source Code, Clients) AGPL-3.0 Ruby",
    "website": "https://joinmastodon.org/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://joinmastodon.org/about"
   },
   {
    "name": "Mattermost",
@@ -6422,11 +6531,12 @@
   {
    "name": "meetergo",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "meetergo",
    "website": "https://meetergo.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://meetergo.com/sicherheit"
   },
   {
    "name": "Migadu",
@@ -6485,20 +6595,22 @@
   {
    "name": "Modoboa",
    "category": "Email & Communication",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "Mail hosting and management platform including a modern and simplified web user interface. (Source Code) ISC Python",
    "website": "https://modoboa.org/en/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://modoboa.org/en/legal-notice/"
   },
   {
    "name": "MongooseIM",
    "category": "Email & Communication",
-   "country": "EU-friendly",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Mobile messaging platform with a focus on performance and scalability. (Source Code) GPL-2.0 Erlang/Docker/K8S",
    "website": "https://www.erlang-solutions.com/products/mongooseim.html",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.erlang-solutions.com/technologies/emqx/"
   },
   {
    "name": "motion.tools (Antragsgrün)",
@@ -6548,11 +6660,12 @@
   {
    "name": "Nextcloud Talk",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Nextcloud Talk",
    "website": "https://nextcloud.com/talk",
-   "verified": true
+   "verified": true,
+   "country_source": "https://nextcloud.com/impressum/"
   },
   {
    "name": "ngircd",
@@ -6674,11 +6787,12 @@
   {
    "name": "OpenSlides",
    "category": "Email & Communication",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Presentation and assembly system for managing and projecting agenda, motions and elections of an assembly. (Demo, Source Code) MIT Docker",
    "website": "https://openslides.com/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://openslides.com/en/about-us/"
   },
   {
    "name": "OpenSMTPD",
@@ -6692,11 +6806,12 @@
   {
    "name": "OpenTalk",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "OpenTalk",
    "website": "https://opentalk.eu",
-   "verified": true
+   "verified": true,
+   "country_source": "https://opentalk.eu/en/imprint"
   },
   {
    "name": "OpenTrashmail",
@@ -6746,7 +6861,7 @@
   {
    "name": "Pexip",
    "category": "Email & Communication",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK enterprise video conferencing, data sovereignty guaranteed",
    "website": "https://pexip.com",
@@ -6764,11 +6879,12 @@
   {
    "name": "phpList",
    "category": "Email & Communication",
-   "country": "EU-friendly",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Newsletter and email marketing with advanced management of subscribers, bounces, and plugins. (Source Code) AGPL-3.0 PHP",
    "website": "https://www.phplist.org",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.phplist.org/category/blog/translator/"
   },
   {
    "name": "PixelFed",
@@ -6809,11 +6925,12 @@
   {
    "name": "Posteo",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Datenschutzorientierter E-Mail-Dienst aus Berlin",
    "website": "https://posteo.de",
-   "verified": true
+   "verified": true,
+   "country_source": "https://posteo.de/en/site/legal_notice"
   },
   {
    "name": "Postfix",
@@ -6890,20 +7007,22 @@
   {
    "name": "Raidboxes Emails",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Ireland",
    "replaces": "",
    "description": "Raidboxes Emails",
    "website": "https://raidboxes.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://raidboxes.io/legal/privacy/"
   },
   {
    "name": "rapidmail",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "rapidmail",
    "website": "https://www.rapidmail.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.rapidmail.com/general-terms-and-conditions"
   },
   {
    "name": "ReceiveHQ",
@@ -7016,11 +7135,12 @@
   {
    "name": "Seeweb Mail",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Italy",
    "replaces": "",
    "description": "Seeweb Mail",
    "website": "https://www.seeweb.it",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.seeweb.it/privacy-e-cookie-policy"
   },
   {
    "name": "Sendmail",
@@ -7061,11 +7181,12 @@
   {
    "name": "SimpleLogin",
    "category": "Email & Communication",
-   "country": "EU-friendly",
+   "country": "Switzerland",
    "replaces": "",
    "description": "Open source email alias solution to protect your email address. Comes with browser extensions and mobile apps. (Source Code) MIT Docker/Python",
    "website": "https://simplelogin.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://simplelogin.io/terms/"
   },
   {
    "name": "SimpleX Chat",
@@ -7097,11 +7218,12 @@
   {
    "name": "SKRED",
    "category": "Email & Communication",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "SKRED",
    "website": "https://skred.mobi",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.skred.app/terms-of-service/"
   },
   {
    "name": "Smartsupp",
@@ -7142,11 +7264,12 @@
   {
    "name": "Soverin",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Soverin",
    "website": "https://soverin.net",
-   "verified": true
+   "verified": true,
+   "country_source": "https://soverin.com/resources/contact"
   },
   {
    "name": "Spectrum 2",
@@ -7169,11 +7292,12 @@
   {
    "name": "Stackfield",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Stackfield",
    "website": "https://www.stackfield.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.stackfield.com/de/imprint"
   },
   {
    "name": "Stalwart Mail Server",
@@ -7196,20 +7320,22 @@
   {
    "name": "Stoat",
    "category": "Email & Communication",
-   "country": "EU",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Stoat is a user-first chat platform built with modern web technologies. ([Source Code](https://github.com/stoatchat/self-hosted))",
    "website": "https://stoat.chat",
-   "verified": true
+   "verified": true,
+   "country_source": "https://stoat.chat/legal/imprint"
   },
   {
    "name": "Sweego",
    "category": "Email & Communication",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Sweego",
    "website": "https://www.sweego.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.sweego.io/legal-notice"
   },
   {
    "name": "Sympa",
@@ -7250,11 +7376,12 @@
   {
    "name": "TeleGuard",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "TeleGuard",
    "website": "https://teleguard.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://teleguard.com/en/imprint"
   },
   {
    "name": "The Lounge",
@@ -7268,20 +7395,22 @@
   {
    "name": "Threema",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "Messenger ohne Telefonnummern-Pflicht aus der Schweiz",
    "website": "https://threema.ch",
-   "verified": true
+   "verified": true,
+   "country_source": "https://threema.com/fr/contact"
   },
   {
    "name": "Threema Broadcast",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "Threema Broadcast",
    "website": "https://threema.ch/en/broadcast",
-   "verified": true
+   "verified": true,
+   "country_source": "https://threema.com/en/impressum"
   },
   {
    "name": "Tigase",
@@ -7313,11 +7442,12 @@
   {
    "name": "Tipimail",
    "category": "Email & Communication",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Tipimail",
    "website": "https://www.tipimail.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.tipimail.com/legacy"
   },
   {
    "name": "Tox",
@@ -7331,16 +7461,17 @@
   {
    "name": "Trengo",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Trengo",
    "website": "https://trengo.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://trengo.com/terms-and-conditions"
   },
   {
    "name": "Tuta",
    "category": "Email & Communication",
-   "country": "DE",
+   "country": "Germany",
    "replaces": "",
    "description": "Tuta (formerly Tutanota) is an encrypted email and calendar service based in Germany, with no advertising and the emphasis on privacy. The basic account is free, with paid-for accounts that have more features and storage...",
    "website": "https://tuta.com",
@@ -7349,11 +7480,12 @@
   {
    "name": "Tuta Mail",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Vollverschlüsselter E-Mail-Dienst mit Öko-Servern in Deutschland",
    "website": "https://tuta.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://tuta.com/terms"
   },
   {
    "name": "Tuwunel",
@@ -7385,11 +7517,12 @@
   {
    "name": "Userlike",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Ireland",
    "replaces": "",
    "description": "Userlike",
    "website": "https://www.userlike.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://connect.lime-technologies.com/en/legal/privacy-policy/"
   },
   {
    "name": "Viseron",
@@ -7439,11 +7572,12 @@
   {
    "name": "Whereby",
    "category": "Email & Communication",
-   "country": "",
+   "country": "Norway",
    "replaces": "",
    "description": "Browserbasierte Videokonferenzen ohne Installation",
    "website": "https://whereby.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://whereby.com/information/tos"
   },
   {
    "name": "wildduck",
@@ -7502,11 +7636,12 @@
   {
    "name": "adyen",
    "category": "Finance & Payments",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "adyen",
    "website": "https://adyen.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.adyen.com/legal/adyen-terms-and-conditions"
   },
   {
    "name": "Bunq",
@@ -7556,7 +7691,7 @@
   {
    "name": "GoCardless",
    "category": "Finance & Payments",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK bank debit payment infrastructure, London fintech",
    "website": "https://gocardless.com",
@@ -7583,7 +7718,7 @@
   {
    "name": "Modulr",
    "category": "Finance & Payments",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK payment infrastructure for businesses, FCA regulated",
    "website": "https://modulrfinance.com",
@@ -7601,7 +7736,7 @@
   {
    "name": "Monzo",
    "category": "Finance & Payments",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK digital bank with full FCA banking licence, London",
    "website": "https://monzo.com",
@@ -7610,16 +7745,17 @@
   {
    "name": "N26",
    "category": "Finance & Payments",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Mobile Banking-App mit deutscher Banklizenz",
    "website": "https://n26.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://n26.com/en-eu/imprint"
   },
   {
    "name": "Paddle",
    "category": "Finance & Payments",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK payments infrastructure and merchant of record for SaaS",
    "website": "https://paddle.com",
@@ -7628,7 +7764,7 @@
   {
    "name": "PayMyStudent",
    "category": "Finance & Payments",
-   "country": "UK",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Fund management software for education institutions. Manages bursary funds and distributes payments to students via VISA cards, online shop, or direct bank transfer. Used in UK education sector.",
    "website": "https://paymystudent.com",
@@ -7682,7 +7818,7 @@
   {
    "name": "Wise",
    "category": "Finance & Payments",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "International money transfer founded in London, UK regulated",
    "website": "https://wise.com",
@@ -7691,11 +7827,12 @@
   {
    "name": "Dicte.ai",
    "category": "HR & Team",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Dicte.ai",
    "website": "https://dicte.ai",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.dicte.ai/legal/terms-and-conditions"
   },
   {
    "name": "Element Call",
@@ -7709,7 +7846,7 @@
   {
    "name": "Factorial",
    "category": "HR & Team",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "HR software with UK operations and GDPR compliance",
    "website": "https://factorialhr.co.uk",
@@ -7727,7 +7864,7 @@
   {
    "name": "Hibob",
    "category": "HR & Team",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK-founded HR platform for modern companies, London HQ",
    "website": "https://hibob.com",
@@ -7817,7 +7954,7 @@
   {
    "name": "Adzooma",
    "category": "Marketing & SEO",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK digital marketing platform for SMEs",
    "website": "https://adzooma.com",
@@ -7844,7 +7981,7 @@
   {
    "name": "Dotdigital",
    "category": "Marketing & SEO",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK marketing automation platform, London Stock Exchange listed",
    "website": "https://dotdigital.com",
@@ -7925,11 +8062,12 @@
   {
    "name": "Webmecanik Automation",
    "category": "Marketing & SEO",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Webmecanik Automation",
    "website": "https://webmecanik.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.webmecanik.com/mentions-legales/"
   },
   {
    "name": "Abfahrt!",
@@ -8006,11 +8144,12 @@
   {
    "name": "Fairphone",
    "category": "Other",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Modulares Smartphone mit 10 Jahren Update-Garantie",
    "website": "https://fairphone.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.fairphone.com/legal/financial-information"
   },
   {
    "name": "FjÃ¤llrÃ¤ven",
@@ -8051,20 +8190,22 @@
   {
    "name": "HMD / Nokia",
    "category": "Other",
-   "country": "",
+   "country": "Finland",
    "replaces": "",
    "description": "Android-Smartphones mit skandinavischem Design",
    "website": "https://hmd.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.hmd.com/en_int/press-contact"
   },
   {
    "name": "Hummel",
    "category": "Other",
-   "country": "",
+   "country": "Denmark",
    "replaces": "",
    "description": "Dänische Sportbekleidung mit Jahrhundert-Tradition",
    "website": "https://hummel.net",
-   "verified": true
+   "verified": true,
+   "country_source": "https://hummel.net/pages/contact"
   },
   {
    "name": "Karaoke Eternal",
@@ -8078,11 +8219,12 @@
   {
    "name": "KIKO Milano",
    "category": "Other",
-   "country": "",
+   "country": "Italy",
    "replaces": "",
    "description": "Italienische Kosmetikproduktion mit EU-Qualitätsstandards",
    "website": "https://kikocosmetics.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://us.kikocosmetics.com/blogs/about-kiko/customer-service-center"
   },
   {
    "name": "komoot",
@@ -8132,11 +8274,12 @@
   {
    "name": "MUBI",
    "category": "Other",
-   "country": "",
+   "country": "Norway",
    "replaces": "",
    "description": "Kuratierte Filmplattform für Arthouse und Festivalfilme",
    "website": "https://mubi.com/de",
-   "verified": true
+   "verified": true,
+   "country_source": "https://mubi.com/de/terms_of_service"
   },
   {
    "name": "Music Pitch & Speed Changer",
@@ -8150,20 +8293,22 @@
   {
    "name": "OnlyOffice",
    "category": "Other",
-   "country": "",
+   "country": "Latvia",
    "replaces": "",
    "description": "Office-Suite mit MS-Office Dateiformat-Kompatibilität",
    "website": "https://www.onlyoffice.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.onlyoffice.com"
   },
   {
    "name": "ONLYOFFICE",
    "category": "Other",
-   "country": "",
+   "country": "Latvia",
    "replaces": "",
    "description": "Office-Suite mit MS-Office Dateiformat-Kompatibilität",
    "website": "https://onlyoffice.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.onlyoffice.com/"
   },
   {
    "name": "openHAB",
@@ -8213,11 +8358,12 @@
   {
    "name": "RTL+",
    "category": "Other",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Europäische Streaming-Plattform mit deutschsprachigem Fokus",
    "website": "https://plus.rtl.de",
-   "verified": true
+   "verified": true,
+   "country_source": "https://plus.rtl.de/impressum"
   },
   {
    "name": "Salomon",
@@ -8375,11 +8521,12 @@
   {
    "name": "4ga Boards",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Poland",
    "replaces": "",
    "description": "Straightforward realtime kanban boards management for intuitive task tracking. Featuring an elegant dark mode, collapsible todo lists, and multitasking tools to supercharge your team's productivity. (Demo, Source Code) M...",
    "website": "https://4gaboards.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://4gaboards.com/legal-info"
   },
   {
    "name": "ActivityWatch",
@@ -8420,11 +8567,12 @@
   {
    "name": "AFFiNE Community Edition",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Norway",
    "replaces": "Notion",
    "description": "Next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, customizable and ready to use (alternative to Notion and Miro). (Demo, Source Code) MIT/AGPL-3.0 Docker",
    "website": "https://affine.pro/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://affine.pro/terms"
   },
   {
    "name": "AirTrail",
@@ -8537,11 +8685,12 @@
   {
    "name": "awork",
    "category": "Project Management",
-   "country": "",
+   "country": "Ireland",
    "replaces": "",
    "description": "Modulares Projektmanagement mit deutschem Hosting",
    "website": "https://www.awork.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.awork.com/legal-and-privacy/privacy-policy-awork-app"
   },
   {
    "name": "AzuraCast",
@@ -8573,11 +8722,12 @@
   {
    "name": "Baïkal",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Lightweight CalDAV and CardDAV server based on sabre/dav. (Source Code) GPL-3.0 PHP",
    "website": "https://sabre.io/baikal/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://sabre.io/legal/"
   },
   {
    "name": "Beaver Habit Tracker",
@@ -8690,11 +8840,12 @@
   {
    "name": "BunkerWeb",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "Next-gen Web Application Firewall (WAF) that will protect your web services. (Demo, Source Code, Clients) AGPL-3.0 deb/Docker/K8S/Python",
    "website": "https://www.bunkerweb.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.bunkerweb.io/legal-notice/"
   },
   {
    "name": "Caddy",
@@ -8753,11 +8904,12 @@
   {
    "name": "cidaas",
    "category": "Project Management",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "cidaas",
    "website": "https://www.cidaas.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.cidaas.com/legal/"
   },
   {
    "name": "Citadel",
@@ -8798,11 +8950,12 @@
   {
    "name": "Cloud IAM",
    "category": "Project Management",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Cloud IAM",
    "website": "https://www.cloud-iam.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.cloud-iam.com/legal-notice"
   },
   {
    "name": "cmyflix",
@@ -8915,11 +9068,12 @@
   {
    "name": "Dawarich",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Visualize your location history, track your movements, and analyze your travel patterns with complete privacy and control (alternative to Google Timeline a.k.a. Google Location History). (Source Code) AGPL-3.0 Docker",
    "website": "https://dawarich.app/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://dawarich.app/contact/"
   },
   {
    "name": "Deleterr",
@@ -9140,11 +9294,12 @@
   {
    "name": "egroupware",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Software suite including calendars, address books, notepad, project management tools, client relationship management tools (CRM), knowledge management tools, a wiki and a CMS. (Source Code) GPL-2.0 PHP",
    "website": "https://www.egroupware.org/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.egroupware.org/en/contact"
   },
   {
    "name": "EMQX",
@@ -9545,20 +9700,22 @@
   {
    "name": "GraphHopper",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Fast routing library and server using OpenStreetMap. (Source Code) Apache-2.0 Java",
    "website": "https://graphhopper.com/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.graphhopper.com/terms/"
   },
   {
    "name": "Group Office",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Enterprise CRM and groupware tool. Share projects, calendars, files and e-mail online with co-workers and clients. (Source Code) AGPL-3.0 PHP",
    "website": "https://www.group-office.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.group-office.com/terms"
   },
   {
    "name": "GRR",
@@ -9590,11 +9747,12 @@
   {
    "name": "Hanko",
    "category": "Project Management",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Hanko",
    "website": "https://hanko.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.hanko.io/terms"
   },
   {
    "name": "HAProxy",
@@ -9644,11 +9802,12 @@
   {
    "name": "Huly",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Norway",
    "replaces": "Slack",
    "description": "All-in-one project management platform (alternative to Linear, Jira, Slack, Notion, Motion). (Demo, Source Code) EPL-2.0 Docker/K8S/Nodejs",
    "website": "https://huly.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://huly.io/legal/terms"
   },
   {
    "name": "I, Librarian",
@@ -9932,11 +10091,12 @@
   {
    "name": "LanguageTool",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Proofread more than 20 languages. It finds many errors that a simple spell checker cannot detect. (Source Code, Clients) LGPL-2.1 Java/Docker",
    "website": "https://languagetool.org/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://languagetool.org/legal/"
   },
   {
    "name": "Leantime",
@@ -10184,7 +10344,7 @@
   {
    "name": "Miro",
    "category": "Project Management",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Online whiteboard with UK data residency, GDPR compliant",
    "website": "https://miro.com",
@@ -10355,11 +10515,12 @@
   {
    "name": "Nextcloud Deck",
    "category": "Project Management",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Nextcloud Deck",
    "website": "https://nextcloud.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://nextcloud.com/impressum/"
   },
   {
    "name": "NGINX",
@@ -10400,11 +10561,12 @@
   {
    "name": "Nuclino",
    "category": "Project Management",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Kollaboratives Wissensmanagementsystem aus Deutschland",
    "website": "https://www.nuclino.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.nuclino.com/legal-notice"
   },
   {
    "name": "Nullboard",
@@ -10661,11 +10823,12 @@
   {
    "name": "OTOBO",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Flexible web-based ticketing system used for customer service, help desk, IT service management. (Demo, Source Code) GPL-3.0 Perl/Docker",
    "website": "https://otobo.io/en/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://otobo.io/en/company/contact-us/"
   },
   {
    "name": "Our Shopping List",
@@ -10796,11 +10959,12 @@
   {
    "name": "ProjeQtOr",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "Complete, mature, multi-user project management system with extensive functionality for all phases of a project. (Demo, Source Code) AGPL-3.0 PHP",
    "website": "https://www.projeqtor.org/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.projeqtor.com/en/legal-notice/"
   },
   {
    "name": "Pønskelisten",
@@ -11003,11 +11167,12 @@
   {
    "name": "SabreDAV",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Open source CardDAV, CalDAV, and WebDAV framework and server. (Source Code) MIT PHP",
    "website": "https://sabre.io/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://sabre.io/legal/"
   },
   {
    "name": "SafeLine",
@@ -11075,11 +11240,12 @@
   {
    "name": "SHKeeper",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Poland",
    "replaces": "",
    "description": "Cryptocurrency payment processor with the unique combination of gateway and merchant allowing you to accept payments in multiple cryptocurrencies without fees and intermediaries. (Demo, Source Code) GPL-3.0 Python",
    "website": "https://shkeeper.io/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://shkeeper.io/terms-of-service"
   },
   {
    "name": "Shlink",
@@ -11093,11 +11259,12 @@
   {
    "name": "Shopware",
    "category": "Project Management",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Open-Source-E-Commerce-System mit modularer Architektur",
    "website": "https://shopware.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.shopware.com/en/legal-notice/"
   },
   {
    "name": "Simple-URL-Shortener",
@@ -11129,11 +11296,12 @@
   {
    "name": "Sketch",
    "category": "Project Management",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Vektorbasiertes Designwerkzeug mit nativer Performance",
    "website": "https://sketch.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.sketch.com/privacy/"
   },
   {
    "name": "Smederee",
@@ -11165,11 +11333,12 @@
   {
    "name": "SOLECTRUS",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Photovoltaic dashboard that displays energy production and consumption with cost and savings calculations. (Demo, Source Code) AGPL-3.0 Docker",
    "website": "https://solectrus.de",
-   "verified": true
+   "verified": true,
+   "country_source": "https://solectrus.de/impressum/"
   },
   {
    "name": "SolidInvoice",
@@ -11201,11 +11370,12 @@
   {
    "name": "Sourcehut",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Netherlands",
    "replaces": "",
    "description": "A full web git interface with no javascript. (Demo, Source Code) GPL-2.0 Go",
    "website": "https://sourcehut.org/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://sourcehut.org/blog/2026-08-27-tos-changes-and-llms/"
   },
   {
    "name": "sovara",
@@ -11318,11 +11488,12 @@
   {
    "name": "Taiga",
    "category": "Project Management",
-   "country": "",
+   "country": "Spain",
    "replaces": "",
    "description": "Taiga",
    "website": "https://taiga.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://taiga.io/privacy-policy/"
   },
   {
    "name": "Task Keeper",
@@ -11372,11 +11543,12 @@
   {
    "name": "Teleport",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Norway",
    "replaces": "",
    "description": "Certificate authority and access plane for SSH, Kubernetes, web applications, and databases. (Source Code) Apache-2.0 Go/Docker/K8S",
    "website": "https://goteleport.com/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://goteleport.com/legal/wtou/"
   },
   {
    "name": "TeslaMate",
@@ -11408,20 +11580,22 @@
   {
    "name": "TimeTagger",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Netherlands",
    "replaces": "",
    "description": "An open source time-tracker based on an interactive timeline and powerful reporting. (Demo, Source Code) GPL-3.0 Python",
    "website": "https://timetagger.app",
-   "verified": true
+   "verified": true,
+   "country_source": "https://timetagger.app/about"
   },
   {
    "name": "Tine",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Software for digital collaboration in companies and organizations. From powerful groupware functionalities to clever add-ons, tine combines everything to make daily team collaboration easier. (Source Code) AGPL-3.0 Docke...",
    "website": "https://www.tine-groupware.de/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.tine-groupware.de/kontakt/"
   },
   {
    "name": "Titra",
@@ -11471,11 +11645,12 @@
   {
    "name": "Traefik",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "HTTP reverse proxy and load balancer that makes deploying microservices easy. (Source Code) MIT Go/Docker",
    "website": "https://traefik.io/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://traefik.io/legal/data-processing-agreement"
   },
   {
    "name": "Traggo",
@@ -11516,20 +11691,22 @@
   {
    "name": "tududi",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Greece",
    "replaces": "",
    "description": "Task management tool with hierarchical structure, smart recurring tasks, and seamless Telegram integration. (Source Code) MIT Docker",
    "website": "https://tududi.com/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://tududi.com/terms"
   },
   {
    "name": "Tuleap",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "France",
    "replaces": "",
    "description": "Tuleap is a libre suite to plan, track, code and collaborate on software projects. (Source Code) GPL-2.0 PHP",
    "website": "https://www.tuleap.org/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.tuleap.com/about-tuleap/"
   },
   {
    "name": "URL-to-PNG",
@@ -11804,20 +11981,22 @@
   {
    "name": "Zenkit Projects",
    "category": "Project Management",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Zenkit Projects",
    "website": "https://zenkit.com/en/projects",
-   "verified": true
+   "verified": true,
+   "country_source": "https://zenkit.com/en/legal-notice/"
   },
   {
    "name": "ZenTao",
    "category": "Project Management",
-   "country": "EU-friendly",
+   "country": "Norway",
    "replaces": "",
    "description": "An agile(scrum) project management system/tool. (Source Code) AGPL-3.0 PHP",
    "website": "https://www.zentao.pm/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.sanplex.com/terms"
   },
   {
    "name": "Zero-TOTP",
@@ -11894,11 +12073,12 @@
   {
    "name": "AliasVault",
    "category": "Security & Privacy",
-   "country": "EU-friendly",
+   "country": "Netherlands",
    "replaces": "",
    "description": "End-to-end encrypted password manager with a built-in email alias generator and server. (Source Code) MIT Docker",
    "website": "https://www.aliasvault.net",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.aliasvault.com/legal-notice"
   },
   {
    "name": "AuditRGPD Pro (DannyAI)",
@@ -11993,11 +12173,12 @@
   {
    "name": "Chevereto",
    "category": "Security & Privacy",
-   "country": "EU-friendly",
+   "country": "Italy",
    "replaces": "",
    "description": "Ultimate image sharing software. Create your very own personal image hosting website in just minutes. (Source Code) AGPL-3.0 PHP/Docker",
    "website": "https://chevereto.com/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://chevereto.com/policies"
   },
   {
    "name": "Chiyogami",
@@ -12083,7 +12264,7 @@
   {
    "name": "Darktrace",
    "category": "Security & Privacy",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK AI cybersecurity platform, Cambridge University spinout",
    "website": "https://darktrace.com",
@@ -12128,7 +12309,7 @@
   {
    "name": "Egress",
    "category": "Security & Privacy",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK email security and data loss prevention platform",
    "website": "https://egress.com",
@@ -12173,11 +12354,12 @@
   {
    "name": "F-Secure FREEDOME",
    "category": "Security & Privacy",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "VPN-Dienst eines finnischen Cybersecurity-Unternehmens",
    "website": "https://f-secure.com/de",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.f-secure.com/de/legal/impressum"
   },
   {
    "name": "Fallax",
@@ -12200,11 +12382,12 @@
   {
    "name": "Fider",
    "category": "Security & Privacy",
-   "country": "EU-friendly",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Open platform to collect and prioritize feedback (alternative to UserVoice). (Demo, Source Code) MIT Docker",
    "website": "https://fider.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.fider.io/about-us"
   },
   {
    "name": "Firezone",
@@ -12227,11 +12410,12 @@
   {
    "name": "Formbricks",
    "category": "Security & Privacy",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Experience Management Suite built on the largest open source survey stack worldwide. Gracefully gather feedback at every step of the customer journey to know what your customers need. (Demo, Source Code) AGPL-3.0 Nodejs/...",
    "website": "https://formbricks.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://formbricks.com/terms"
   },
   {
    "name": "Framadate",
@@ -12299,11 +12483,12 @@
   {
    "name": "GOOSE VPN",
    "category": "Security & Privacy",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Niederländischer VPN-Dienst mit lokalem Support",
    "website": "https://goosevpn.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://goosevpn.com/terms-of-service-2"
   },
   {
    "name": "grocy",
@@ -12353,11 +12538,12 @@
   {
    "name": "heylogin",
    "category": "Security & Privacy",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "heylogin",
    "website": "https://www.heylogin.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.heylogin.com/de/impressum"
   },
   {
    "name": "Hiccup",
@@ -12515,11 +12701,12 @@
   {
    "name": "LimeSurvey",
    "category": "Security & Privacy",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Feature-rich web-based polling software. Supports extensive survey logic. (Demo, Source Code) GPL-2.0 PHP",
    "website": "https://www.limesurvey.org",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.limesurvey.org/legal-notice"
   },
   {
    "name": "LinkStack",
@@ -12641,20 +12828,22 @@
   {
    "name": "Mullvad VPN",
    "category": "Security & Privacy",
-   "country": "",
+   "country": "Sweden",
    "replaces": "",
    "description": "Anonymer VPN-Dienst ohne Accountbindung aus Schweden",
    "website": "https://mullvad.net",
-   "verified": true
+   "verified": true,
+   "country_source": "https://mullvad.net/en/help/terms-service"
   },
   {
    "name": "Murena / /e/OS",
    "category": "Security & Privacy",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "Datenschutzorientierte Smartphones mit /e/OS",
    "website": "https://murena.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://murena.com/legal-notice/"
   },
   {
    "name": "Nextcloud Memories",
@@ -12677,20 +12866,22 @@
   {
    "name": "Nuki",
    "category": "Security & Privacy",
-   "country": "",
+   "country": "Austria",
    "replaces": "",
    "description": "Elektronische Türschloss-Nachrüstung mit EU-Sicherheitsstandards",
    "website": "https://nuki.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://nuki.io/en/legal/company-details"
   },
   {
    "name": "OctoVPN",
    "category": "Security & Privacy",
-   "country": "",
+   "country": "Norway",
    "replaces": "",
    "description": "OctoVPN",
    "website": "https://octovpn.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://octovpn.com/tos"
   },
   {
    "name": "Odoo",
@@ -12776,11 +12967,12 @@
   {
    "name": "Password Depot",
    "category": "Security & Privacy",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Password Depot",
    "website": "https://www.password-depot.de",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.password-depot.de/de/unternehmen/agb.htm"
   },
   {
    "name": "Password Pusher",
@@ -12920,11 +13112,12 @@
   {
    "name": "Psono",
    "category": "Security & Privacy",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "Password manager for companies. (Demo, Source Code) Apache-2.0 Python",
    "website": "https://psono.com/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://psono.com/legal-notice"
   },
   {
    "name": "RecipeSage",
@@ -13010,7 +13203,7 @@
   {
    "name": "Sophos",
    "category": "Security & Privacy",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK cybersecurity, endpoint and network protection from Oxford",
    "website": "https://sophos.com",
@@ -13217,11 +13410,12 @@
   {
    "name": "Xeovo",
    "category": "Security & Privacy",
-   "country": "",
+   "country": "Finland",
    "replaces": "",
    "description": "Xeovo",
    "website": "https://xeovo.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://xeovo.com/tos/"
   },
   {
    "name": "Yopass",
@@ -13271,11 +13465,12 @@
   {
    "name": "Agenta",
    "category": "Storage & Backup",
-   "country": "EU-friendly",
+   "country": "Germany",
    "replaces": "",
    "description": "LLMOps platform for prompt management, LLM evaluation, and observability. Build, evaluate, and monitor production-grade LLM applications with collaborative prompt engineering. (Source Code) MIT Docker",
    "website": "https://agenta.ai/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://agenta.ai/imprint"
   },
   {
    "name": "AnythingLLM",
@@ -13334,11 +13529,12 @@
   {
    "name": "clever cloud Cellar",
    "category": "Storage & Backup",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "clever cloud Cellar",
    "website": "https://www.clever-cloud.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.clever.cloud/legal-notice/"
   },
   {
    "name": "CommaFeed",
@@ -13379,20 +13575,22 @@
   {
    "name": "Cubbit DS3 Cloud",
    "category": "Storage & Backup",
-   "country": "",
+   "country": "Italy",
    "replaces": "",
    "description": "Cubbit DS3 Cloud",
    "website": "https://www.cubbit.io",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.cubbit.io/contact-us"
   },
   {
    "name": "Cyso Cloud Object Storage",
    "category": "Storage & Backup",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Cyso Cloud Object Storage",
    "website": "https://www.cyso.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://cyso.com/legal"
   },
   {
    "name": "Deluge",
@@ -13451,7 +13649,7 @@
   {
    "name": "Egnyte",
    "category": "Storage & Backup",
-   "country": "GB",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "UK-compliant content collaboration and governance platform",
    "website": "https://egnyte.com",
@@ -13478,11 +13676,12 @@
   {
    "name": "Exoscale Object Storage",
    "category": "Storage & Backup",
-   "country": "",
+   "country": "Switzerland",
    "replaces": "",
    "description": "Exoscale Object Storage",
    "website": "https://www.exoscale.com/object-storage/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.exoscale.com/about-us/"
   },
   {
    "name": "filebrowser",
@@ -13622,11 +13821,12 @@
   {
    "name": "Hetzner Object Storage",
    "category": "Storage & Backup",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Hetzner Object Storage",
    "website": "https://www.hetzner.com/storage/object-storage",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.hetzner.com/legal/legal-notice/"
   },
   {
    "name": "Hypersomnia",
@@ -13649,20 +13849,22 @@
   {
    "name": "Impossible Cloud",
    "category": "Storage & Backup",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Impossible Cloud",
    "website": "https://impossiblecloud.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.impossiblecloud.com/terms-of-service"
   },
   {
    "name": "Intercolo",
    "category": "Storage & Backup",
-   "country": "",
+   "country": "Germany",
    "replaces": "",
    "description": "Intercolo",
    "website": "https://intercolo.de",
-   "verified": true
+   "verified": true,
+   "country_source": "https://intercolo.de/en/imprint"
   },
   {
    "name": "IONOS object storage",
@@ -13694,11 +13896,12 @@
   {
    "name": "Leafcloud Object Storage",
    "category": "Storage & Backup",
-   "country": "",
+   "country": "Netherlands",
    "replaces": "",
    "description": "Leafcloud Object Storage",
    "website": "https://www.leaf.cloud",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.leaf.cloud/support/"
   },
   {
    "name": "Leaseweb Object Storage",
@@ -13847,11 +14050,12 @@
   {
    "name": "Open-WebUI",
    "category": "Storage & Backup",
-   "country": "EU-friendly",
+   "country": "Norway",
    "replaces": "",
    "description": "User-friendly AI Interface, supports Ollama, OpenAI API. (Source Code) BSD-3-Clause Docker/Python",
    "website": "https://openwebui.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://openwebui.com/terms"
   },
   {
    "name": "OpenCloud",
@@ -13865,20 +14069,22 @@
   {
    "name": "OpenTTD",
    "category": "Storage & Backup",
-   "country": "EU-friendly",
+   "country": "United Kingdom",
    "replaces": "",
    "description": "Transport tycoon simulation game. (Source Code, Clients) GPL-2.0 C++/Docker",
    "website": "https://www.openttd.org/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.openttd.org/contact"
   },
   {
    "name": "OVHcloud Object Storage",
    "category": "Storage & Backup",
-   "country": "",
+   "country": "France",
    "replaces": "",
    "description": "OVHcloud Object Storage",
    "website": "https://www.ovhcloud.com/en/public-cloud/object-storage/",
-   "verified": true
+   "verified": true,
+   "country_source": "https://www.ovhcloud.com/en/about-us/global-infrastructure/"
   },
   {
    "name": "Ownfoil",
@@ -14234,11 +14440,12 @@
   {
    "name": "UpCloud Object Storage",
    "category": "Storage & Backup",
-   "country": "",
+   "country": "Finland",
    "replaces": "",
    "description": "UpCloud Object Storage",
    "website": "https://upcloud.com",
-   "verified": true
+   "verified": true,
+   "country_source": "https://upcloud.com/global/terms-of-service/"
   },
   {
    "name": "Vane",

@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 *.bak_*
 .env
+.country_cache.json
