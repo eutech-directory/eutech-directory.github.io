@@ -62,12 +62,11 @@ MCP servers verified against schema validity, open source license, and maintenan
 
 ## Featured listings
 
-Featured placement at top of category: $29/month
-URL: https://rickyfarmer.gumroad.com/l/eutech-featured
+Featured tools and Editor's picks are chosen by the editors. No listing pays for placement.
 
 ## Submit a tool
 
-https://eutech-directory.github.io/#submit — reviewed within 24 hours
+https://eutech-directory.github.io/#submit — reviewed in batches, usually within a few weeks
 
 ## Related
 

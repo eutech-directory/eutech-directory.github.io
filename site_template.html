@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- EUTECH-SITE-TEMPLATE-1: built by build_site.py from data/. Edit this template, not index.html. -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="{{META_DESC}}"/>
+  <title>eutech.directory &mdash; European software alternatives</title>
+  <link rel="canonical" href="https://eutech.directory/"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #21262d; --accent: #00bcd4; --accent-h: #00acc1;
+      --text: #e6edf3; --muted: #8b949e; --tag-bg: #1f2937; --featured: #f59e0b; --pick: #a78bfa; --radius: 8px; --card-w: 300px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           font-size: 15px; line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); }
+    .topnav { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+              padding: 12px 24px; max-width: 1200px; margin: 0 auto; }
+    .topnav .brand { color: #fff; font-weight: 800; text-decoration: none; }
+    .topnav .brand span { color: var(--accent); }
+    .topnav nav a { color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-left: 18px; }
+    .topnav nav a:hover { color: var(--text); }
+    header { background: linear-gradient(160deg, #0f172a 0%, #1a2e4a 100%); border-bottom: 1px solid var(--border); padding: 8px 0 40px; text-align: center; }
+    .hero { padding: 32px 24px 0; }
+    .logo { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; }
+    .logo span { color: var(--accent); }
+    .tagline { margin: 8px auto 0; font-size: 1.05rem; color: #94a3b8; max-width: 560px; }
+    .stats { margin-top: 24px; display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
+    .stat-num { font-size: 1.8rem; font-weight: 700; color: #fff; }
+    .stat-label { font-size: 0.72rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+    .search-wrap { max-width: 560px; margin: 28px auto 0; padding: 0 24px; position: relative; }
+    #search { width: 100%; padding: 12px 16px; background: #1e293b; border: 1px solid #334155; border-radius: var(--radius);
+              color: var(--text); font-size: 1rem; outline: none; }
+    #search:focus { border-color: var(--accent); }
+    #search::placeholder { color: var(--muted); }
+    .ac-dropdown { position: absolute; top: 100%; left: 24px; right: 24px; background: var(--surface); border: 1px solid var(--border);
+                   border-radius: var(--radius); z-index: 100; display: none; max-height: 260px; overflow-y: auto; text-align: left; }
+    .ac-item { padding: 10px 16px; cursor: pointer; font-size: 0.9rem; }
+    .ac-item:hover { background: var(--tag-bg); }
+    .intro { max-width: 960px; margin: 0 auto; padding: 24px; color: #94a3b8; font-size: 15px; line-height: 1.7; }
+    .intro strong { color: var(--text); }
+    .alts { max-width: 1200px; margin: 0 auto; padding: 4px 24px 8px; }
+    .alts-ttl, .section-label, .verify-ttl { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #64748b; }
+    .alts-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .alt-link { font-size: 0.8rem; padding: 4px 10px; border: 1px solid var(--border); border-radius: 20px; color: var(--muted); text-decoration: none; }
+    .alt-link:hover { border-color: var(--accent); color: var(--text); }
+    .verify-strip { max-width: 1200px; margin: 0 auto; padding: 16px 24px; }
+    .verify-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; margin-top: 10px; }
+    .vbadge { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; font-size: 12px; color: var(--muted); }
+    .vbadge b { display: block; color: var(--text); font-size: 13px; margin-bottom: 2px; }
+    .cat-bar { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 24px; max-width: 1200px; margin: 0 auto; }
+    .cat-btn, .all-btn { padding: 5px 14px; border-radius: 20px; border: 1px solid var(--border); background: var(--surface); color: var(--muted);
+                        font-size: 0.8rem; cursor: pointer; white-space: nowrap; }
+    .cat-btn:hover, .all-btn:hover { border-color: var(--accent); color: var(--text); }
+    .cat-btn.active, .all-btn.active { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
+    .cat-mcp { border-style: dashed; }
+    .cat-count { opacity: 0.7; font-size: 0.75rem; }
+    .results-bar { display: flex; align-items: center; justify-content: space-between; padding: 4px 24px 12px; max-width: 1200px; margin: 0 auto; }
+    .results-bar span { font-size: 0.85rem; color: var(--muted); }
+    .clear-btn { background: none; border: 1px solid var(--border); color: var(--muted); padding: 4px 12px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; }
+    .section-label { display: flex; align-items: center; gap: 8px; padding: 8px 24px; max-width: 1200px; margin: 0 auto; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--card-w), 1fr)); gap: 12px; padding: 8px 24px 16px; max-width: 1200px; margin: 0 auto; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .card:hover { border-color: #334155; }
+    .card.featured { border-color: #f59e0b66; background: #1a160a; }
+    .card.pick { border-color: #a78bfa55; background: #15122a; }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+    .card-name { font-size: 0.92rem; font-weight: 600; }
+    .card-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; flex: 1; }
+    .card-footer { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+    .card-link { font-size: 0.75rem; text-decoration: none; margin-left: auto; }
+    .badge { font-size: 10px; padding: 2px 7px; border-radius: 4px; white-space: nowrap; font-weight: 500; }
+    .b-verified { background: #14532d; color: #86efac; border: 1px solid #166534; }
+    .b-featured { background: #451a03; color: #fcd34d; border: 1px solid #78350f; }
+    .b-pick { background: #2e1065; color: #ddd6fe; border: 1px solid #5b21b6; }
+    .b-mcp { background: #1e3a5f; color: #93c5fd; border: 1px solid #1d4ed8; }
+    .tag { background: var(--tag-bg); color: #9ca3af; font-size: 10px; padding: 2px 7px; border-radius: 4px; }
+    .more-wrap { text-align: center; padding: 8px 24px 24px; }
+    .more-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 10px 22px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; }
+    .more-btn:hover { border-color: var(--accent); }
+    #empty { display: none; text-align: center; padding: 60px 24px; color: var(--muted); }
+    .listing-criteria { max-width: 1200px; margin: 0 auto; padding: 40px 24px; border-top: 1px solid var(--border); }
+    .listing-criteria h2, #submit h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+    .criteria-intro { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; }
+    .criteria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 20px; }
+    .criterion { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+    .criterion h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+    .criterion p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+    .featured-offer { font-size: 0.85rem; color: var(--muted); }
+    #submit { max-width: 600px; margin: 0 auto; padding: 0 24px 60px; }
+    #submit h2 { text-align: center; }
+    #submit > p { font-size: 0.9rem; color: var(--muted); text-align: center; margin-bottom: 24px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 14px; background: var(--surface); border: 1px solid var(--border);
+        border-radius: var(--radius); color: var(--text); font-size: 0.9rem; outline: none; font-family: inherit; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { height: 80px; resize: vertical; }
+    .hp { position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden; }
+    .form-note { font-size: 0.75rem; color: #64748b; margin-top: 10px; text-align: center; }
+    .submit-btn { width: 100%; padding: 12px; background: var(--accent); color: #000; border: none; border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; }
+    .submit-btn:hover { background: var(--accent-h); }
+    .sticky-cta { position: fixed; bottom: 24px; right: 24px; z-index: 999; background: var(--accent); color: #000; border-radius: 50px; padding: 10px 18px;
+                  font-size: 12px; font-weight: 700; box-shadow: 0 4px 20px rgba(0,188,212,0.35); text-decoration: none; }
+    .back-top { position: fixed; bottom: 80px; right: 24px; z-index: 998; background: #161b22; border: 1px solid #21262d; color: #8b949e; width: 44px; height: 44px;
+                border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; opacity: 0; pointer-events: none; text-decoration: none; transition: opacity .2s; }
+    .back-top.visible { opacity: 1; pointer-events: auto; }
+    .site-footer { border-top: 1px solid var(--border); padding: 24px; max-width: 1200px; margin: 0 auto 70px; display: flex; justify-content: space-between;
+                   gap: 12px; flex-wrap: wrap; font-size: 0.8rem; color: var(--muted); }
+    .foot-links a { color: var(--muted); text-decoration: none; margin-left: 16px; }
+    .foot-links a:hover { color: var(--text); }
+    @media (max-width: 600px) {
+      .logo { font-size: 1.8rem; } .stat-num { font-size: 1.4rem; } .grid { grid-template-columns: 1fr; padding: 8px 12px; }
+      .topnav nav a { margin-left: 12px; } .foot-links a { margin: 0 12px 0 0; }
+    }
+  </style>
+<!-- eutech favicon --><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#0B3D91">
+</head>
+<body>
+<header>
+  <div class="topnav">
+    <a class="brand" href="/">eutech<span>.</span>directory</a>
+    <nav><a href="#browse">Browse</a><a href="#alternatives">EU alternatives</a><a href="#submit">Get listed</a></nav>
+  </div>
+  <div class="hero">
+    <div class="logo">eutech<span>.</span>directory</div>
+    <p class="tagline">Software built in Europe. Find EU and UK alternatives to the US tools you use every day.</p>
+    <div class="stats">
+      <div><div class="stat-num">{{HOME}}</div><div class="stat-label">Tools</div></div>
+      <div><div class="stat-num">{{CATS}}</div><div class="stat-label">Categories</div></div>
+      <div><div class="stat-num">{{MONTH_SHORT}}</div><div class="stat-label">Last update</div></div>
+      <div><div class="stat-num"><a href="/mcp-servers/" style="color:inherit;text-decoration:none">{{MCP}}</a></div><div class="stat-label">MCP servers &rarr;</div></div>
+    </div>
+    <div class="search-wrap">
+      <input type="text" id="search" placeholder="Search {{HOME}} tools, or a US tool to replace (e.g. Slack)..." oninput="onSearch(this.value)" onkeydown="acKey(event)" autocomplete="off" aria-label="Search tools"/>
+      <div class="ac-dropdown" id="ac"></div>
+    </div>
+  </div>
+</header>
+
+<div class="intro">
+  <p>eutech.directory lists <strong>{{HOME}} software tools</strong> from European companies, across {{CATS}} categories, from analytics and chat to hosting and security.
+  Where we have confirmed a company's home country, the listing shows it. A European company does not automatically mean your data stays in Europe, so check where each provider stores data before you switch.
+  We also keep a separate <a href="/mcp-servers/">directory of {{MCP}} MCP servers</a>. Updated {{MONTH}}.</p>
+</div>
+
+<div class="alts" id="alternatives">
+  <div class="alts-ttl">Popular: EU alternative to&hellip;</div>
+  <div class="alts-row"><a class="alt-link" href="/alternatives/eu-alternative-to-google-analytics/">Google Analytics</a><a class="alt-link" href="/alternatives/eu-alternative-to-slack/">Slack</a><a class="alt-link" href="/alternatives/eu-alternative-to-notion/">Notion</a><a class="alt-link" href="/alternatives/eu-alternative-to-github/">GitHub</a><a class="alt-link" href="/alternatives/eu-alternative-to-jira/">Jira</a><a class="alt-link" href="/alternatives/eu-alternative-to-zoom/">Zoom</a><a class="alt-link" href="/alternatives/eu-alternative-to-mailchimp/">Mailchimp</a><a class="alt-link" href="/alternatives/eu-alternative-to-dropbox/">Dropbox</a><a class="alt-link" href="/alternatives/eu-alternative-to-aws/">AWS</a><a class="alt-link" href="/alternatives/eu-alternative-to-hubspot/">HubSpot</a><a class="alt-link" href="/alternatives/eu-alternative-to-figma/">Figma</a><a class="alt-link" href="/alternatives/eu-alternative-to-asana/">Asana</a><a class="alt-link" href="/alternatives/eu-alternative-to-google-drive/">Google Drive</a><a class="alt-link" href="/alternatives/eu-alternative-to-datadog/">Datadog</a><a class="alt-link" href="/alternatives/eu-alternative-to-1password/">1Password</a><a class="alt-link" href="/alternatives/eu-alternative-to-sendgrid/">SendGrid</a><a class="alt-link" href="/alternatives/eu-alternative-to-salesforce/">Salesforce</a><a class="alt-link" href="/alternatives/eu-alternative-to-quickbooks/">QuickBooks</a><a class="alt-link" href="/alternatives/eu-alternative-to-google-cloud/">Google Cloud</a><a class="alt-link" href="/alternatives/eu-alternative-to-contentful/">Contentful</a></div>
+</div>
+
+<div class="verify-strip">
+  <div class="verify-ttl">What the labels mean</div>
+  <div class="verify-row">
+    <div class="vbadge"><b>&#10003; Verified</b>Website live, company headquartered in the EU or UK, a real software product, actively maintained.</div>
+    <div class="vbadge"><b>&#11088; Featured</b>Chosen by the editors. No listing pays for placement.</div>
+    <div class="vbadge"><b>&#10022; Editor&rsquo;s pick</b>Two verified tools we think deserve attention. Changes every month.</div>
+    <div class="vbadge"><b>&#128268; MCP</b>A server that connects AI assistants (Claude, Cursor and others) to a service.</div>
+  </div>
+</div>
+
+<noscript>
+<div style="max-width:960px;margin:0 auto;padding:24px;color:#e6edf3">
+  <p style="font-size:14px;color:#94a3b8;margin-bottom:16px">Browsing all {{HOME}} tools needs JavaScript. Popular EU alternative pages:</p>
+  <ul style="list-style:none;padding:0;columns:2;gap:24px"><li><a href="/alternatives/eu-alternative-to-google-analytics/" style="color:#00bcd4">EU alternative to Google Analytics</a></li><li><a href="/alternatives/eu-alternative-to-slack/" style="color:#00bcd4">EU alternative to Slack</a></li><li><a href="/alternatives/eu-alternative-to-notion/" style="color:#00bcd4">EU alternative to Notion</a></li><li><a href="/alternatives/eu-alternative-to-github/" style="color:#00bcd4">EU alternative to GitHub</a></li><li><a href="/alternatives/eu-alternative-to-jira/" style="color:#00bcd4">EU alternative to Jira</a></li><li><a href="/alternatives/eu-alternative-to-zoom/" style="color:#00bcd4">EU alternative to Zoom</a></li><li><a href="/alternatives/eu-alternative-to-mailchimp/" style="color:#00bcd4">EU alternative to Mailchimp</a></li><li><a href="/alternatives/eu-alternative-to-dropbox/" style="color:#00bcd4">EU alternative to Dropbox</a></li><li><a href="/alternatives/eu-alternative-to-aws/" style="color:#00bcd4">EU alternative to AWS</a></li><li><a href="/alternatives/eu-alternative-to-hubspot/" style="color:#00bcd4">EU alternative to HubSpot</a></li><li><a href="/alternatives/eu-alternative-to-figma/" style="color:#00bcd4">EU alternative to Figma</a></li><li><a href="/alternatives/eu-alternative-to-asana/" style="color:#00bcd4">EU alternative to Asana</a></li><li><a href="/alternatives/eu-alternative-to-google-drive/" style="color:#00bcd4">EU alternative to Google Drive</a></li><li><a href="/alternatives/eu-alternative-to-datadog/" style="color:#00bcd4">EU alternative to Datadog</a></li><li><a href="/alternatives/eu-alternative-to-1password/" style="color:#00bcd4">EU alternative to 1Password</a></li><li><a href="/alternatives/eu-alternative-to-sendgrid/" style="color:#00bcd4">EU alternative to SendGrid</a></li><li><a href="/alternatives/eu-alternative-to-salesforce/" style="color:#00bcd4">EU alternative to Salesforce</a></li><li><a href="/alternatives/eu-alternative-to-quickbooks/" style="color:#00bcd4">EU alternative to QuickBooks</a></li><li><a href="/alternatives/eu-alternative-to-google-cloud/" style="color:#00bcd4">EU alternative to Google Cloud</a></li><li><a href="/alternatives/eu-alternative-to-contentful/" style="color:#00bcd4">EU alternative to Contentful</a></li></ul>
+</div>
+</noscript>
+
+<div id="browse"></div>
+<div class="cat-bar">
+  <button class="all-btn active" onclick="filterCat(this)" data-cat="">All categories</button>
+  {{CAT_BUTTONS}}
+</div>
+<div class="results-bar">
+  <span id="result-count">{{HOME}} tools</span>
+  <button class="clear-btn" onclick="clearFilters()">Clear filters</button>
+</div>
+
+<div id="featured-section">
+  <div class="section-label">&#11088; Featured &amp; editor&rsquo;s picks</div>
+  <div id="featured-grid" class="grid"></div>
+</div>
+<div class="section-label" id="all-label">&#10003; Verified tools</div>
+<div id="grid" class="grid"></div>
+<div class="more-wrap"><button class="more-btn" id="more" onclick="showMore()">Show more</button></div>
+<div id="empty"><p>No tools found. Try another word, or <a href="#submit">suggest a tool</a>.</p></div>
+
+<div class="listing-criteria">
+  <h2>How to get listed</h2>
+  <p class="criteria-intro">Listing is free. We check every submission by hand before it appears:</p>
+  <div class="criteria-grid">
+    <div class="criterion"><h3>&#127466;&#127482; EU or UK company</h3><p>Headquartered, or with its main team, in the EU or UK.</p></div>
+    <div class="criterion"><h3>&#128274; Privacy by design</h3><p>GDPR built into the product. Tell us where customer data is stored.</p></div>
+    <div class="criterion"><h3>&#9989; Live and maintained</h3><p>A working website and a product that is actively developed.</p></div>
+    <div class="criterion"><h3>&#128230; Real software</h3><p>A software product or service, not an agency or a reseller.</p></div>
+  </div>
+  <p class="featured-offer">We review submissions in batches, usually within a few weeks.</p>
+</div>
+
+<div id="submit">
+  <h2>Submit your tool</h2>
+  <p>Know a European or UK tool we&rsquo;re missing? Add it here.</p>
+  <form action="https://formspree.io/f/xqewnpwl" method="POST">
+    <input type="hidden" name="_subject" value="eutech.directory submission"/>
+    <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"/></label></div>
+    <div class="form-group"><label>Tool name *</label><input type="text" name="tool_name" required maxlength="80" placeholder="e.g. Nextcloud"/></div>
+    <div class="form-group"><label>Website URL *</label><input type="url" name="website" required maxlength="300" placeholder="https://"/></div>
+    <div class="form-group"><label>Category *</label>
+      <select name="category" required><option value="" disabled selected>Select category</option><option>MCP Servers</option><option>Project Management</option><option>Developer Tools</option><option>Email &amp; Communication</option><option>Security &amp; Privacy</option><option>Analytics &amp; Data</option><option>Storage &amp; Backup</option><option>AI &amp; Automation</option><option>Cloud &amp; Hosting</option><option>Finance &amp; Payments</option><option>HR &amp; Team</option><option>Marketing &amp; SEO</option><option>Other</option></select></div>
+    <div class="form-group"><label>Country of the company *</label><input type="text" name="country" required maxlength="40" placeholder="e.g. DE, FR, NL, GB"/></div>
+    <div class="form-group"><label>What US tool does it replace?</label><input type="text" name="replaces" maxlength="120" placeholder="e.g. Slack, Notion, Google Analytics"/></div>
+    <div class="form-group"><label>Short description *</label><textarea name="description" required minlength="40" maxlength="600" placeholder="What it does, who it is for, and where customer data is stored."></textarea></div>
+    <div class="form-group"><label>Your email (optional)</label><input type="email" name="email" maxlength="200" placeholder="Only used if we have a question about your listing"/></div>
+    <button type="submit" class="submit-btn">Submit for review &rarr;</button>
+    <p class="form-note">Submissions are sent through Formspree. See our <a href="/privacy.html">privacy notice</a>.</p>
+  </form>
+</div>
+
+<footer class="site-footer">
+  <div><b>eutech.directory</b> &middot; European and UK software alternatives &middot; Updated November 2026</div>
+  <div class="foot-links"><a href="/#browse">Browse</a><a href="/#alternatives">EU alternatives</a><a href="/#submit">Get listed</a><a href="/privacy.html">Privacy</a><a href="mailto:hello@eutech.directory">Contact</a></div>
+</footer>
+
+<a href="#submit" class="sticky-cta">+ Get listed</a>
+<a href="#" class="back-top" id="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8679;</a>
+
+<script>
+const TOOLS = {{TOOLS_JSON}};
+const PAGE = 60;
+const FLAG_MAP = {"DE":"&#127465;&#127466;","FR":"&#127467;&#127479;","NL":"&#127475;&#127473;","SE":"&#127480;&#127466;","FI":"&#127467;&#127470;","DK":"&#127465;&#127472;","NO":"&#127475;&#127476;","CH":"&#127464;&#127469;","AT":"&#127462;&#127481;","BE":"&#127463;&#127466;","PL":"&#127477;&#127473;","CZ":"&#127464;&#127487;","GB":"&#127468;&#127463;","UK":"&#127468;&#127463;","EU":"&#127466;&#127482;","IE":"&#127470;&#127466;","IT":"&#127470;&#127481;","ES":"&#127466;&#127480;","PT":"&#127477;&#127481;","RO":"&#127479;&#127476;","EE":"&#127466;&#127466;","LT":"&#127473;&#127481;","LV":"&#127473;&#127483;","HU":"&#127469;&#127482;","BG":"&#127463;&#127468;","SK":"&#127480;&#127472;","SI":"&#127480;&#127470;","HR":"&#127469;&#127479;","GR":"&#127468;&#127479;","LU":"&#127473;&#127482;","CY":"&#127464;&#127486;","MT":"&#127474;&#127481;","IS":"&#127470;&#127480;"};
+const CAT_ICONS = {"MCP Servers":"&#128268;","Developer Tools":"&#128296;","AI & Automation":"&#129302;","Analytics & Data":"&#128202;","Email & Communication":"&#128231;","Cloud & Hosting":"&#9729;&#65039;","Project Management":"&#128203;","Security & Privacy":"&#128274;","Storage & Backup":"&#128190;","Finance & Payments":"&#128179;","HR & Team":"&#128101;","Marketing & SEO":"&#128226;","Other":"&#128230;"};
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let activeCategory = "", searchQuery = "", shown = PAGE, current = [];
+
+function place(co) {
+  const k = (co || '').toUpperCase();
+  return FLAG_MAP[k] ? FLAG_MAP[k] + ' ' + esc(k) : esc(co || '');
+}
+function badge(t) {
+  if (t.fl === 'featured') return '<span class="badge b-featured">&#11088; Featured</span>';
+  if (t.fl === 'pick') return '<span class="badge b-pick">&#10022; Editor&rsquo;s pick</span>';
+  if (t.c === 'MCP Servers') return '<span class="badge b-mcp">&#128268; MCP</span>';
+  return '<span class="badge b-verified">&#10003; Verified</span>';
+}
+function cardHTML(t) {
+  const link = t.w ? `<a href="${esc(t.w)}" target="_blank" class="card-link" rel="noopener nofollow">Visit &#8594;</a>` : '';
+  const p = place(t.co);
+  return `<div class="card${t.fl ? ' ' + t.fl : ''}">
+    <div class="card-top"><span class="card-name">${esc(t.n)}</span>${badge(t)}</div>
+    <p class="card-desc">${esc(t.d)}</p>
+    <div class="card-footer">
+      <span class="tag">${(CAT_ICONS[t.c] || '') + ' ' + esc(t.c)}</span>
+      ${p ? `<span class="tag">${p}</span>` : ''}
+      ${t.r ? `<span class="tag">replaces ${esc(t.r)}</span>` : ''}
+      ${link}
+    </div>
+  </div>`;
+}
+function render() {
+  let f = TOOLS;
+  if (activeCategory) f = f.filter(t => t.c === activeCategory);
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    f = f.filter(t => (t.n||'').toLowerCase().includes(q) || (t.d||'').toLowerCase().includes(q) || (t.r||'').toLowerCase().includes(q));
+  }
+  const top = f.filter(t => t.fl);
+  current = f.filter(t => !t.fl);
+  document.getElementById('featured-section').style.display = top.length ? 'block' : 'none';
+  document.getElementById('featured-grid').innerHTML = top.map(cardHTML).join('');
+  document.getElementById('grid').innerHTML = current.slice(0, shown).map(cardHTML).join('');
+  const left = current.length - shown;
+  const more = document.getElementById('more');
+  more.style.display = left > 0 ? 'inline-block' : 'none';
+  more.textContent = 'Show more (' + left.toLocaleString() + ' left)';
+  document.getElementById('result-count').textContent = f.length.toLocaleString() + (f.length === 1 ? ' tool' : ' tools');
+  document.getElementById('empty').style.display = f.length === 0 ? 'block' : 'none';
+  document.getElementById('all-label').style.display = current.length ? 'flex' : 'none';
+}
+function showMore() { shown += PAGE; render(); }
+function filterCat(btn) {
+  document.querySelectorAll('.cat-btn,.all-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeCategory = btn.dataset.cat || '';
+  shown = PAGE; render();
+}
+function clearFilters() {
+  activeCategory = ''; searchQuery = ''; shown = PAGE;
+  document.getElementById('search').value = '';
+  document.querySelectorAll('.cat-btn,.all-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.all-btn').classList.add('active');
+  render();
+}
+function onSearch(v) {
+  searchQuery = v; shown = PAGE; render();
+  const ac = document.getElementById('ac');
+  if (v.length < 2) { ac.style.display = 'none'; return; }
+  const q = v.toLowerCase();
+  const matches = TOOLS.filter(t => t.n.toLowerCase().startsWith(q)).slice(0, 8);
+  if (!matches.length) { ac.style.display = 'none'; return; }
+  ac.innerHTML = matches.map((t, i) => `<div class="ac-item" data-i="${TOOLS.indexOf(t)}"><b>${esc(t.n)}</b> <span style="color:var(--muted);font-size:0.8rem">${esc(t.c)}</span></div>`).join('');
+  ac.style.display = 'block';
+}
+document.getElementById('ac').addEventListener('click', e => {
+  const it = e.target.closest('.ac-item'); if (!it) return;
+  const t = TOOLS[+it.dataset.i];
+  document.getElementById('search').value = t.n; searchQuery = t.n;
+  document.getElementById('ac').style.display = 'none'; shown = PAGE; render();
+});
+function acKey(e) { if (e.key === 'Escape') document.getElementById('ac').style.display = 'none'; }
+document.addEventListener('click', e => { if (!e.target.closest('.search-wrap')) document.getElementById('ac').style.display = 'none'; });
+window.addEventListener('scroll', () => document.getElementById('back-top').classList.toggle('visible', window.scrollY > 300));
+render();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c87f4229eb7e44a19c5e152941ca0275"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

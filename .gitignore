@@ -1,0 +1,6 @@
+eutech_submissions_reviewed.json
+eutech_submission_check.csv
+__pycache__/
+*.pyc
+*.bak_*
+.env
