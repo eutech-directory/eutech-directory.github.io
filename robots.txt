@@ -17,4 +17,4 @@ Allow: /
 User-agent: BingBot
 Allow: /
 
-Sitemap: https://eutech-directory.github.io/sitemap.xml
+Sitemap: https://eutech.directory/sitemap.xml

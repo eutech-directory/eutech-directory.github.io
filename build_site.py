@@ -119,3 +119,5 @@ function f(v){{v=v.toLowerCase();document.querySelectorAll('#rows tr').forEach(f
 
 if __name__ == "__main__":
     main()
+    import build_pages
+    build_pages.main()
